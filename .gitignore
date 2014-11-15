@@ -40,6 +40,9 @@ sysinfo.txt
 *.pyc
 *.pyo
 *.rej
+*.map
+*.elf
+*.nds
 *~
 #*#
 .#*
