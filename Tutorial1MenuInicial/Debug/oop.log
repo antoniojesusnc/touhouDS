@@ -1,0 +1,33 @@
+﻿Build started 11/15/2014 11:43:13 PM.
+     1>Project "C:\nds\Projects\Tutoriales\Tutorial1MenuInicial\oop.vcxproj" on node 2 (rebuild target(s)).
+     1>CoreClean:
+         make clean
+         clean ...
+       Rebuild:
+         make clean && make -r 2>&1 | sed -e 's/\(.[a-zA-Z]\+\):\([0-9]\+\):/\1(\2):/
+         clean ...
+         Background.cpp
+         arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/Tutorial1MenuInicial/build/Background.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/Tutorial1MenuInicial/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/Tutorial1MenuInicial/nflib/include -I/c/nds/Projects/Tutoriales/Tutorial1MenuInicial/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/Tutorial1MenuInicial/source/Background.cpp -o Background.o 
+         Engine.cpp
+         arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/Tutorial1MenuInicial/build/Engine.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/Tutorial1MenuInicial/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/Tutorial1MenuInicial/nflib/include -I/c/nds/Projects/Tutoriales/Tutorial1MenuInicial/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/Tutorial1MenuInicial/source/Engine.cpp -o Engine.o 
+         Input.cpp
+         arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/Tutorial1MenuInicial/build/Input.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/Tutorial1MenuInicial/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/Tutorial1MenuInicial/nflib/include -I/c/nds/Projects/Tutoriales/Tutorial1MenuInicial/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/Tutorial1MenuInicial/source/Input.cpp -o Input.o 
+         Menu.cpp
+         arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/Tutorial1MenuInicial/build/Menu.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/Tutorial1MenuInicial/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/Tutorial1MenuInicial/nflib/include -I/c/nds/Projects/Tutoriales/Tutorial1MenuInicial/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/Tutorial1MenuInicial/source/Menu.cpp -o Menu.o 
+         Palette.cpp
+         arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/Tutorial1MenuInicial/build/Palette.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/Tutorial1MenuInicial/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/Tutorial1MenuInicial/nflib/include -I/c/nds/Projects/Tutoriales/Tutorial1MenuInicial/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/Tutorial1MenuInicial/source/Palette.cpp -o Palette.o 
+         Sprite.cpp
+         arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/Tutorial1MenuInicial/build/Sprite.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/Tutorial1MenuInicial/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/Tutorial1MenuInicial/nflib/include -I/c/nds/Projects/Tutoriales/Tutorial1MenuInicial/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/Tutorial1MenuInicial/source/Sprite.cpp -o Sprite.o 
+         Text.cpp
+         arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/Tutorial1MenuInicial/build/Text.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/Tutorial1MenuInicial/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/Tutorial1MenuInicial/nflib/include -I/c/nds/Projects/Tutoriales/Tutorial1MenuInicial/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/Tutorial1MenuInicial/source/Text.cpp -o Text.o 
+         main.cpp
+         arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/Tutorial1MenuInicial/build/main.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/Tutorial1MenuInicial/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/Tutorial1MenuInicial/nflib/include -I/c/nds/Projects/Tutoriales/Tutorial1MenuInicial/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/Tutorial1MenuInicial/source/main.cpp -o main.o 
+         linking Tutorial1MenuInicial.elf
+         Nintendo DS rom tool 1.50.1 - Apr  2 2014
+         by Rafael Vuijk, Dave Murphy, Alexei Karpenko
+         built ... Tutorial1MenuInicial.nds
+     1>Done Building Project "C:\nds\Projects\Tutoriales\Tutorial1MenuInicial\oop.vcxproj" (rebuild target(s)).
+
+Compilación correcta.
+
+Time Elapsed 00:00:03.31
