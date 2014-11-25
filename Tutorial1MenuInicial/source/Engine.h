@@ -20,7 +20,7 @@
 
 
 // Defines
-
+class CMenu;
 
 // Clase CEngine
 class CEngine {

@@ -26,7 +26,8 @@
 CEngine::CEngine(){
 
 	// 3d up screen
-	NF_Set3D(0,0);
+	//NF_Set3D(0,0);
+	NF_Set2D(0,0);
 	// 2d down screen
 	NF_Set2D(1,0);
 
@@ -36,23 +37,25 @@ CEngine::CEngine(){
 	NF_InitTiledBgSys(0);
 	NF_InitTiledBgSys(1);
 
+	// Init textBuffer
+	NF_InitTextSys(0);
+	NF_InitTextSys(1);
+
 	// init buffer for sprite and palletes
 	NF_InitSpriteBuffers();
 	// init sisrym for 3d
 	NF_Init3dSpriteSys();
 
-	NF_InitTextSys(0);	
-	NF_InitTextSys(1);
-
-
 	
+	
+
+	_menu = new CMenu(this);
 } // CEngine
 
 // Destructor clase CEngine
 CEngine::~CEngine(void) {
 }
 
-CEngine *Engine;
 /*
 	Metodos de la clase "CEngine"
 */
@@ -64,4 +67,9 @@ void CEngine::ChangeScene(Scenes newScene){
 // Mueve las bolas
 void CEngine::Update(){
 	
+	// update textLayers
+	NF_UpdateTextLayers();
+
+	// wait for Vsinc
+	swiWaitForVBlank();
 } // Update

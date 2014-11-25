@@ -15,21 +15,19 @@
 // Includes propietarios NDS
 #include <nds.h>
 #include "Math.h"
+#include "Engine.h"
 
 
 // Defines
-
+class CEngine;
 
 // Clase CMenu
 class CMenu {
 
 	public:
-		
-		static u8 MAX_LAYER_MENU;
-		enum Scenes{MENU, ARCADE, VERSUS, OPTION};
-		
+				
 		// Contructores
-		CMenu();
+		CMenu(CEngine* engine);
 		
 		// Destructor
 		~CMenu(void);
@@ -38,14 +36,10 @@ class CMenu {
 		//	Metodos
 		void Update();
 
-		void ChangeScene(Scenes newScene);
-
-		// Gets y sets
-		CMenu* getMenu(){return _menu;};	
 		
 	private:
 		
-		CMenu* _menu;
+		CEngine* _engine;
 };
 
 

@@ -29,8 +29,9 @@ class CBackground {
 
 		static u8 Layer;
 
+		static void ResetLayer(){Layer = MAX_LAYER_BACKGROUND-1;}
 		// Contructores
-		CBackground(char *background, u8 witdh, u8 height);
+		CBackground(const char *background, u16 witdh, u16 height);
 
 		// Destructor
 		~CBackground(void);
@@ -45,14 +46,14 @@ class CBackground {
 		
 		// Gets y sets
 		u8 getLayer(){return _layer;}
-		u8 getScreen(){return (_upScreen?1:0);}
+		u8 getScreen(){return (_upScreen?0:1);}
 		bool isUpScreen(){return _upScreen;}
 		Vector2 getPosition(){return _position;}
 	
 		
 	private:
 		
-		char* _name;
+		const char* _name;
 		u8 _layer;
 		bool _upScreen;
 		Vector2 _position;	

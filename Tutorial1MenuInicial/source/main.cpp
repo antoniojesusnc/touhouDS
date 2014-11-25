@@ -33,7 +33,7 @@
 
 int main(int argc, char **argv) {
 
-/*
+
 	// Pantalla de espera inicializando NitroFS
 	NF_Set2D(0, 0);
 	NF_Set2D(1, 0);	
@@ -41,22 +41,23 @@ int main(int argc, char **argv) {
 	iprintf("\n NitroFS init. Please wait.\n\n");
 	iprintf(" Iniciando NitroFS,\n por favor, espere.\n\n");
 	swiWaitForVBlank();
-	consoleClear();
-	*/
+	
+	
 
 	// Define el ROOT e inicializa el sistema de archivos
 	NF_SetRootFolder("NITROFS");	// Define la carpeta ROOT para usar NITROFS
+
+	
 	
 	// initialize el engine
+	CInput *input = new CInput();
 	CEngine *engine = new CEngine();
 
-	// Debug por la consola
-	iprintf("\n Hello World");
-	
+		
 	// Bucle (repite para siempre)
 	while(1) {
 
-		
+		input->Update();
 		engine->Update();
 
 		swiWaitForVBlank();

@@ -23,16 +23,16 @@
 
 // static variables
 
-u8 CText::MAX_LAYER_TEXT = 4;
+u8 CText::MAX_COLOR_TEXT = 31;
 
-u8 CText::Layer = 0;
+u8 CText::Color = 0;
 
 /*
 	Metodos de la clase "CText"
 */
 
 // Contructor clase CText
-CText::CText(char *text, u8 width, u8 height) {
+CText::CText(const char *text, u16 width, u16 height) {
 	
 	_layerCreated = false;
 	
@@ -64,28 +64,51 @@ CText *Text;
 u8 CText::CreateLayer(bool upScreen){
 
 	_layerCreated = true;
-	_layer = Layer++;
+	_layer = CBackground::Layer++;
 	_upScreen = upScreen;
 	
 	NF_CreateTextLayer(getScreen(), _layer, 0, _name);
 	
-	if(Layer >= MAX_LAYER_TEXT){
-		Layer = 0;
+	if(CBackground::Layer>= CBackground::MAX_LAYER_BACKGROUND){
+		CBackground::Layer = 0;
 	}
 
 	return _layer;
 } // CreateTiledBg
 
-// Mueve las bolas
-void CText::WriteText(Vector2 &newPosition, char* text, ...){
-	
-	if(!_layerCreated)
+// Create color
+u8 CText::CreateColor(u8 red, u8 green, u8 blue){
+	if(!isLayerCreated()){
 		CreateLayer();
+	}
+
+	_color = Color++;
+
+	NF_DefineTextColor(getScreen(), _layer, _color, red, green, blue);
+
+	if(Color >= MAX_COLOR_TEXT){
+		Color = 0;
+	}
+
+	return _color;
+} // CreateColor
 		
-	char finalText[256];
+void CText::setColor(u8 newColor){
+	NF_SetTextColor(getScreen(), _layer, _color);
+
+	_color = newColor;
+} // setColor
+
+// Write text
+void CText::WriteText(const Vector2 &newPosition, const char* text, ...){
+	
+	if(!isLayerCreated()){
+		CreateLayer();
+	}	
+	//char finalText[256];
 	//sprintf(finalText, text, ...);
 
 	_position = newPosition;
 	
-	NF_WriteText(getScreen(), _layer, _position.x, _position.y, finalText);
+	NF_WriteText(getScreen(), _layer, _position.x, _position.y, text);
 } // MoveTextToPos

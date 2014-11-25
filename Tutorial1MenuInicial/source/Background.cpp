@@ -25,14 +25,14 @@
 
 u8 CBackground::MAX_LAYER_BACKGROUND = 4;
 
-u8 CBackground::Layer = 0;
+u8 CBackground::Layer = 3;
 
 /*
 	Metodos de la clase "CBackground"
 */
 
 // Contructor clase CBackground
-CBackground::CBackground(char *background, u8 width, u8 height) {
+CBackground::CBackground(const char *background, u16 width, u16 height) {
 	
 	_name = background;
 	NF_LoadTiledBg(background, _name, width, height);	

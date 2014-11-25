@@ -76,6 +76,7 @@ void CInput::incrementInputsIndex(){
 		
 		
 void CInput::Update(){
+
 	scanKeys();
 	_keys = keysDown();
 	
