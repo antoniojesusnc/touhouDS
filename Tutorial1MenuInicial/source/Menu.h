@@ -20,6 +20,10 @@
 
 // Defines
 class CEngine;
+class CButton;
+class CText;
+class CSprite;
+class CBackground;
 
 // Clase CMenu
 class CMenu {
@@ -33,13 +37,27 @@ class CMenu {
 		~CMenu(void);
 
 		
+
 		//	Metodos
+		void InitMenu();
+
 		void Update();
 
 		
 	private:
 		
+		CBackground *_topBackground;
+		CBackground *_botBackground;
+
+
+		CSprite *_genericSprite;
+		CText *_genericText;
+
 		CEngine* _engine;
+		CButton* _buttons[4];
+
+		u8 _indexBucle;
+		u8 _buttonSelected;
 };
 
 

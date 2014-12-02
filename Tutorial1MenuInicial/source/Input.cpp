@@ -32,10 +32,18 @@ CInput::CInput() {
 
 // Destructor clase CInput
 CInput::~CInput(void) {
-}
+	delete &_touchPos;
+	delete &_touchScreen;
+} // ~CInput
 
-// Crea el puntero externo a la clase
-CInput *Input;
+CInput *CInput::_instance = 0;
+
+CInput* CInput::getInstance(){
+	if(!_instance){
+		_instance = new CInput();
+	}
+	return _instance;
+} // getPtr
 
 /*
 	Metodos de la clase "CInput"
@@ -79,7 +87,10 @@ void CInput::Update(){
 
 	scanKeys();
 	_keys = keysDown();
-	
+	touchRead(&_touchScreen);
+	_touchPos.x = _touchScreen.px;
+	_touchPos.y = _touchScreen.py;
+
 	_keys = keysHeld();
 	
 	_keys = keysUp();

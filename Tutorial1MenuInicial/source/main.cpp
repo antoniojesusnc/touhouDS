@@ -50,10 +50,12 @@ int main(int argc, char **argv) {
 	
 	
 	// initialize el engine
-	CInput *input = new CInput();
 	CEngine *engine = new CEngine();
+	CInput *input = CInput::getInstance();
+	CDebug *debug = CDebug::getInstance();
 
-		
+	engine->InitEngine();
+
 	// Bucle (repite para siempre)
 	while(1) {
 

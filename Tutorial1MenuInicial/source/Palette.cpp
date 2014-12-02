@@ -36,11 +36,10 @@
 // Includes del programa
 #include "palette.h"
 
-
 // static variables
 
-u8 CPalette::MAX_ID_PALETTE_RAM;
-u8 CPalette::MAX_ID_PALETTE_VRAM;
+u8 CPalette::MAX_ID_PALETTE_RAM = 15;
+u8 CPalette::MAX_ID_PALETTE_VRAM = 15;
 		
 u8 CPalette::IdRam = 0;
 u8 CPalette::IdVRam = 0;
@@ -50,20 +49,22 @@ u8 CPalette::IdVRam = 0;
 */
 
 // Contructor clase CPalette
-CPalette::CPalette(char *palette) {
+CPalette::CPalette(const char *palette) {
 	
-	_idRam = ++IdRam;
+	_idRam = CPalette::IdRam++;
 	NF_LoadSpritePal(palette, _idRam);
 	
 	_inVram = false;
 	
-	if(IdRam >= MAX_ID_PALETTE_RAM){
-		IdRam = 0;
+	if(CPalette::IdRam >= MAX_ID_PALETTE_RAM){
+		CPalette::IdRam = 0;
 	}
 }
 
 // Destructor clase CPalette
 CPalette::~CPalette(void) {
+	//NF_UnloadExBgPal(getIdRam());
+	NF_UnloadSpritePal(getIdRam()); // delete from ram
 }
 
 // Crea el puntero externo a la clase
@@ -76,15 +77,15 @@ CPalette *Palette;
 */
 
 u8 CPalette::MovePaletteToVRam(bool upScreen){
-	_idVRam = ++IdVRam;
+	_idVRam = CPalette::IdVRam++;
 	_upScreen = upScreen;
 	
 	NF_VramSpritePal(getScreen(), _idRam, _idVRam);
 	
 	_inVram = true;
 	
-	if(IdVRam >= MAX_ID_PALETTE_VRAM){
-		IdVRam = 0;
+	if(CPalette::IdVRam >= MAX_ID_PALETTE_VRAM){
+		CPalette::IdVRam = 0;
 	}
 	
 	return _idVRam;

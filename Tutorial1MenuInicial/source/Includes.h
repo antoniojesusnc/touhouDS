@@ -28,14 +28,16 @@
 #include "Time.h"
 
 // Includes clases Propias
+#include "Text.h"
 #include "Sprite.h"
 #include "Background.h"
 #include "Palette.h"
 #include "Input.h"
-#include "Text.h"
+#include "Button.h"
 
 // Includes clases de escenas
 
+#include "Debug.h"
 #include "Menu.h"
 #include "Engine.h"
 

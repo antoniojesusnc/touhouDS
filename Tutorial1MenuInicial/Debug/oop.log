@@ -1,4 +1,4 @@
-﻿Build started 11/26/2014 1:58:00 AM.
+﻿Build started 12/2/2014 8:42:11 PM.
      1>Project "C:\nds\Projects\Tutoriales\touhouDS\Tutorial1MenuInicial\oop.vcxproj" on node 2 (rebuild target(s)).
      1>CoreClean:
          make clean
@@ -8,16 +8,16 @@
          clean ...
          Background.cpp
          arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial1MenuInicial/build/Background.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial1MenuInicial/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial1MenuInicial/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial1MenuInicial/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial1MenuInicial/source/Background.cpp -o Background.o 
+         Button.cpp
+         arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial1MenuInicial/build/Button.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial1MenuInicial/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial1MenuInicial/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial1MenuInicial/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial1MenuInicial/source/Button.cpp -o Button.o 
+         Debug.cpp
+         arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial1MenuInicial/build/Debug.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial1MenuInicial/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial1MenuInicial/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial1MenuInicial/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial1MenuInicial/source/Debug.cpp -o Debug.o 
          Engine.cpp
          arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial1MenuInicial/build/Engine.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial1MenuInicial/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial1MenuInicial/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial1MenuInicial/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial1MenuInicial/source/Engine.cpp -o Engine.o 
          Input.cpp
          arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial1MenuInicial/build/Input.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial1MenuInicial/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial1MenuInicial/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial1MenuInicial/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial1MenuInicial/source/Input.cpp -o Input.o 
          Menu.cpp
          arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial1MenuInicial/build/Menu.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial1MenuInicial/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial1MenuInicial/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial1MenuInicial/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial1MenuInicial/source/Menu.cpp -o Menu.o 
-         c:/nds/Projects/Tutoriales/touhouDS/Tutorial1MenuInicial/source/Menu.cpp: In constructor 'CMenu::CMenu(CEngine*)':
-         c:/nds/Projects/Tutoriales/touhouDS/Tutorial1MenuInicial/source/Menu.cpp(44):5: warning: variable 'colorGreen' set but not used [-Wunused-but-set-variable]
-           u8 colorGreen;
-              ^
          Palette.cpp
          arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial1MenuInicial/build/Palette.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial1MenuInicial/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial1MenuInicial/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial1MenuInicial/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial1MenuInicial/source/Palette.cpp -o Palette.o 
          Sprite.cpp
@@ -26,6 +26,10 @@
          arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial1MenuInicial/build/Text.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial1MenuInicial/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial1MenuInicial/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial1MenuInicial/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial1MenuInicial/source/Text.cpp -o Text.o 
          main.cpp
          arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial1MenuInicial/build/main.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial1MenuInicial/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial1MenuInicial/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial1MenuInicial/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial1MenuInicial/source/main.cpp -o main.o 
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial1MenuInicial/source/main.cpp: In function 'int main(int, char**)':
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial1MenuInicial/source/main.cpp(55):10: warning: unused variable 'debug' [-Wunused-variable]
+           CDebug *debug = CDebug::getInstance();
+                   ^
          linking Tutorial1MenuInicial.elf
          Nintendo DS rom tool 1.50.1 - Apr  2 2014
          by Rafael Vuijk, Dave Murphy, Alexei Karpenko
@@ -34,4 +38,4 @@
 
 Compilación correcta.
 
-Time Elapsed 00:00:03.50
+Time Elapsed 00:00:04.12

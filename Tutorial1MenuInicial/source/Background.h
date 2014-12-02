@@ -45,6 +45,7 @@ class CBackground {
 		void MoveBackgroundToPos(Vector2 newPosition);
 		
 		// Gets y sets
+		const char* getName(){return _name;}
 		u8 getLayer(){return _layer;}
 		u8 getScreen(){return (_upScreen?0:1);}
 		bool isUpScreen(){return _upScreen;}

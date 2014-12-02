@@ -51,6 +51,12 @@
     <ClCompile Include="source\Engine.cpp">
       <Filter>source\Scenes</Filter>
     </ClCompile>
+    <ClCompile Include="source\Button.cpp">
+      <Filter>source\Essentials</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Debug.cpp">
+      <Filter>source\Scenes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Makefile" />
@@ -84,6 +90,12 @@
       <Filter>include\UseFul</Filter>
     </ClInclude>
     <ClInclude Include="source\Time.h">
+      <Filter>include\UseFul</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Button.h">
+      <Filter>include\Essentials</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Debug.h">
       <Filter>include\UseFul</Filter>
     </ClInclude>
   </ItemGroup>

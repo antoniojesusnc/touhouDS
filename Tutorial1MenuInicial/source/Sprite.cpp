@@ -21,6 +21,9 @@
 #include "sprite.h"
 
 
+#include "Debug.h"
+
+
 // static variables
 
 u8 CSprite::MAX_ID_SPRITE_RAM = 255;
@@ -36,27 +39,57 @@ u8 CSprite::IdScreen = 0;
 */
 
 // Contructor clase CSprite
-CSprite::CSprite(char *sprite, u8 width, u8 height) {
+CSprite::CSprite(const char *sprite, u16 width, u16 height) {
 	
-	_idRam = ++IdRam;
+	_idRam = CSprite::IdRam++;
 	NF_LoadSpriteGfx(sprite, _idRam, width, height);
 	
+	_size = new Vector2(width,height);
+
+	//CDebug::getInstance()->WriteText("a ver: ", &_size );
+
 	_inVram = false;
 	
-	if(IdRam >= MAX_ID_SPRITE_RAM){
-		IdRam = 0;
+	if(CSprite::IdRam >= MAX_ID_SPRITE_RAM){
+		CSprite::IdRam = 0;
 	}
-	
-}
+} // CSprite
 
 // Contructor clase CSprite
-CSprite::CSprite(char *sprite, char *pallete, u8 width, u8 height) {
-	CSprite(sprite, width, height);
-	NF_LoadSpritePal(pallete, 0);
-}
+CSprite::CSprite(const char *sprite,const char *palette, u16 width, u16 height) {
+	
+	_idRam = CSprite::IdRam++;
+	NF_LoadSpriteGfx(sprite, _idRam, width, height);
+	
+	_size = new Vector2(width,height);
+	_inVram = false;
+	
+	if(CSprite::IdRam >= MAX_ID_SPRITE_RAM){
+		CSprite::IdRam = 0;
+	}
+
+	_palette = new CPalette(palette);
+} // CSprite
+
+CSprite::CSprite(const CSprite &sprite){
+	_idRam = sprite._idRam;
+	_idVRam = sprite._idVRam;
+	_upScreen = sprite._upScreen;
+	_inVram = true;
+	_palette = sprite._palette;
+	
+} // CSprite
 
 // Destructor clase CSprite
 CSprite::~CSprite(void) {
+
+	NF_DeleteSprite(getScreen(), getIdScreen()); // delete from screen
+	NF_FreeSpriteGfx(getScreen(), getIdVRam()); // delete from vRam
+	NF_UnloadSpriteGfx(getIdRam()); // delete from ram
+
+	delete _palette;
+	delete _size;
+	delete _position;
 }
 
 // Crea el puntero externo a la clase
@@ -67,17 +100,17 @@ CSprite *Sprite;
 /*
 	Metodos de la clase "CSprite"
 */
-u8 CSprite::MoveSpriteToVRam(bool upScreen, bool palette){
-	_idVRam = ++IdVRam;
+u16 CSprite::MoveSpriteToVRam(bool upScreen, bool palette){
+	_idVRam = CSprite::IdVRam++;
 	_upScreen = upScreen;
 	
-	NF_VramSpriteGfx(getScreen(), _idRam, _idVRam, false);
+	NF_VramSpriteGfx(getScreen(), _idRam, _idVRam, true);
 	
 	_inVram = true;
 	
 	
-	if(IdVRam >= MAX_ID_SPRITE_VRAM){
-		IdVRam = 0;
+	if(CSprite::IdVRam >= CSprite::MAX_ID_SPRITE_VRAM){
+		CSprite::IdVRam = 0;
 	}
 	
 	if(palette){
@@ -89,27 +122,31 @@ u8 CSprite::MoveSpriteToVRam(bool upScreen, bool palette){
 
 
 
-void CSprite::CreateSprite(Vector2 position, bool upScreen, bool palette) {
+void CSprite::CreateSprite(const Vector2 *position) {
 	if(!_inVram)
-		MoveSpriteToVRam(upScreen,palette);
+		MoveSpriteToVRam(_upScreen,true);
 		
-	_idScreen = ++IdScreen;
-	_position = position;
+	_idScreen = CSprite::IdScreen++;
+	_position = new Vector2 (*position);
 	
 	// Crea el Sprite
-	NF_CreateSprite(getScreen(),_idScreen, _idVRam, _palette->getIdVRam(), position.x, position.y);
+	NF_CreateSprite(getScreen(),_idScreen, _idVRam, _palette->getIdVRam(), (*_position).x, (*_position).y);
 
-	if(IdScreen >= MAX_ID_SPRITE_SCREEN){
-		IdScreen = 0;
+	if(CSprite::IdScreen >= MAX_ID_SPRITE_SCREEN){
+		CSprite::IdScreen = 0;
 	}
+
+	
+
+
 }
 
 
 // Mueve las bolas
-void CSprite::MoveSpriteToPos(Vector2 newPosition) {
+void CSprite::MoveSpriteToPos(const Vector2 *newPosition) {
 
-	_position = newPosition;
+	_position = new Vector2(*newPosition);
 	// Mueve el sprite
-	NF_MoveSprite(getScreen(), _idScreen, _position.x, _position.y);
+	NF_MoveSprite(getScreen(), _idScreen, _position->getX(), _position->getY());
 	
 }

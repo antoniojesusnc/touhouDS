@@ -37,10 +37,13 @@ class CSprite {
 		static u8 IdScreen;
 
 		// Contructores
-		CSprite(char *sprite, u8 witdh, u8 height);
+		CSprite(const char *sprite, u16 witdh, u16 height);
 		
 		// Constructor con paleta
-		CSprite(char *sprite, char *pallete, u8 witdh, u8 height);
+		CSprite(const char *sprite,const char *palette, u16 witdh, u16 height);
+
+		// constructor de copia
+		CSprite(const CSprite &sprite);
 
 		// Destructor
 		~CSprite(void);
@@ -48,23 +51,23 @@ class CSprite {
 		
 		//	Metodos
 		
-		u8 MoveSpriteToVRam(bool upScreen, bool palette);
+		u16 MoveSpriteToVRam(bool upScreen, bool palette);
 		// Crea un sprite
-		void CreateSprite(Vector2 position, bool upScreen = false, bool palette = false);
+		void CreateSprite(const Vector2 *position);
 
 		// Mueve el sprite
-		void MoveSpriteToPos(Vector2 newPosition);
+		void MoveSpriteToPos(const Vector2 *newPosition);
 		
 		// Gets y sets
 		u8 getIdRam(){return _idRam;}
 		u8 getIdVRam(){return _idVRam;}
 		u8 getIdScreen(){return _idScreen;}
-		u8 getScreen(){return (_upScreen?1:0);}
+		u8 getScreen(){return (_upScreen?0:1);}
 		bool isUpScreen(){return _upScreen;}
 		bool isInVRam(){return _inVram;}
-		Vector2 getPosition(){return _position;}
+		Vector2 *getPosition(){return _position;}
 		CPalette* getPalette(){return _palette;}
-	
+		Vector2 *getSize(){return _size;}
 		
 	private:
 		
@@ -74,9 +77,10 @@ class CSprite {
 		bool _upScreen;	// ID del sprite en VRam
 
 		bool _inVram;
-		
+		Vector2 *_size;
+
 		CPalette* _palette;
-		Vector2 _position;
+		Vector2 *_position;
 	
 	
 };

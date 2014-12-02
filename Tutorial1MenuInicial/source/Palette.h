@@ -30,7 +30,7 @@ class CPalette {
 		static u8 IdVRam;
 
 		// Contructores
-		CPalette(char *palette);
+		CPalette(const char *palette);
 		
 		// Destructor
 		~CPalette(void);
@@ -43,7 +43,7 @@ class CPalette {
 		// Gets y sets
 		u8 getIdRam(){return _idRam;}
 		u8 getIdVRam(){return _idVRam;}
-		u8 getScreen(){return (_upScreen?1:0);}
+		u8 getScreen(){return (_upScreen?0:1);}
 		bool isUpScreen(){return _upScreen;}
 		bool isInVRam(){return _inVram;}	
 		

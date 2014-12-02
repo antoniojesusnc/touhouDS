@@ -40,6 +40,12 @@ CBackground::CBackground(const char *background, u16 width, u16 height) {
 
 // Destructor clase CBackground
 CBackground::~CBackground(void) {
+
+	NF_DeleteTiledBg(getScreen(), getLayer()); // delete from screen and vram
+	NF_UnloadTiledBg(getName()); // delete from ram
+
+	delete _name;
+	delete &_position;
 }
 
 // Crea el puntero externo a la clase
@@ -51,13 +57,13 @@ CBackground *Background;
 	Metodos de la clase "CBackground"
 */
 u8 CBackground::CreateBackground(bool upScreen){
-	_layer = Layer++;
+	_layer = CBackground::Layer++;
 	_upScreen = upScreen;
 	
 	NF_CreateTiledBg(getScreen(), _layer, _name);
 	
-	if(Layer >= MAX_LAYER_BACKGROUND){
-		Layer = 0;
+	if(CBackground::Layer >= MAX_LAYER_BACKGROUND){
+		CBackground::Layer = 0;
 	}
 
 	return _layer;

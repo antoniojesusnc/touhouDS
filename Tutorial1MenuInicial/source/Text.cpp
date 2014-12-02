@@ -51,7 +51,16 @@ CText::CText(CText &text) {
 
 // Destructor clase CText
 CText::~CText(void) {
-}
+
+	NF_ClearTextLayer(getScreen(),getLayer());
+	NF_DeleteTextLayer(getScreen(),getLayer());
+	NF_UnloadTextFont(getName());
+
+
+	delete _name;
+	delete &_position;
+	delete _name;
+} // ~CText
 
 // Crea el puntero externo a la clase
 CText *Text;

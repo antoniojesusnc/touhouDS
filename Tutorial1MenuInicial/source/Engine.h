@@ -37,15 +37,22 @@ class CEngine {
 
 		
 		//	Metodos
-		void Update();
+		
 
 		void ChangeScene(Scenes newScene);
+
+		void InitEngine();
+
+		void Update();
 
 		// Gets y sets
 		CMenu* getMenu(){return _menu;};	
 		
 	private:
 		
+		CEngine::Scenes _currentScene;
+
+		// scenes
 		CMenu* _menu;
 };
 
