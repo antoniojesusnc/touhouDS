@@ -50,8 +50,8 @@ class CMenu {
 		CBackground *_botBackground;
 
 
-		CSprite *_genericSprite;
-		CText *_genericText;
+		//CSprite *_genericSprite;
+		//CText *_genericText;
 
 		CEngine* _engine;
 		CButton* _buttons[4];

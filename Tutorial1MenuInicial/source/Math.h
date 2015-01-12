@@ -131,8 +131,12 @@ class Vector2{
 		return r /= number;
 	} // operator - float
 
+
 	s16 getX(){return (*this).x;}
 	s16 getY(){return (*this).y;}
+
+	void setY(s16 yVar){(*this).y = yVar; }
+	void setX(s16 xVar){(*this).x = xVar; }
 };
 
 

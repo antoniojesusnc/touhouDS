@@ -30,6 +30,8 @@
 CDebug::CDebug() {	
 	_text = new CText("fnt/default",256,256);
 	_text->CreateLayer(false);
+
+	_position = new Vector2();
 } // CDebug
 
 // Destructor clase CDebug
@@ -51,7 +53,8 @@ CDebug* CDebug::getInstance(){
 */
 
 void CDebug::WriteText(const char* text){
-	_text->WriteText(Vector2(0,0), text);
+	
+	_text->WriteText(*_position, text);
 }
 
 void CDebug::WriteText(const char* text, u16 number){

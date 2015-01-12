@@ -76,8 +76,11 @@ CEngine::~CEngine(void) {
 */
 void CEngine::ChangeScene(Scenes newScene){
 	
+	
+
 	switch(_currentScene){
-		case MENU: delete _menu;
+		case MENU: 
+			delete _menu;
 			break;
 		case ARCADE: 
 			break;
@@ -89,11 +92,12 @@ void CEngine::ChangeScene(Scenes newScene){
 	
 	_currentScene = newScene;
 	
-	/*
+	
 	NF_ResetSpriteBuffers();
 	NF_ResetTiledBgBuffers();
 	NF_ResetRawSoundBuffers();
-	*/
+	
+	
 	switch(_currentScene){
 		case MENU: _menu->InitMenu();
 			break;

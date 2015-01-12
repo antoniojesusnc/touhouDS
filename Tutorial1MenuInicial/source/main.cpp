@@ -52,10 +52,21 @@ int main(int argc, char **argv) {
 	// initialize el engine
 	CEngine *engine = new CEngine();
 	CInput *input = CInput::getInstance();
-	CDebug *debug = CDebug::getInstance();
+
+	//just in case
+	CDebug::getInstance();
 
 	engine->InitEngine();
 
+	/*
+NF_LoadSpriteGfx("sprite/bola", 10, 32, 32);			// Bola azul
+NF_LoadSpritePal("sprite/bola", 10);
+
+NF_VramSpriteGfx(1, 10, 10, false);	// Personaje, copia todos los frames a la VRAM
+NF_VramSpritePal(1, 10, 10);
+
+NF_CreateSprite(1, 10, 10, 10, 0, 0);
+*/
 	// Bucle (repite para siempre)
 	while(1) {
 

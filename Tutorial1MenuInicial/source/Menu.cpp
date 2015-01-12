@@ -43,14 +43,15 @@ CMenu::~CMenu(void) {
 	/*
 	delete [] _buttons;
 	/*/
+	
 	for(_indexBucle = 0; _indexBucle < 4; ++_indexBucle){
+		
 		delete _buttons[_indexBucle];
+		
 	}
 	/* */
 	delete _topBackground;
 	delete _botBackground;
-	delete _genericSprite;
-	delete _genericText;
 } // ~CMenu
 
 /*
@@ -66,43 +67,44 @@ void CMenu::InitMenu(){
 
 	// bot background
 	//CBackground *backgroundBot = new CBackground("bg/nfl",256,256);
-	//backgroundBot->CreateBackground(false);
+	//backgroundBot->CreateBackground(false);	
 	
-	
-	_genericSprite = new CSprite("sprite/bola", "sprite/bola", 32, 32);	
-	_genericSprite->MoveSpriteToVRam(true,true);
-	
-
-	Vector2 position = Vector2(50,40);
+	Vector2 *position = new Vector2(50,40);
 	//NF_Error(2,"a %d a",4);
-	_genericSprite->CreateSprite(&position);
+	//_genericSprite->CreateSprite(position);
 	
-	_buttons[0]	= new CButton(_genericSprite,_genericSprite,&position);
-
-	position.x = 170;
-	_buttons[1]	= new CButton(_genericSprite,_genericSprite,&position);
+	_buttons[0]	= new CButton("sprite/bola", 32, 32, position);
 
 	
-	position.x = 50;
-	position.y = 120;
-	_buttons[2]	= new CButton(_genericSprite,_genericSprite,&position);
+	position->setX(170);
+	_buttons[1]	= new CButton("sprite/bola", 32, 32, position);
 
-	position.x = 170;
-	position.y = 120;
-	_buttons[3]	= new CButton(_genericSprite,_genericSprite,&position);
 	
+	position->setX(50);
+	position->setY(120);
+	_buttons[2]	= new CButton("sprite/bola", 32, 32, position);
+
+	position->setX(170);
+	position->setY(120);
+	_buttons[3]	= new CButton("sprite/bola", 32, 32, position);
+	/* */
+	
+	//delete position;
 }
 
-// Mueve*/as bolas
+// Mueve las bolas
 void CMenu::Update(){
+	CDebug::getInstance()->WriteText("    a          a  ");
 	
-	CDebug::getInstance()->WriteText("  cc            ");
-	
+	if(_buttons[0]->IsTouched()) {
+		
+		_engine->ChangeScene(CEngine::MENU);
+	}
 	for(_indexBucle = 0; _indexBucle < 4; ++_indexBucle){
 		
 		if(_buttons[_indexBucle]->IsTouched()) {
 			CDebug::getInstance()->WriteText("a ver: ", _indexBucle);
-			_engine->ChangeScene(CEngine::MENU);
+			
 			return;
 		}
 	} 

@@ -28,12 +28,8 @@ class CButton {
 	public:
 				
 		// Contructores
-		CButton(const char* nameSprite, const char* text, Vector2* position);
+		CButton(const char* nameSprite,int width, int height, Vector2* position);
 
-		CButton(CSprite *sprite, CText *text, Vector2* position);
-		CButton(CSprite *sprite, Vector2* position);
-		CButton(CSprite *bg, CSprite *fg, Vector2* position);
-		
 		// Destructor
 		~CButton(void);
 
@@ -41,16 +37,12 @@ class CButton {
 
 		// gets & sets
 		bool IsTouched();
-		CSprite * getBgSprite(void){return _bgSprite;}
 		CSprite * getFgSprite(void){return _fgSprite;}
-		CText * getText(void){return _text;}
 
 		
 	private:
 		
-		CSprite *_bgSprite;
 		CSprite *_fgSprite;
-		CText *_text;
 		Vector2 *_position;
 
 };

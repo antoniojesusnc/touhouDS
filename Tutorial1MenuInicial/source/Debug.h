@@ -31,6 +31,8 @@ class CDebug {
 		//	Metodos
 		void Update();
 		
+		int getIntSaved(){return _intSaved;}
+		void setIntSaved(u8 var){_intSaved = var;}
 
 		// singleton
 		static CDebug* getInstance();
@@ -43,15 +45,15 @@ class CDebug {
 		void WriteText(const char* text, Vector2 *vector);
 	private:
 
-		
-		
 		CText *_text;
-
+		Vector2 *_position;
+		int _intSaved;
 		// singleton
 		// private constructor
 		CDebug();
 
 		static CDebug *_instance;
+		
 };
 
 

@@ -83,13 +83,23 @@ CSprite::CSprite(const CSprite &sprite){
 // Destructor clase CSprite
 CSprite::~CSprite(void) {
 
+	
+
 	NF_DeleteSprite(getScreen(), getIdScreen()); // delete from screen
 	NF_FreeSpriteGfx(getScreen(), getIdVRam()); // delete from vRam
 	NF_UnloadSpriteGfx(getIdRam()); // delete from ram
-
+	/*
+	if(getIdRam() == 1){
+		NF_Error(getIdRam(),"a",54);
+	}
+	*/
+	
 	delete _palette;
 	delete _size;
 	delete _position;
+
+	
+
 }
 
 // Crea el puntero externo a la clase
@@ -135,9 +145,6 @@ void CSprite::CreateSprite(const Vector2 *position) {
 	if(CSprite::IdScreen >= MAX_ID_SPRITE_SCREEN){
 		CSprite::IdScreen = 0;
 	}
-
-	
-
 
 }
 
