@@ -64,6 +64,7 @@
     <ClCompile Include="source\Palette.cpp" />
     <ClCompile Include="source\Sprite.cpp" />
     <ClCompile Include="source\Text.cpp" />
+    <ClCompile Include="source\Time.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Makefile" />

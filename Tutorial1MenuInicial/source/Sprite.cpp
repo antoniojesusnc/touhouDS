@@ -71,15 +71,6 @@ CSprite::CSprite(const char *sprite,const char *palette, u16 width, u16 height) 
 	_palette = new CPalette(palette);
 } // CSprite
 
-CSprite::CSprite(const CSprite &sprite){
-	_idRam = sprite._idRam;
-	_idVRam = sprite._idVRam;
-	_upScreen = sprite._upScreen;
-	_inVram = true;
-	_palette = sprite._palette;
-	
-} // CSprite
-
 // Destructor clase CSprite
 CSprite::~CSprite(void) {
 
@@ -88,17 +79,14 @@ CSprite::~CSprite(void) {
 	NF_DeleteSprite(getScreen(), getIdScreen()); // delete from screen
 	NF_FreeSpriteGfx(getScreen(), getIdVRam()); // delete from vRam
 	NF_UnloadSpriteGfx(getIdRam()); // delete from ram
-	/*
-	if(getIdRam() == 1){
-		NF_Error(getIdRam(),"a",54);
-	}
-	*/
+	
+	//NF_Error(getIdRam(),"a",54);
+	
+	/* */
 	
 	delete _palette;
 	delete _size;
 	delete _position;
-
-	
 
 }
 
@@ -152,6 +140,7 @@ void CSprite::CreateSprite(const Vector2 *position) {
 // Mueve las bolas
 void CSprite::MoveSpriteToPos(const Vector2 *newPosition) {
 
+	delete _position;
 	_position = new Vector2(*newPosition);
 	// Mueve el sprite
 	NF_MoveSprite(getScreen(), _idScreen, _position->getX(), _position->getY());

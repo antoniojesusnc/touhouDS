@@ -42,9 +42,6 @@ class CSprite {
 		// Constructor con paleta
 		CSprite(const char *sprite,const char *palette, u16 witdh, u16 height);
 
-		// constructor de copia
-		CSprite(const CSprite &sprite);
-
 		// Destructor
 		~CSprite(void);
 
@@ -52,6 +49,8 @@ class CSprite {
 		//	Metodos
 		
 		u16 MoveSpriteToVRam(bool upScreen, bool palette);
+		
+		
 		// Crea un sprite
 		void CreateSprite(const Vector2 *position);
 
@@ -63,11 +62,13 @@ class CSprite {
 		u8 getIdVRam(){return _idVRam;}
 		u8 getIdScreen(){return _idScreen;}
 		u8 getScreen(){return (_upScreen?0:1);}
-		bool isUpScreen(){return _upScreen;}
-		bool isInVRam(){return _inVram;}
 		Vector2 *getPosition(){return _position;}
 		CPalette* getPalette(){return _palette;}
 		Vector2 *getSize(){return _size;}
+		
+		void setPalette(const CPalette& palette){_palette = new CPalette(palette);}
+		bool isUpScreen(){return _upScreen;}
+		bool isInVRam(){return _inVram;}
 		
 	private:
 		

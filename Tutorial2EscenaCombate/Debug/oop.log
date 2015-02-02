@@ -1,0 +1,45 @@
+﻿Build started 2/3/2015 2:13:17 AM.
+     1>Project "C:\nds\Projects\Tutoriales\touhouDS\Tutorial2EscenaCombate\oop.vcxproj" on node 2 (rebuild target(s)).
+     1>CoreClean:
+         make clean
+         clean ...
+       Rebuild:
+         make clean && make -r 2>&1 | sed -e 's/\(.[a-zA-Z]\+\):\([0-9]\+\):/\1(\2):/
+         clean ...
+         Background.cpp
+         arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial2EscenaCombate/build/Background.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial2EscenaCombate/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial2EscenaCombate/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial2EscenaCombate/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial2EscenaCombate/source/Background.cpp -o Background.o 
+         Button.cpp
+         arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial2EscenaCombate/build/Button.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial2EscenaCombate/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial2EscenaCombate/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial2EscenaCombate/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial2EscenaCombate/source/Button.cpp -o Button.o 
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial2EscenaCombate/source/Button.cpp: In destructor 'CButton::~CButton()':
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial2EscenaCombate/source/Button.cpp(48):10: warning: deleting object of polymorphic class type 'CSprite' which has non-virtual destructor might cause undefined behaviour [-Wdelete-non-virtual-dtor]
+            delete _fgSprite;
+                   ^
+         Debug.cpp
+         arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial2EscenaCombate/build/Debug.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial2EscenaCombate/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial2EscenaCombate/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial2EscenaCombate/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial2EscenaCombate/source/Debug.cpp -o Debug.o 
+         Engine.cpp
+         arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial2EscenaCombate/build/Engine.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial2EscenaCombate/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial2EscenaCombate/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial2EscenaCombate/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial2EscenaCombate/source/Engine.cpp -o Engine.o 
+         Input.cpp
+         arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial2EscenaCombate/build/Input.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial2EscenaCombate/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial2EscenaCombate/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial2EscenaCombate/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial2EscenaCombate/source/Input.cpp -o Input.o 
+         Menu.cpp
+         arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial2EscenaCombate/build/Menu.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial2EscenaCombate/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial2EscenaCombate/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial2EscenaCombate/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial2EscenaCombate/source/Menu.cpp -o Menu.o 
+         Palette.cpp
+         arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial2EscenaCombate/build/Palette.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial2EscenaCombate/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial2EscenaCombate/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial2EscenaCombate/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial2EscenaCombate/source/Palette.cpp -o Palette.o 
+         Sprite.cpp
+         arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial2EscenaCombate/build/Sprite.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial2EscenaCombate/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial2EscenaCombate/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial2EscenaCombate/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial2EscenaCombate/source/Sprite.cpp -o Sprite.o 
+         SpriteAnimated.cpp
+         arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial2EscenaCombate/build/SpriteAnimated.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial2EscenaCombate/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial2EscenaCombate/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial2EscenaCombate/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial2EscenaCombate/source/SpriteAnimated.cpp -o SpriteAnimated.o 
+         Text.cpp
+         arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial2EscenaCombate/build/Text.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial2EscenaCombate/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial2EscenaCombate/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial2EscenaCombate/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial2EscenaCombate/source/Text.cpp -o Text.o 
+         Time.cpp
+         arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial2EscenaCombate/build/Time.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial2EscenaCombate/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial2EscenaCombate/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial2EscenaCombate/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial2EscenaCombate/source/Time.cpp -o Time.o 
+         main.cpp
+         arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial2EscenaCombate/build/main.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial2EscenaCombate/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial2EscenaCombate/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial2EscenaCombate/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial2EscenaCombate/source/main.cpp -o main.o 
+         linking Tutorial2EscenaCombate.elf
+         Nintendo DS rom tool 1.50.1 - Apr  2 2014
+         by Rafael Vuijk, Dave Murphy, Alexei Karpenko
+         built ... Tutorial2EscenaCombate.nds
+     1>Done Building Project "C:\nds\Projects\Tutoriales\touhouDS\Tutorial2EscenaCombate\oop.vcxproj" (rebuild target(s)).
+
+Compilación correcta.
+
+Time Elapsed 00:00:07.67
