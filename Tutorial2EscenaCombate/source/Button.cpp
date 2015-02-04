@@ -44,9 +44,8 @@ CButton::CButton(const char* nameSprite,int width, int height, Vector2* position
 // Destructor clase CButton
 CButton::~CButton(void) {
 	
-	if(_fgSprite != NULL){
-		delete _fgSprite;
-	}
+	delete _fgSprite;
+	
 
 	delete _position;
 } // ~CButton

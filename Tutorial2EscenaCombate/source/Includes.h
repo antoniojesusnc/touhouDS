@@ -30,15 +30,19 @@
 // Includes clases Propias
 #include "Text.h"
 #include "Sprite.h"
+#include "SpriteAnimated.h"
 #include "Background.h"
 #include "Palette.h"
 #include "Input.h"
 #include "Button.h"
 
-// Includes clases de escenas
+// othes
+#include "Movement.h"
 
+// Includes clases de escenas
 #include "Debug.h"
 #include "Menu.h"
+#include "Battle.h"
 #include "Engine.h"
 
 

@@ -54,7 +54,7 @@ class CBackground {
 		
 	private:
 		
-		char _name[50];
+		char *_name;
 		u8 _layer;
 		bool _upScreen;
 		Vector2 *_position;	

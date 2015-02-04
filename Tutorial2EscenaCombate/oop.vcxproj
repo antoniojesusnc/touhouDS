@@ -55,12 +55,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="source\Background.cpp" />
+    <ClCompile Include="source\Battle.cpp" />
     <ClCompile Include="source\Button.cpp" />
+    <ClCompile Include="source\Character.cpp" />
     <ClCompile Include="source\Debug.cpp" />
     <ClCompile Include="source\Input.cpp" />
     <ClCompile Include="source\main.cpp" />
     <ClCompile Include="source\Engine.cpp" />
     <ClCompile Include="source\Menu.cpp" />
+    <ClCompile Include="source\Movement.cpp" />
     <ClCompile Include="source\Palette.cpp" />
     <ClCompile Include="source\Sprite.cpp" />
     <ClCompile Include="source\SpriteAnimated.cpp" />
@@ -72,13 +75,16 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\Background.h" />
+    <ClInclude Include="source\Battle.h" />
     <ClInclude Include="source\Button.h" />
+    <ClInclude Include="source\Character.h" />
     <ClInclude Include="source\Debug.h" />
     <ClInclude Include="source\Includes.h" />
     <ClInclude Include="source\Input.h" />
     <ClInclude Include="source\Engine.h" />
     <ClInclude Include="source\Math.h" />
     <ClInclude Include="source\Menu.h" />
+    <ClInclude Include="source\Movement.h" />
     <ClInclude Include="source\Palette.h" />
     <ClInclude Include="source\Sprite.h" />
     <ClInclude Include="source\SpriteAnimated.h" />

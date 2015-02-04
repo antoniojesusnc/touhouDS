@@ -19,6 +19,7 @@
 
 // Defines
 class CMenu;
+class CBattle;
 
 // Clase CEngine
 class CEngine {
@@ -52,6 +53,9 @@ class CEngine {
 
 		// scenes
 		CMenu* _menu;
+		CBattle* _arcade;
+
+		// others
 		CInput *_input;
 		CTime *_time;
 };

@@ -1,5 +1,5 @@
-#ifndef __MENU_H__
-#define __MENU_H__
+#ifndef __BATTLE_H__
+#define __BATTLE_H__
 
 
 
@@ -25,21 +25,23 @@ class CText;
 class CSprite;
 class CBackground;
 
-// Clase CMenu
-class CMenu {
+class CCharacter;
+
+// Clase CBattle
+class CBattle {
 
 	public:
 				
 		// Contructores
-		CMenu(CEngine* engine);
+		CBattle(CEngine* engine);
 		
 		// Destructor
-		~CMenu(void);
+		~CBattle(void);
 
 		
 
 		//	Metodos
-		void InitMenu();
+		void InitBattle();
 
 		void Update(u16 time);
 
@@ -49,15 +51,13 @@ class CMenu {
 		CBackground *_topBackground;
 		CBackground *_botBackground;
 
+		CText *_time;
+		CCharacter *_characters[2];
 
 		//CSprite *_genericSprite;
 		//CText *_genericText;
 
 		CEngine* _engine;
-		CButton* _buttons[4];
-
-		u8 _indexBucle;
-		u8 _buttonSelected;
 };
 
 

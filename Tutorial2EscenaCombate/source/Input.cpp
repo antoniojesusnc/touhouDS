@@ -86,16 +86,20 @@ void CInput::incrementInputsIndex(){
 void CInput::Update(){
 
 	scanKeys();
-	_keys = keysDown();
+	//_keys = keysDown();
+	
+
+	_keys = keysHeld();
+
 	touchRead(&_touchScreen);
 	_touchPos.x = _touchScreen.px;
 	_touchPos.y = _touchScreen.py;
-
-	//_keys = keysHeld();
 	
+	checkDirections();
+
 	//_keys = keysUp();
 	
 	//_keys = keysCurrent ();
 	
-	checkDirections();
+	
 } // Update

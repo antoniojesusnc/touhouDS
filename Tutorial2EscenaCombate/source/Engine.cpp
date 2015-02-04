@@ -53,21 +53,33 @@ CEngine::CEngine(){
 	// init buffer for sprite and palletes
 	NF_InitSpriteBuffers();
 	// init sisrym for 3d
-	NF_InitSpriteSys(0);//,128);
-	NF_InitSpriteSys(1);//,128);
+	NF_InitSpriteSys(0,128);
+	NF_InitSpriteSys(1,128);
 	//NF_Init3dSpriteSys();
 
 	// init buffers sound
 	//NF_InitRawSoundBuffers();
 	
+	// initial Scene
+	_arcade = NULL;
+	_menu = NULL;
+	/*
 	_currentScene = MENU;
-
 	_menu = new CMenu(this);
+	*/
+	
+
+	
+
 } // CEngine
 
 // Destructor clase CEngine
 CEngine::~CEngine(void) {
-	delete _menu;
+	if(_menu)
+		delete _menu;
+
+	if(_arcade)
+		delete _arcade;
 
 	NF_ResetSpriteBuffers();
 
@@ -77,14 +89,14 @@ CEngine::~CEngine(void) {
 	Metodos de la clase "CEngine"
 */
 void CEngine::ChangeScene(Scenes newScene){
-	
-	
-
 	switch(_currentScene){
 		case MENU: 
 			delete _menu;
+			_menu = NULL;
 			break;
 		case ARCADE: 
+			delete _arcade;
+			_arcade = NULL;
 			break;
 		case VERSUS: 
 			break;
@@ -106,9 +118,13 @@ void CEngine::ChangeScene(Scenes newScene){
 	swiWaitForVBlank();
 	
 	switch(_currentScene){
-		case MENU: _menu->InitMenu();
+		case MENU: 
+			_menu = new CMenu(this);
+			_menu->InitMenu();
 			break;
 		case ARCADE: 
+			_arcade = new CBattle(this);
+			_arcade->InitBattle();
 			break;
 		case VERSUS: 
 			break;
@@ -127,9 +143,9 @@ void CEngine::InitEngine(){
 	CDebug::getInstance();
 	
 	
-	_currentScene = MENU;
-
-	_menu->InitMenu();
+	
+	_currentScene = ARCADE;
+	ChangeScene(ARCADE);
 
 	
 } // InitEngine
@@ -143,9 +159,9 @@ void CEngine::MainBucle(){
 		_time->Update();
 	
 		switch(_currentScene){
-			case MENU: _menu->Update();
+			case MENU: _menu->Update(CTime::deltaTime());
 				break;
-			case ARCADE: 
+			case ARCADE: _arcade->Update(CTime::deltaTime());
 				break;
 			case VERSUS: 
 				break;

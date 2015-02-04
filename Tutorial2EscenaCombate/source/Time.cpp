@@ -10,6 +10,10 @@
 #include <ctime>
 #include "time.h"
 
+#include <nds.h>
+
+// Includes librerias propias
+#include <nf_lib.h>
 
 float CTime::_deltaTime = 0;
 // Clase CTime
@@ -36,5 +40,5 @@ void CTime::Update(){
 	//_deltaTime = _currentTime - _lastTime;
 	_lastTime = _currentTime;
 	*/
-	_deltaTime = 0.016f;
+	_deltaTime = 1;//0.016f;
 } // Update
