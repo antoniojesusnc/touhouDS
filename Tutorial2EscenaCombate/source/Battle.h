@@ -43,7 +43,7 @@ class CBattle {
 		//	Metodos
 		void InitBattle();
 
-		void Update(u16 time);
+		void Update(vfloat32 time);
 
 		
 	private:

@@ -34,11 +34,18 @@ float& CTime::deltaTime(){
 } // deltaTime
 		
 void CTime::Update(){
+	
+
 	/*
 	time(&_currentTime) ;
 	_deltaTime = difftime(_currentTime, _lastTime);
-	//_deltaTime = _currentTime - _lastTime;
 	_lastTime = _currentTime;
 	*/
-	_deltaTime = 1;//0.016f;
+	//_deltaTime = clock() -_clock;
+	//_clock = clock();
+	//_deltaTime = _clock - _deltaTime;
+
+	_deltaTime = 0.01666666f;
+
+	
 } // Update

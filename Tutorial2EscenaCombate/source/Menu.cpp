@@ -106,7 +106,7 @@ void CMenu::InitMenu(){
 }
 
 // Mueve las bolas
-void CMenu::Update(u16 time){
+void CMenu::Update(vfloat32 time){
 	
 	if(_buttons[0]->IsTouched()) {
 		

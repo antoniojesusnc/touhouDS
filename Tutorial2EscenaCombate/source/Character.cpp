@@ -56,6 +56,6 @@ void CCharacter::Init(void) {
 	_standPos->CreateSprite(_position);
 } // Init
 
-void CCharacter::UpdateCharacter(u16 time) {
+void CCharacter::UpdateCharacter(vfloat32 time) {
 	_standPos->UpdateAnimation(time);
 } // UpdateCharacter

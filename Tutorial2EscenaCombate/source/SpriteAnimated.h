@@ -48,15 +48,15 @@ class CSpriteAnimated : public CSprite {
 		void MoveSpriteToPos(const Vector2 *newPosition);
 		
 		// actalizacion del sprite
-		void UpdateAnimation(u16 time);
+		void UpdateAnimation(vfloat32 time);
 
 		void setFrame(u8 frame);
 
 	private:	
 	
-		u8 *_durationPerFrame;
+		float *_durationPerFrame;
 		
-		u8 _currentDuration;
+		float _currentDuration;
 
 		u8 _currentFrame;
 		u8 _maxFrame;

@@ -40,7 +40,7 @@ class CMovement {
 		void CancelMovement();
 		
 		// update
-		void UpdateMovement(u16 time);
+		void UpdateMovement(vfloat32 time);
 
 		// gets & sets
 		bool isActivated(){ return _activated;}

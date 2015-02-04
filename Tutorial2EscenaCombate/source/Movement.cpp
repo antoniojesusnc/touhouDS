@@ -49,6 +49,6 @@ void CMovement::CancelMovement() {
 	_activated = false;
 } // CancelMovement
 
-void CMovement::UpdateMovement(u16 time) {
+void CMovement::UpdateMovement(vfloat32 time) {
 
 } // UpdateMovement

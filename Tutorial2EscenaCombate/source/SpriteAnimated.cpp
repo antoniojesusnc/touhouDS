@@ -20,7 +20,7 @@
 // Includes del programa
 #include "SpriteAnimated.h"
 
-
+#include "Debug.h"
 
 
 // static variables
@@ -29,10 +29,10 @@
 CSpriteAnimated::CSpriteAnimated(const char *spriteAnimated, u16 width, u16 height, u8 frames)
 	: CSprite (spriteAnimated,width,height) {
 	_maxFrame = frames;
-	_durationPerFrame = new u8[frames];
+	_durationPerFrame = new float[frames];
 
 	for(vu8 i = 0; i < frames; ++i){
-		_durationPerFrame[i] = 60;
+		_durationPerFrame[i] = 0.5f;
 	}
 } // CSpriteAnimated
 
@@ -40,10 +40,10 @@ CSpriteAnimated::CSpriteAnimated(const char *spriteAnimated, u16 width, u16 heig
 CSpriteAnimated::CSpriteAnimated(const char *spriteAnimated,const char *palette, u16 width, u16 height, u8 frames) 
 	: CSprite ( spriteAnimated,palette, width,height ) {
 	_maxFrame = frames;
-	_durationPerFrame = new u8[frames];
+	_durationPerFrame = new float[frames];
 
 	for(vu8 i = 0; i < frames; ++i){
-		_durationPerFrame[i] = 60;
+		_durationPerFrame[i] = 0.5f;
 	}
 } // CSpriteAnimated
 
@@ -78,7 +78,7 @@ void CSpriteAnimated::setFrame(u8 frame){
 	NF_SpriteFrame(getScreen(),_idScreen,frame);
 } // setFrame
 
-void CSpriteAnimated::UpdateAnimation(u16 time){
+void CSpriteAnimated::UpdateAnimation(vfloat32 time){
 	_currentDuration += time;
 	
 	if(_durationPerFrame[_currentFrame] < _currentDuration){

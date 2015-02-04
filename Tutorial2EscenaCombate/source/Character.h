@@ -35,7 +35,7 @@ class CCharacter {
 		void Init(void);
 				
 		// update
-		void UpdateCharacter(u16 time);
+		void UpdateCharacter(vfloat32 time);
 
 		// gets & sets
 		

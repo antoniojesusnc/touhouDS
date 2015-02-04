@@ -81,6 +81,6 @@ void CBattle::InitBattle(){
 }
 
 // Mueve las bolas
-void CBattle::Update(u16 time){	
+void CBattle::Update(vfloat32 time){	
 	_characters[0]->UpdateCharacter(time);
 } // Update
