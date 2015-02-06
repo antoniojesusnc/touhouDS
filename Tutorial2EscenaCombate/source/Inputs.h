@@ -1,5 +1,5 @@
-#ifndef __INPUT_H__
-#define __INPUT_H__
+#ifndef __INPUTS_H__
+#define __INPUTS_H__
 
 
 
@@ -21,26 +21,26 @@
 
 
 // Clase CInput
-class CInput {
+class CInputs {
 
 	public:
 		enum Direction{NoDir, Up, Down, Left, Right};
-		enum Inputs{NoInput, Attack, WeakProj, StrongProj, Jump, Dash, Start, Select};
+		enum Commands{NoInput, Attack, WeakProj, StrongProj, Jump, Dash, Start, Select};
 
 		
 
 		// Destructor
-		~CInput(void);
+		~CInputs(void);
 
 		//	Metodos
 		void Update();
 		
-		u8* getDirections(){return _directions;}
-		u8* getInputs(){return _inputs;}
+		Direction* getDirections(){return _directions;}
+		Commands* getCommands(){return _commnads;}
 		Vector2* getTouchPos(){return &_touchPos;}
 
 		// singleton
-		static CInput* getInstance();
+		static CInputs* getInstance();
 		
 
 	private:
@@ -48,6 +48,8 @@ class CInput {
 		void checkCombos();
 		void checkDirections();
 		
+		// resets
+		void resetDirections();
 		// increment index
 		void incrementDirectionIndex();
 		void incrementInputsIndex();
@@ -56,17 +58,17 @@ class CInput {
 		touchPosition _touchScreen;
 		Vector2 _touchPos;
 		
-		u8 _directions[2];
+		Direction _directions[2];
 		u8 _directionIndex;
 		
-		u8 _inputs[4];
-		u8 _inputIndex;
+		Commands _commnads[4];
+		u8 _commnadsIndex;
 
 		// singleton
 		// private constructor
-		CInput();
+		CInputs();
 
-		static CInput *_instance;
+		static CInputs *_instance;
 };
 
 

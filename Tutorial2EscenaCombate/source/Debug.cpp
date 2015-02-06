@@ -29,7 +29,7 @@
 // Contructor clase CDebug
 CDebug::CDebug() {	
 	_text = new CText("fnt/default",256,256);
-	_text->CreateLayer(false);
+	_text->CreateLayer(true);
 
 	_position = new Vector2();
 } // CDebug

@@ -35,6 +35,7 @@ class CPalette {
 		// Destructor
 		~CPalette(void);
 
+		void removeFromVRam();
 		
 		//	Metodos
 		

@@ -23,7 +23,7 @@
 #include "Sprite.h"
 #include "Text.h"
 #include "Button.h"
-#include "Input.h"
+#include "Inputs.h"
 
 #include "Debug.h"
 

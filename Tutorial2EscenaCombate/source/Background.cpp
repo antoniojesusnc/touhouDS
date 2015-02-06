@@ -26,7 +26,7 @@
 
 u8 CBackground::MAX_LAYER_BACKGROUND = 3;
 
-u8 CBackground::Layer = 3;
+u8 CBackground::Layer = 1;
 
 /*
 	Metodos de la clase "CBackground"

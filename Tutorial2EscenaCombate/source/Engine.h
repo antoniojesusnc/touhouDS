@@ -56,7 +56,7 @@ class CEngine {
 		CBattle* _arcade;
 
 		// others
-		CInput *_input;
+		CInputs *_input;
 		CTime *_time;
 };
 

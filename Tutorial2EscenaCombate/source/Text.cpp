@@ -49,7 +49,7 @@ CText::~CText(void) {
 
 
 	delete _name;
-	delete &_position;
+	delete _position;
 	delete _name;
 } // ~CText
 
@@ -64,16 +64,17 @@ CText *Text;
 u8 CText::CreateLayer(bool upScreen){
 
 	_layerCreated = true;
-	_layer = CBackground::Layer;
-	CBackground::Layer = CBackground::Layer + 1;
+	
+	_layer = CBackground::Layer++;
+	if(CBackground::Layer >= CBackground::MAX_LAYER_BACKGROUND){
+		CBackground::Layer = 0;
+	}
+
+	
 	_upScreen = upScreen;
 	
 	NF_CreateTextLayer(getScreen(), _layer, 0, _name);
 	
-	if(CBackground::Layer>= CBackground::MAX_LAYER_BACKGROUND){
-		CBackground::Layer = 0;
-	}
-
 	return _layer;
 } // CreateTiledBg
 
@@ -108,8 +109,8 @@ void CText::WriteText(const Vector2 &newPosition, const char* text, ...){
 	}	
 	//char finalText[256];
 	//sprintf(finalText, text, ...);
-
-	_position = newPosition;
+	delete _position;
+	_position = new Vector2(newPosition);
 	
-	NF_WriteText(getScreen(), _layer, _position.x, _position.y, text);
+	NF_WriteText(getScreen(), _layer, _position->getX(), _position->getY(), text);
 } // MoveTextToPos

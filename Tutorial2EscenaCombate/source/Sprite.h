@@ -18,6 +18,7 @@
 #include <nds.h>
 #include "Math.h"
 #include "Palette.h"
+#include "Inputs.h"
 
 
 // Defines
@@ -47,7 +48,7 @@ class CSprite {
 
 		void removeFromRam();
 
-		void removeFromVRam();
+		void removeFromVRam(bool palette = true);
 
 		void removeFromScreen();
 		
@@ -62,6 +63,9 @@ class CSprite {
 		// Mueve el sprite
 		virtual void MoveSpriteToPos(const Vector2 *newPosition);
 		
+		// volteo horizontal
+		void FlipTo(CInputs::Direction direction);
+
 		// Gets y sets
 		u8 getIdRam(){return _idRam;}
 		u8 getIdVRam(){return _idVRam;}
@@ -74,15 +78,18 @@ class CSprite {
 		void setPalette(const CPalette& palette){_palette = new CPalette(palette);}
 		bool isUpScreen(){return _upScreen;}
 		bool isInVRam(){return _inVram;}
+		bool isflipped(){return _flipped;}
 		
 	protected:
 		
 		u8 _idRam;	// ID del sprite en Ram
 		u8 _idVRam;	// ID del sprite en VRam
 		u8 _idScreen;	// ID del sprite en VRam
+		
 		bool _upScreen;	// ID del sprite en VRam
-
 		bool _inVram;
+		bool _flipped;
+
 		Vector2 *_size;
 
 		CPalette* _palette;

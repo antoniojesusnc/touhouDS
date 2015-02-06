@@ -46,10 +46,15 @@ CPalette::CPalette(const char *palette) {
 // Destructor clase CPalette
 CPalette::~CPalette(void) {
 	//NF_UnloadExBgPal(getIdRam());
-	
+	removeFromVRam();
 	NF_UnloadSpritePal(getIdRam()); // delete from ram
-			
-}
+} // ~CPalette
+
+void CPalette::removeFromVRam(){
+	if(!isInVRam())
+		return;
+	
+} // removeFromVRam
 
 // Crea el puntero externo a la clase
 CPalette *Palette;

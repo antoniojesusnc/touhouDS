@@ -32,7 +32,7 @@ CSpriteAnimated::CSpriteAnimated(const char *spriteAnimated, u16 width, u16 heig
 	_durationPerFrame = new float[frames];
 
 	for(vu8 i = 0; i < frames; ++i){
-		_durationPerFrame[i] = 0.5f;
+		_durationPerFrame[i] = 0.1f;
 	}
 } // CSpriteAnimated
 
@@ -43,7 +43,7 @@ CSpriteAnimated::CSpriteAnimated(const char *spriteAnimated,const char *palette,
 	_durationPerFrame = new float[frames];
 
 	for(vu8 i = 0; i < frames; ++i){
-		_durationPerFrame[i] = 0.5f;
+		_durationPerFrame[i] = 0.1f;
 	}
 } // CSpriteAnimated
 

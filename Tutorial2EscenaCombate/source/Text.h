@@ -53,7 +53,7 @@ class CText {
 		bool isLayerCreated(){return _layerCreated;}
 		u8 getScreen(){return (_upScreen?0:1);}
 		bool isUpScreen(){return _upScreen;}
-		Vector2 getPosition(){return _position;}
+		Vector2 *getPosition(){return _position;}
 		u8 getColor(){return _color;}
 		void setColor(u8 newColor);
 
@@ -64,7 +64,7 @@ class CText {
 		bool _layerCreated;
 		u8 _layer;
 		bool _upScreen;
-		Vector2 _position;
+		Vector2 *_position;
 
 		// colors
 		u8 _color;

@@ -22,7 +22,7 @@
 
 // debug
 #include "Text.h"
-#include "Input.h"
+#include "Inputs.h"
 
 #include "Debug.h"
 #include "Time.h"
@@ -46,16 +46,16 @@ CEngine::CEngine(){
 	NF_InitTiledBgSys(0);
 	NF_InitTiledBgSys(1);
 
-	// Init textBuffer
-	NF_InitTextSys(0);
-	NF_InitTextSys(1);
-
 	// init buffer for sprite and palletes
 	NF_InitSpriteBuffers();
 	// init sisrym for 3d
-	NF_InitSpriteSys(0,128);
-	NF_InitSpriteSys(1,128);
+	NF_InitSpriteSys(0);//,128);
+	NF_InitSpriteSys(1);//,128);
 	//NF_Init3dSpriteSys();
+
+	// Init textBuffer
+	NF_InitTextSys(0);
+	NF_InitTextSys(1);
 
 	// init buffers sound
 	//NF_InitRawSoundBuffers();
@@ -137,7 +137,7 @@ void CEngine::ChangeScene(Scenes newScene){
 void CEngine::InitEngine(){
 
 	
-	_input = CInput::getInstance();
+	_input = CInputs::getInstance();
 	_time = new CTime();
 	
 	CDebug::getInstance();
@@ -158,6 +158,8 @@ void CEngine::MainBucle(){
 		_input->Update();
 		_time->Update();
 	
+		
+		
 		switch(_currentScene){
 			case MENU: _menu->Update(CTime::deltaTime());
 				break;

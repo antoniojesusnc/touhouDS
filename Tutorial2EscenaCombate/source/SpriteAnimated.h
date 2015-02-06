@@ -50,8 +50,10 @@ class CSpriteAnimated : public CSprite {
 		// actalizacion del sprite
 		void UpdateAnimation(vfloat32 time);
 
+		// gets & sets
 		void setFrame(u8 frame);
-
+		u8 getMaxFrame(){ return _maxFrame;}
+		u8 getFrame(){ return _currentFrame;}
 	private:	
 	
 		float *_durationPerFrame;

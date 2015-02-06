@@ -14,12 +14,13 @@
 
 // Includes propietarios NDS
 #include <nds.h>
-
+#include "Inputs.h"
 
 // Defines
 class CMovement;
 class CSpriteAnimated;
 class Vector2;
+
 
 // Clase CCharacter
 class CCharacter {
@@ -33,25 +34,41 @@ class CCharacter {
 		~CCharacter(void);
 		
 		void Init(void);
-				
+		
 		// update
 		void UpdateCharacter(vfloat32 time);
 
+		// other methods
+		void changeLookDirection();
+
 		// gets & sets
-		
+		Vector2* getPosition(){return _position;}
+		bool isLookingRight(){return _lookingFor == CInputs::Right;}
 
 	private:
-		// basic
+
+		void checkMovement();
+
+		//bool checkAndChangeIfDiferent(CMovement *m);
+		bool checkAndChangeIfDiferent(u8 newIndex);
+
+		// characteristics
 		char* _name;
 		u16 _health;
-		Vector2* _position;
+		Vector2 *_horizontalSpeed;
 
 		// graphics
+		Vector2* _position;
 		CSpriteAnimated* _standPos;
 
 		// movemnts
-		CMovement *_currentMovement;
+		//CMovement *_currentMovement;
+		
 		CMovement *_movementList;
+		u8 _indexMovement;
+		CInputs::Direction _lookingFor;
+
+		CInputs *_input;
 	
 };
 

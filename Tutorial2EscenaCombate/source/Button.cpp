@@ -21,7 +21,7 @@
 #include "Button.h"
 #include "Sprite.h"
 #include "Text.h"
-#include "Input.h"
+#include "Inputs.h"
 
 #include "Debug.h"
 
@@ -57,7 +57,7 @@ CButton::~CButton(void) {
 	Metodos de la clase "CButton"
 */
 bool CButton::IsTouched(){
-	Vector2 *posScreen = CInput::getInstance()->getTouchPos();
+	Vector2 *posScreen = CInputs::getInstance()->getTouchPos();
 	
 	if(posScreen->getX() > _position->getX() ) {
 		if( posScreen->getX() < (_position->getX() + _fgSprite->getSize()->getX() ) ){

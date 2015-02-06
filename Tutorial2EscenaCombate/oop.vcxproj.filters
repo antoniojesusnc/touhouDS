@@ -33,9 +33,6 @@
     <ClCompile Include="source\Background.cpp">
       <Filter>source\Essentials</Filter>
     </ClCompile>
-    <ClCompile Include="source\Input.cpp">
-      <Filter>source\Essentials</Filter>
-    </ClCompile>
     <ClCompile Include="source\Palette.cpp">
       <Filter>source\Essentials</Filter>
     </ClCompile>
@@ -72,6 +69,9 @@
     <ClCompile Include="source\Battle.cpp">
       <Filter>source\Scenes</Filter>
     </ClCompile>
+    <ClCompile Include="source\Inputs.cpp">
+      <Filter>source\Essentials</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Makefile" />
@@ -81,9 +81,6 @@
       <Filter>include\Essentials</Filter>
     </ClInclude>
     <ClInclude Include="source\Background.h">
-      <Filter>include\Essentials</Filter>
-    </ClInclude>
-    <ClInclude Include="source\Input.h">
       <Filter>include\Essentials</Filter>
     </ClInclude>
     <ClInclude Include="source\Palette.h">
@@ -124,6 +121,9 @@
     </ClInclude>
     <ClInclude Include="source\Battle.h">
       <Filter>include\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Inputs.h">
+      <Filter>include\Essentials</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

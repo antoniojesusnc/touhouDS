@@ -23,7 +23,7 @@
 #include "Sprite.h"
 #include "Text.h"
 #include "Button.h"
-#include "Input.h"
+#include "Inputs.h"
 
 #include "Character.h"
 #include "Debug.h"
@@ -51,7 +51,9 @@ CBattle::~CBattle(void) {
 	delete _botBackground;
 	delete _time;
 
-	delete[] _characters;
+	for(vu8 i = 0; i < 2; ++i){
+		delete _characters[i];
+	}
 	
 
 } // ~CBattle
@@ -65,7 +67,7 @@ void CBattle::InitBattle(){
 	// backgrounds
 	// top background
 	
-
+	
 	_topBackground = new CBackground("bg/nfl",256,256);
 	_topBackground->CreateBackground(false);
 	

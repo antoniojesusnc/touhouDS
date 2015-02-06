@@ -33,7 +33,7 @@
 #include "SpriteAnimated.h"
 #include "Background.h"
 #include "Palette.h"
-#include "Input.h"
+#include "Inputs.h"
 #include "Button.h"
 
 // othes

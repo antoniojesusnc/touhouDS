@@ -18,7 +18,7 @@
 #include <nf_lib.h>
 
 // Includes del programa
-#include "Input.h"
+#include "Inputs.h"
 
 
 /*
@@ -26,21 +26,21 @@
 */
 
 // Contructor clase CInput
-CInput::CInput() {
+CInputs::CInputs() {
 	_keys = 0;
 } // CInput
 
 // Destructor clase CInput
-CInput::~CInput(void) {
+CInputs::~CInputs(void) {
 	delete &_touchPos;
 	delete &_touchScreen;
 } // ~CInput
 
-CInput *CInput::_instance = 0;
+CInputs *CInputs::_instance = 0;
 
-CInput* CInput::getInstance(){
+CInputs* CInputs::getInstance(){
 	if(!_instance){
-		_instance = new CInput();
+		_instance = new CInputs();
 	}
 	return _instance;
 } // getPtr
@@ -48,42 +48,51 @@ CInput* CInput::getInstance(){
 /*
 	Metodos de la clase "CInput"
 */
-void CInput::checkDirections(){
+void CInputs::checkDirections(){
+	resetDirections();
+
 	if(_keys == KEY_UP){
-		_inputs[_directionIndex] = Up;
+		_directions[_directionIndex] = Up;
 		incrementDirectionIndex();
 	}
 	if(_keys == KEY_DOWN){
-		_inputs[_directionIndex] = Down;
+		_directions[_directionIndex] = Down;
 		incrementDirectionIndex();
 	}
 	if(_keys == KEY_LEFT){
-		_inputs[_directionIndex] = Left;
+		_directions[_directionIndex] = Left;
 		incrementDirectionIndex();
 	}
 	if(_keys == KEY_RIGHT){
-		_inputs[_directionIndex] = Right;
+		_directions[_directionIndex] = Right;
 		incrementDirectionIndex();
 	}
 	
 } // checkDirections
 
-void CInput::incrementDirectionIndex(){
+void CInputs::incrementDirectionIndex(){
 	++_directionIndex;
 	if(_directionIndex > 2){
 		_directionIndex = 0;
 	}
 } // incrementDirectionIndex
 
-void CInput::incrementInputsIndex(){
-	++_inputIndex;
-	if(_inputIndex > 4){
-		_inputIndex = 0;
+void CInputs::resetDirections(){
+	for(vu8 i = 0; i < 2; ++i){
+		_directions[_directionIndex] = NoDir;
+	}
+	_directionIndex = 0;
+} // incrementDirectionIndex
+
+void CInputs::incrementInputsIndex(){
+	++_commnadsIndex;
+	if(_commnadsIndex > 4){
+		_commnadsIndex = 0;
 	}
 } // incrementInputsIndex
 		
 		
-void CInput::Update(){
+void CInputs::Update(){
 
 	scanKeys();
 	//_keys = keysDown();
