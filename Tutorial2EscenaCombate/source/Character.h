@@ -28,12 +28,12 @@ class CCharacter {
 	public:
 		
 		// Contructores
-		CCharacter(const char *character, Vector2 *position);
+		CCharacter(const char *character);
 		
 		// Destructor
 		~CCharacter(void);
 		
-		void Init(void);
+		void Init(Vector2 *position);
 		
 		// update
 		void UpdateCharacter(vfloat32 time);

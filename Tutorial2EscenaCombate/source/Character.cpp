@@ -28,10 +28,10 @@
 */
 
 // Contructor clase CCharacter
-CCharacter::CCharacter(const char *character, Vector2 *position) {
+CCharacter::CCharacter(const char *character) {
 	strcpy(_name, character);
 
-	_position = new Vector2(*position);
+	
 
 	_input = CInputs::getInstance();
 	//_standPos = new CSpriteAnimated("sprite/characters/sakuya/sakuya1","sprite/characters/sakuya/original",32,64, 1);
@@ -50,12 +50,13 @@ CCharacter::~CCharacter(void) {
 	Metodos de la clase "CCharacter"
 */
 
-void CCharacter::Init(void) {
+void CCharacter::Init(Vector2 *position) {
+
 
 	// leo las caracteristicas del player
 	_health = 100;
+	_position = new Vector2(*position);
 	_horizontalSpeed = new Vector2(2,0);
-	
 
 	// leo la lista de movimientos
 	_movementList = new CMovement[3]();
@@ -68,7 +69,7 @@ void CCharacter::Init(void) {
 	//_currentMovement = &_movementList[0];
 	//_currentMovement->StartMovement(_position);
 	_indexMovement = 0;
-	_movementList[_indexMovement].StartMovement(getPosition());
+	_movementList[_indexMovement].StartMovement();
 } // Init
 
 void CCharacter::checkMovement() {
@@ -93,7 +94,7 @@ bool CCharacter::checkAndChangeIfDiferent(u8 newIndex){
 		
 		_movementList[_indexMovement].CancelMovement();
 		_indexMovement = newIndex;
-		_movementList[_indexMovement].StartMovement(getPosition());
+		_movementList[_indexMovement].StartMovement();
 
 		return true;
 	}

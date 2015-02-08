@@ -44,11 +44,11 @@ CMovement::~CMovement(void) {
 	Metodos de la clase "CMovement"
 */
 
-void CMovement::Init(const char *movement, CCharacter *_owner) {
+void CMovement::Init(const char *movement, CCharacter *owner) {
 
 
 	if(strcmp(movement,"0") == 0){
-		strcpy(_name, movement);
+		
 		_sprite = new CSpriteAnimated("sprite/characters/sakuya/sakuya3","sprite/characters/sakuya/sakuya",32,64,6);
 
 		_currentDuration = 0;
@@ -91,15 +91,17 @@ void CMovement::Init(const char *movement, CCharacter *_owner) {
 	_canBeBlock = true;
 	_offsetPerFrame = new Vector2[_sprite->getMaxFrame()];
 	*/
-
-
+	strcpy(_name, movement);
+	_owner = owner;
+	_characterPosition = owner->getPosition();
+	
 } // Init
 
-void CMovement::StartMovement(Vector2* position) {
+void CMovement::StartMovement() {
 
 	_activated = true;
-	_characterPosition = position;
-	_position = new Vector2(*position);
+	
+	_position = new Vector2(*_characterPosition);
 	//_position = _position + *position;
 
 	_sprite->MoveSpriteToVRam(true,true);

@@ -36,7 +36,7 @@ class CMovement {
 		void Init(const char *movement, CCharacter *_owner);
 
 		// startMovement
-		void StartMovement(Vector2* position);
+		void StartMovement();
 		
 		// cancel
 		void CancelMovement();
