@@ -1,0 +1,25 @@
+<character>	
+	<data>
+		<health>100<health>
+	</data>
+	<movements>
+		<movement>
+			<nombre>WalkRight</nombre>
+			<prioridad>0</prioridad>
+			<nameSprite>WalkRight</nameSprite>
+			<totalDuration>1</totalDuration>
+			<loopable>true</loopable>
+			<canBeBlocked>true</canBeBlocked>
+			<movementData>
+				<frame>
+					<duration>1</duration>
+					<damage>1</damage>
+					<positionX>1</positionX>
+					<positionY>1</positionY>
+					<offsetX>1</offsetX>
+					<offsetY>1</offsetY>
+				</frame>
+			</movmentData>
+		</movement>
+	</movements>
+</character>
