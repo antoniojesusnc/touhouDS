@@ -1,4 +1,4 @@
-﻿Build started 2/10/2015 4:05:04 AM.
+﻿Build started 2/11/2015 4:39:20 AM.
      1>Project "C:\nds\Projects\Tutoriales\touhouDS\Tutorial3Movimientos\oop.vcxproj" on node 2 (rebuild target(s)).
      1>CoreClean:
          make clean
@@ -20,7 +20,7 @@
          arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/build/Character.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Character.cpp -o Character.o 
          c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Character.cpp: In member function 'void CCharacter::Init(Vector2*)':
          c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Character.cpp(57):14: warning: unused variable 'data' [-Wunused-variable]
-           CXMLParser *data = new CXMLParser("sakuya");
+           CXMLParser *data = new CXMLParser("demo");
                        ^
          Debug.cpp
          arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/build/Debug.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Debug.cpp -o Debug.o 
@@ -48,13 +48,13 @@
          XMLParser.cpp
          arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/build/XMLParser.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/XMLParser.cpp -o XMLParser.o 
          c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/XMLParser.cpp: In member function 'char* CXMLParser::ReadFile(const char*)':
-         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/XMLParser.cpp(67):37: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/XMLParser.cpp(68):37: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
             if(fread(entireFile,1,len,inf) != len)
                                               ^
-         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/XMLParser.cpp: In member function 'CXMLParser::TXML* CXMLParser::Parse(const char*)':
-         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/XMLParser.cpp(149):1: warning: no return statement in function returning non-void [-Wreturn-type]
-          } // Parse
-          ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/XMLParser.cpp: In member function 'CXMLParser::TXML* CXMLParser::addChildToTXML(CXMLParser::TXML*&, CXMLParser::TXML*)':
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/XMLParser.cpp(218):6: warning: unused variable 'auxSize' [-Wunused-variable]
+           vu8 auxSize;
+               ^
          main.cpp
          arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/build/main.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/main.cpp -o main.o 
          linking Tutorial3Movimientos.elf
@@ -65,4 +65,4 @@
 
 Compilación correcta.
 
-Time Elapsed 00:00:06.78
+Time Elapsed 00:00:07.11

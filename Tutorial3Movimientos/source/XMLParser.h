@@ -45,7 +45,7 @@ class CXMLParser {
 
 		void readWord(const char *rawData, u16 *index, char *&outWord);
 
-		TXML* createTXML(std::stack<char*> *stackData);
+		TXML* createTXML(char *rawData);
 		TXML* addChildToTXML(TXML* &currentStruct,TXML* childToAdd);
 
 		void printXML(TXML* data);

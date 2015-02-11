@@ -63,7 +63,8 @@ char* CXMLParser::ReadFile(const char *fileName){
 		fseek(inf,0,SEEK_SET);
 
 		char *entireFile = (char*)malloc(len+1);
-		entireFile[len] = 0;
+		entireFile[len] = 3;
+
 		if(fread(entireFile,1,len,inf) != len)
 			NF_Error(404, "file not found",1);
 
@@ -79,72 +80,93 @@ char* CXMLParser::ReadFile(const char *fileName){
 CXMLParser::TXML* CXMLParser::Parse(const char *rawData){
 	
 	u16 index = -1;
-	std::stack<char *> stack;
 
 	char* auxWord = NULL;	
 
 	TXML *structedData = NULL;
 	TXML *currentStructedData = NULL;
 
-	
-	
-	
 
-	while(rawData[++index] != 0){
-		switch(rawData[index]){
-			case  '<': 
+	int parents = 0;
+	
+	//printf("\n %s\n", rawData);
+	while(rawData[++index] != 3){
+
+		printf("%d",rawData[index]);
+		//continue;
+
+		if(rawData[index] == '<'){
+			if(rawData[index+1] != '/'){
 				
-					
-
-				if(rawData[index+1] != '/'){
-					
-					readWord(rawData, &index, auxWord);
-
-					//printf("\n2%d: %d %s %c %c",index, auxWord, auxWord, auxWord[2], auxWord[3]);
-					//return NULL;
-
-					if(strcmp(auxWord,stack.top())!=0){
-						stack.push(auxWord);
-						TXML *tempData = createTXML(&stack);
-						if(currentStructedData == NULL){
-							currentStructedData = tempData;
-						}else{
-							currentStructedData = addChildToTXML(currentStructedData, tempData);
-						}
-	
-						if(structedData == NULL){
-							structedData = currentStructedData;
-						}
-					}
-				}
+				++parents ;
 				
-				break;
-			case  '/': 
+				printf("\n aa %d %c", index, rawData[index]);
 				readWord(rawData, &index, auxWord);
-				if(strcmp(stack.top(),auxWord) == 0){
-					stack.pop();
-					currentStructedData = currentStructedData->parent;
+				printf("\n << %s %d %c",auxWord, index,rawData[index]);
+				
+				//printf("\n2%d: %d %s %c %c",index, auxWord, auxWord, auxWord[2], auxWord[3]);
+				//return NULL;
+
+				//printf("\n outStack ");
+				printf("\n stack %s",auxWord);
+					
+				TXML *tempData = createTXML(auxWord);
+						
+				if(currentStructedData == NULL){
+					currentStructedData = tempData;
 				}else{
-					NF_Error(402, "pop no encontrado",0);
+					//printf("\n chng %s",auxWord);
+					printSingleXML(currentStructedData);
+					currentStructedData = addChildToTXML(currentStructedData, tempData);
+					printSingleXML(currentStructedData);
+				}	
+				if(structedData == NULL){
+					printf("\n onnly");
+					structedData = currentStructedData;
 				}
-				break; 
-			case  '>': 
-			case '\t': 
-			case '\n': 
-			case  ' ': 
-				break; 
-			default  : 
+			} // end if < and not /
+			else{
+			printf("aaaaaaaaaaaaaa");
+			}
+		}else{ // else <
+			if(rawData[index] == '/'){
+				printf("\n // %d %c %s",rawData[index], rawData[index], auxWord);
+				return structedData;
+
 				readWord(rawData, &index, auxWord);
-				currentStructedData->value = (char*)malloc(sizeof(char)*strlen(auxWord));
-				strcpy(currentStructedData->value,auxWord);
-				break;
-		}
-		
-	}
+				currentStructedData = currentStructedData->parent;
+			}else{
+				if( (rawData[index] > 48 && rawData[index] < 57) || // numbers
+					(rawData[index] > 65 && rawData[index] < 90) ||// lower case
+					(rawData[index] > 91 && rawData[index] < 122) ){ // upper case
+
+					printf("\n aa2 %c %d ",rawData[index], index);
+					printf("\ndefault %d %c %s",rawData[index-2], rawData[index-2], auxWord);
+					printf("\ndefault %d %c %s",rawData[index-1], rawData[index-1], auxWord);
+					printf("\ndefault %d %c %s",rawData[index], rawData[index], auxWord);
+					readWord(rawData, &index, auxWord);
+					printf("\ndefault %d %c %s",rawData[index-2], rawData[index-2], auxWord);
+					printf("\ndefault %d %c %s",rawData[index-1], rawData[index-1], auxWord);
+					printf("\ndefault %d %c %s",rawData[index], rawData[index], auxWord);
+					//return structedData;
+											/*
+					currentStructedData->value = (char*)malloc(sizeof(char)*strlen(auxWord));
+					strcpy(currentStructedData->value,auxWord);
+					*/
+					currentStructedData->value = auxWord;
+					break;
+				} // end if alpha numeric
+						
+			} // en else if /
+		} // end else if <
+
+				
+		//printf("#%d %d %c#", index, rawData[index],rawData[index] );
+	} // end while
 	
 	
-	printf("end");
-	
+	printf("\nEnd");
+	return structedData;
 	
 } // Parse
 
@@ -152,7 +174,6 @@ CXMLParser::TXML* CXMLParser::Parse(const char *rawData){
 
 
 void CXMLParser::readWord(const char *rawData, u16* index, char*&outWord){
-	//free(outWord);
 
 	vu8 indexTemp = (*index);
 	vu8 stringSize = 0;
@@ -162,7 +183,7 @@ void CXMLParser::readWord(const char *rawData, u16* index, char*&outWord){
 	}
 
 	
-	free(outWord);
+	//free(outWord);
 	outWord = (char*)malloc(sizeof(char)*stringSize+1);
 	
 	
@@ -173,12 +194,14 @@ void CXMLParser::readWord(const char *rawData, u16* index, char*&outWord){
 
 	*index += stringSize;
 
+	printf("\n %c %c %c", rawData[*index-1],rawData[*index],rawData[*index+1]);
+
 } // readWord
 
-CXMLParser::TXML* CXMLParser::createTXML(std::stack<char*> *stackData){
+CXMLParser::TXML* CXMLParser::createTXML(char *rawData){
 
 	TXML *tempData = (TXML*)malloc(sizeof(TXML));
-	tempData->string = stackData->top();
+	tempData->string = rawData;
 	tempData->value = NULL;
 	tempData->numChilds = 0;
 	tempData->childs = NULL;
@@ -188,44 +211,82 @@ CXMLParser::TXML* CXMLParser::createTXML(std::stack<char*> *stackData){
 } // createEmptyTXML
 
 CXMLParser::TXML* CXMLParser::addChildToTXML(TXML* &currentStruct,TXML* childToAdd){
-	TXML *temp = (TXML*)malloc(sizeof(TXML)*currentStruct->numChilds+1);
-	vu8 i;
-	for(i = 0; i < currentStruct->numChilds; ++i){
-		temp->string = (char*)malloc(sizeof(char)*strlen(currentStruct->childs[i].string));
-		strcpy(temp[i].string, currentStruct->childs[i].string);
 
-		temp->value = (char*)malloc(sizeof(char)*strlen(currentStruct->childs[i].value));
-		strcpy(temp[i].value, currentStruct->childs[i].value);
+	TXML *temp = (TXML*)malloc(sizeof(TXML)*(currentStruct->numChilds+1));
+
+	vu8 i;
+	vu8 auxSize;
+	for(i = 0; i < currentStruct->numChilds; ++i){
+		/*
+		auxSize = strlen(currentStruct->childs[i].string);
+		temp->string = (char*)malloc(sizeof(char)*(auxSize+1));
+		strcpy(temp[i].string, currentStruct->childs[i].string);
+		temp->string[auxSize] = '\0';
 		
-		if(&currentStruct->childs[i].numChilds > 0)
+		auxSize = strlen(currentStruct->childs[i].value);
+		temp->value = (char*)malloc(sizeof(char)*(auxSize+1) );
+		strcpy(temp[i].value, currentStruct->childs[i].value);
+		temp->value[auxSize] = '\0';
+		
+		*/
+		temp[i].string = currentStruct->childs[i].string;
+		temp[i].value = currentStruct->childs[i].value;
+		if(currentStruct->childs[i].numChilds > 0)
 			temp[i].childs = currentStruct->childs[i].childs;
 
 		temp[i].parent = currentStruct;
-
-
+		temp[i].numChilds = currentStruct->childs[i].numChilds;
 	}
-	
-	temp->string = (char*)malloc(sizeof(char)*strlen(childToAdd->childs[i].string));
-	strcpy(temp[i].string, childToAdd->childs[i].string);
 
-	temp->value = (char*)malloc(sizeof(char)*strlen(childToAdd->childs[i].value));
-	strcpy(temp[i].value, childToAdd->childs[i].value);
-	temp[i].parent = currentStruct;
+	/*
+	auxSize = strlen(childToAdd->string);
+	temp->string = (char*)malloc(sizeof(char)*(auxSize+1));
+	strcpy(temp[i].string, childToAdd->string);
+	temp[i].string[auxSize] = '\0';
+
+	//printf("\n addchildS %d %s %d %s",i, temp->string , strlen(childToAdd->string), childToAdd->string );
+		//return NULL;
+
+	if(childToAdd->value != NULL){
+		auxSize = strlen(childToAdd->value);
+		temp->string = (char*)malloc(sizeof(char)*(auxSize+1));
+		strcpy(temp[i].string, childToAdd->value);
+		temp[i].value[auxSize] = '\0';
 	
+		//printf("\n addchildV %s %d %s",temp->value , strlen(childToAdd->value), childToAdd->value );
+			//return NULL;	
+	}else{
+		temp[i].value = NULL;
+	}
+	*/
+	temp->string = childToAdd->string;
+	temp->value = childToAdd->value;
+	
+	temp[i].numChilds = childToAdd->numChilds;
+	temp[i].parent = currentStruct;
+	temp[i].childs = childToAdd->childs;
+
 	free(currentStruct->childs);
 	currentStruct->childs = temp;
+	++currentStruct->numChilds;
 
-	return &temp[i];
+	return temp;
 } // addChildToTXML
 
 void CXMLParser::printXML(TXML* data){
 	printSingleXML(data);
+	
 	for(vu8 i = 0; i < data->numChilds; ++i){
-		printXML(&data->childs[i]);
+		printSingleXML(&data->childs[i]);
 	}
+	
 } // printXML
 
 void CXMLParser::printSingleXML(TXML* data){
+	if(data == NULL){
+		printf("\nVacio");
+		return;
+	}
 	printf("\n %s : %s  -  %d",data->string, data->value, data->numChilds);
 } // printSingleXML
 
