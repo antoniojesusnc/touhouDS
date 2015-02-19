@@ -27,7 +27,7 @@
 */
 
 // Contructor clase CDebug
-CDebug::CDebug() {	
+CDebug::CDebug() {
 	consoleDemoInit();
 
 	/*

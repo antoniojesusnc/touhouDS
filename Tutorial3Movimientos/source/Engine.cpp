@@ -155,8 +155,10 @@ void CEngine::InitEngine(){
 	
 	
 	_currentScene = ARCADE;
+	
 	LoadNewScene();
-
+	
+	//CXMLParser *data = new CXMLParser("demo");
 } // InitEngine
 
 
@@ -164,12 +166,8 @@ void CEngine::MainBucle(){
 	
 	while(1){
 		
-		
-		
 		_input->Update();
 		_time->Update();
-	
-		
 		
 		switch(_currentScene){
 			case MENU: _menu->Update(CTime::deltaTime());
@@ -181,6 +179,7 @@ void CEngine::MainBucle(){
 			case OPTION: 
 				break;
 		}
+		
 	
 
 

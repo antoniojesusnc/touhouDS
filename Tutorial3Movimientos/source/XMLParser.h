@@ -20,16 +20,13 @@ class CXMLParser {
 	
 	public:
 		
-		class TXML{
+		struct TXML{
 			
-			
-			TXML()
-
 			char *string;
 			char *value;
 			u8 numChilds;
-			struct TXML **childs;
-			struct TXML *father;
+			TXML **childs;
+			TXML *father;
 		};
 
 		// Contructores
@@ -48,13 +45,14 @@ class CXMLParser {
 		char* ReadFile(const char *file);
 		TXML* Parse(const char *rawData);
 
-		void readWord(const char *rawData, int *index, char *&outWord);
+		void readTag(const char *rawData, int *index, char *&outWord);
+		void readValue(const char *rawData, int *index, char *&outWord);
 
 		TXML* createTXML(char *tag);
-		void addChildToTXML(TXML* &currentStruct,char* childToAdd);
+		void addChildToTXML(TXML *&currentStruct,char* childToAdd, TXML**&temp);
 
-		void printXML(TXML* data);
-		void printSingleXML(TXML* data);
+		void printXML(TXML* data, u8 deep = 0);
+		void printSingleXML(TXML* data, u8 deep = 0);
 
 		void debug();
 

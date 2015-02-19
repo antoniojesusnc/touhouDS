@@ -36,6 +36,9 @@
 #include "Inputs.h"
 #include "Button.h"
 
+// XML
+#include "XMLParser.h"
+
 // othes
 #include "Movement.h"
 

@@ -21,6 +21,7 @@
 #include "Movement.h"
 #include "Math.h"
 #include "XMLParser.h"
+#include "XMLParser2.h"
 
 #include "Debug.h"
 
@@ -54,8 +55,12 @@ CCharacter::~CCharacter(void) {
 
 void CCharacter::Init(Vector2 *position) {
 
-	CXMLParser *data = new CXMLParser("demo");
-
+	//*
+	CXMLParser *data = new CXMLParser("sakuya");
+	//CXMLParser *data = new CXMLParser("demo");
+	/*/
+	CXMLParser2 *data = new CXMLParser2("demo");
+	/* */
 
 	// leo las caracteristicas del player
 	_health = 100;

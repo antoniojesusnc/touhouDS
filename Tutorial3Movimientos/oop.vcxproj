@@ -71,6 +71,7 @@
     <ClCompile Include="source\Text.cpp" />
     <ClCompile Include="source\Time.cpp" />
     <ClCompile Include="source\XMLParser.cpp" />
+    <ClCompile Include="source\XMLParser2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Makefile" />
@@ -93,6 +94,7 @@
     <ClInclude Include="source\Text.h" />
     <ClInclude Include="source\Time.h" />
     <ClInclude Include="source\XMLParser.h" />
+    <ClInclude Include="source\XMLParser2.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
