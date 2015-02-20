@@ -4,38 +4,25 @@
 	</data>
 	<movements>
 		<movement>
-			<nombre>Stand</nombre>
-			<prioridad>0</prioridad>
-			<nameSprite>WalkRight</nameSprite>
-			<totalDuration>1</totalDuration>
+			<name>Stand</name>
+			<priority>0</priority>
+			<sprite>
+				<nameSprite>sakuya3</nameSprite>
+				<width>32</width>
+				<height>64</height>
+				<numFrames>6</numFrames>
+			</sprite>
+			<totalDuration>6</totalDuration>
 			<loopable>true</loopable>
 			<canBeBlocked>true</canBeBlocked>
 			<movementData>
 				<frame>
 					<duration>1</duration>
-					<damage>1</damage>
-					<positionX>1</positionX>
-					<positionY>1</positionY>
-					<offsetX>1</offsetX>
-					<offsetY>1</offsetY>
-				</frame>
-			</movementData>
-		</movement>
-		<movement>
-			<nombre>WalkRight</nombre>
-			<prioridad>0</prioridad>
-			<nameSprite>WalkRight</nameSprite>
-			<totalDuration>1</totalDuration>
-			<loopable>true</loopable>
-			<canBeBlocked>true</canBeBlocked>
-			<movementData>
-				<frame>
-					<duration>1</duration>
-					<damage>1</damage>
-					<positionX>1</positionX>
-					<positionY>1</positionY>
-					<offsetX>1</offsetX>
-					<offsetY>1</offsetY>
+					<damage>0</damage>
+					<positionX>0</positionX>
+					<positionY>0</positionY>
+					<offsetX>0</offsetX>
+					<offsetY>0</offsetY>
 				</frame>
 			</movementData>
 		</movement>

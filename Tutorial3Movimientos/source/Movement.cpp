@@ -44,7 +44,28 @@ CMovement::~CMovement(void) {
 	Metodos de la clase "CMovement"
 */
 
-void CMovement::Init(CXMLParser::TXML* movement, CCharacter *owner) {
+void CMovement::Init(CXMLParser::TXML* movementData, CCharacter *owner) {
+	_owner = owner;
+	_characterPosition = owner->getPosition();
+	char *auxTag;
+	for(vu8 i = 0; i < movementData->numChilds; ++i){
+		auxTag = movementData->childs[i]->tag;
+
+		if(strcmp(auxTag, "name") == 0){
+			strcpy(_name, movementData->childs[i]->value);
+		}else if(strcmp(auxTag, "priority") == 0){
+			_priority = atoi(movementData->childs[i]->value);
+		}else if(strcmp(auxTag, "sprite") == 0){
+			initSprite(movementData->childs[i]);
+		}else if(strcmp(auxTag, "totalDuration") == 0){
+			_totalDuration = atoi(movementData->childs[i]->value);
+		}else if(strcmp(auxTag, "loopable") == 0){
+			_loopeable = strcmp(movementData->childs[i]->value, "true") == 0?true:false;
+		}else if(strcmp(auxTag, "canBeBlocked") == 0){
+			_canBeBlock = strcmp(movementData->childs[i]->value, "true") == 0?true:false;
+		}
+	}
+	
 
 	/*
 	strcpy(_name, movement);
@@ -100,6 +121,35 @@ void CMovement::Init(CXMLParser::TXML* movement, CCharacter *owner) {
 	
 } // Init
 
+void CMovement::initSprite(CXMLParser::TXML* spriteData) {
+
+	vu8 width;
+	vu8 height;
+	vu8 numFrames;
+	char path[100];
+
+	char *auxTag;
+	for(vu8 i = 0; i < spriteData->numChilds; ++i){
+		auxTag = spriteData->childs[i]->tag;
+
+		if(strcmp(auxTag, "nameSprite") == 0){
+			strcpy(path,"sprite/characters/");
+			strcat(path, _owner->getName());
+			strcat(path, "/");
+			strcat(path, spriteData->childs[i]->value);
+		}else if(strcmp(auxTag, "width") == 0){
+			width = atoi(spriteData->childs[i]->value);
+		}else if(strcmp(auxTag, "height") == 0){
+			height = atoi(spriteData->childs[i]->value);
+		}else if(strcmp(auxTag, "numFrames") == 0){
+			numFrames = atoi(spriteData->childs[i]->value);
+		}
+	}
+
+	_sprite = new CSpriteAnimated(path,"sprite/characters/sakuya/sakuya",width,height,numFrames);	
+	free(path);
+}
+
 void CMovement::StartMovement() {
 
 	_activated = true;
@@ -135,7 +185,7 @@ void CMovement::UpdateMovement(vfloat32 time) {
 	_currentDuration += time;
 
 	
-	if(!_loopeable && _currentDuration >= _duration){
+	if(!_loopeable && _currentDuration >= _totalDuration){
 		if(_loopeable){
 			_currentDuration = 0;
 		}else{

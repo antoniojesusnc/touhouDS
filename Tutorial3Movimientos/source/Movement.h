@@ -34,7 +34,8 @@ class CMovement {
 		// Destructor
 		~CMovement(void);
 		
-		void Init(CXMLParser::TXML* movement, CCharacter *_owner);
+		void Init(CXMLParser::TXML* movementData, CCharacter *_owner);
+		
 
 		// startMovement
 		void StartMovement();
@@ -51,8 +52,6 @@ class CMovement {
 
 		char *getName(){return _name;}
 
-		void setDamage(u8 damage){_damage = damage;}
-		void setDuration(u8 duration){_duration = duration;}
 		void setActivated(bool activated){_activated = activated;}
 		
 		bool isActivated(){ return _activated;}
@@ -71,23 +70,35 @@ class CMovement {
 	
 	private:
 		
+		void initSprite(CXMLParser::TXML* spriteData);
+		void initFrames(CXMLParser::TXML* frameData);
+
+		// character Pointers
 		CCharacter *_owner;
 		Vector2 *_characterPosition;
 
 		CInputs::Direction _direction;
 		CInputs::Commands _command;
 
+		// movement attributes
 		char *_name;
-		u8 _damage;
-		u8 _duration;
+		u8 _priority;
+		u8 _totalDuration;
+		bool _canBeBlock;
+		bool _loopeable;
+
+		// attributes per frame
+		Vector2 *_offsetPerFrame;
+		Vector2 *_positionPerFrame;
+		Vector2 *_damagePerFrame;
+		float *_durationPerFrame;
+
+
 		u8 _currentDuration;
 		Vector2 *_position;
 		CSpriteAnimated *_sprite;		
-		Vector2 *_offsetPerFrame;
 
-		bool _canBeBlock;
 		bool _activated;
-		bool _loopeable;
 		CInputs::Direction _lookDirection;
 };
 

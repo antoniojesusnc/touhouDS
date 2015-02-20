@@ -44,6 +44,7 @@ class CCharacter {
 		// gets & sets
 		Vector2* getPosition(){return _position;}
 		bool isLookingRight(){return _lookingFor == CInputs::Right;}
+		char* getName(){return _name;}
 
 	private:
 

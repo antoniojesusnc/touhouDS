@@ -79,7 +79,7 @@ void CBattle::InitBattle(){
 	//backgroundBot->CreateBackground(false);	
 	
 	Vector2 *pos = new Vector2(192-64,255*0.5f);
-	_characters[0] = new CCharacter("sakuya" );
+	_characters[0] = new CCharacter("sakuya");
 	_characters[0]->Init(pos);
 	//delete pos;
 

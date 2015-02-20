@@ -31,8 +31,10 @@
 
 // Contructor clase CCharacter
 CCharacter::CCharacter(const char *character) {
+	vu8 lenth = strlen(character);
+	_name = (char*)malloc(sizeof(char)*(lenth) );
+	_name[lenth] = '\0';
 	strcpy(_name, character);
-
 	
 
 	_input = CInputs::getInstance();
@@ -56,15 +58,15 @@ void CCharacter::Init(Vector2 *position) {
 
 	
 	//CXMLParser *data = new CXMLParser("sakuya");
-	CXMLParser *xmlRaw = new CXMLParser("sakuya");
+	CXMLParser *xmlRaw = new CXMLParser(_name);
 	_position = new Vector2(*position);
 
 	loadAttributes(xmlRaw->getDataByTag("data"));
-	//loadMovements(xmlRaw->getDataByTag("movements"));
+	loadMovements(xmlRaw->getDataByTag("movements"));
 	//_currentMovement = &_movementList[0];
 	//_currentMovement->StartMovement(_position);
 	_indexMovement = 0;
-	//_movementList[_indexMovement].StartMovement();
+	_movementList[_indexMovement].StartMovement();
 } // Init
 
 void CCharacter::loadAttributes(CXMLParser::TXML *data){
@@ -81,11 +83,11 @@ void CCharacter::loadAttributes(CXMLParser::TXML *data){
 } // loadAttributes
 
 void CCharacter::loadMovements(CXMLParser::TXML *data){
-
-	//_movementList = new CMovement[data->numChilds]();
+	
+	_movementList = new CMovement[data->numChilds]();
 	// leo la lista de movimientos
 	for(vu8 i = 0; i < data->numChilds; ++i){
-		//_movementList[i].Init(data->childs[i], this);
+		_movementList[i].Init(data->childs[i], this);
 	}
 
 	/*	
@@ -129,11 +131,11 @@ bool CCharacter::checkAndChangeIfDiferent(u8 newIndex){
 
 void CCharacter::UpdateCharacter(vfloat32 time) {
 	
-	/*
-	checkMovement();
+	
+	//checkMovement();
 
 	_movementList[_indexMovement].UpdateMovement(time);
-	*/
+	
 
 	
 } // UpdateCharacter
