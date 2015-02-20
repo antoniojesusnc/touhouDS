@@ -22,7 +22,7 @@ class CXMLParser {
 		
 		struct TXML{
 			
-			char *string;
+			char *tag;
 			char *value;
 			u8 numChilds;
 			TXML **childs;
@@ -35,12 +35,12 @@ class CXMLParser {
 		// Destructor
 		~CXMLParser(void);
 		
-		
+		void printData();
+		TXML* getDataByTag(char* tag, TXML* current = NULL );
+		TXML* getData(){return _data;}
 	private:
 
-		TXML * _data;
-		const char * _rawData;
-		int *_index;
+		TXML* _data;
 
 		char* ReadFile(const char *file);
 		TXML* Parse(const char *rawData);
@@ -51,11 +51,10 @@ class CXMLParser {
 		TXML* createTXML(char *tag);
 		void addChildToTXML(TXML *&currentStruct,char* childToAdd, TXML**&temp);
 
+		
 		void printXML(TXML* data, u8 deep = 0);
 		void printSingleXML(TXML* data, u8 deep = 0);
-
-		void debug();
-
+		bool tagCompare(TXML *data, char* tag);
 		bool isValidChar(volatile char c);
 };
 

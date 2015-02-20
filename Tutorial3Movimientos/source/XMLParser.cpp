@@ -44,12 +44,9 @@ CXMLParser::CXMLParser(const char *characterName) {
 
 	char *rawData = ReadFile(fileName);
 	free(fileName);
-
 	_data = Parse(rawData);
-
-	printXML(_data);
-
-	//debug();
+	free(rawData);
+	
 } // CCharacterParser
 
 char* CXMLParser::ReadFile(const char *fileName){
@@ -88,8 +85,6 @@ CXMLParser::TXML* CXMLParser::Parse(const char *rawData){
 	TXML *currentStructedData = NULL;
 
 	TXML **auxChild;
-	_index = &index;
-	_rawData = rawData;
 
 	//printf("\n %s\n", rawData);
 	while(rawData[index] != 0){//'\0'){
@@ -161,7 +156,7 @@ void CXMLParser::readValue(const char *rawData, int* index, char *&outWord){
 CXMLParser::TXML* CXMLParser::createTXML(char *tag){
 
 	TXML *tempData = (TXML*)malloc(sizeof(TXML));
-	tempData->string = tag;
+	tempData->tag = tag;
 	tempData->value = NULL;
 	tempData->numChilds = 0;
 	tempData->childs = NULL;
@@ -173,12 +168,11 @@ CXMLParser::TXML* CXMLParser::createTXML(char *tag){
 void  CXMLParser::addChildToTXML(TXML *&currentStruct,char* childToAdd, TXML**&temp){
 	temp = (TXML**)malloc(sizeof(TXML*)*(currentStruct->numChilds+1));
 	vu8 i;
-	vu8 auxSize;
 	for(i = 0; i < currentStruct->numChilds; ++i){
 		temp[i] = currentStruct->childs[i];
 		/*
 		temp[i] = (TXML*)malloc(sizeof(TXML));
-		temp[i]->string = currentStruct->childs[i]->string;
+		temp[i]->tag = currentStruct->childs[i]->tag;
 		temp[i]->value = currentStruct->childs[i]->value;
 		temp[i]->childs = currentStruct->childs[i]->childs;
 		temp[i]->father = currentStruct;
@@ -189,7 +183,7 @@ void  CXMLParser::addChildToTXML(TXML *&currentStruct,char* childToAdd, TXML**&t
 	}
 	temp[i] = (TXML*)malloc(sizeof(TXML));
 	
-	temp[i]->string = childToAdd;
+	temp[i]->tag = childToAdd;
 	temp[i]->value = NULL;
 	temp[i]->numChilds = 0;
 	temp[i]->father = currentStruct;
@@ -200,6 +194,50 @@ void  CXMLParser::addChildToTXML(TXML *&currentStruct,char* childToAdd, TXML**&t
 	currentStruct->childs = &temp[0];
 	currentStruct = temp[i];
 } // addChildToTXML
+
+bool CXMLParser::isValidChar(volatile char c){
+	// numbers   // lower case    // upper case  // character /
+	return c > 21 && c < 125;
+	//return  ( (c > 48 && c < 57) || (c > 65 && c < 90) || (c > 91 && c < 122) || c == 47); 
+			
+}
+
+CXMLParser::TXML* CXMLParser::getDataByTag(char * tag, TXML* current){
+
+	if(current == NULL)
+		current = _data;
+
+	if(tagCompare(current, tag ))
+		return current;
+	TXML *temp;
+	for(vu8 i = 0; i < current->numChilds; ++i){
+		if((temp = getDataByTag(tag, current->childs[i])) != NULL){
+			return temp;
+		}
+	}
+	
+	return NULL;
+} // getDataByTag
+
+bool CXMLParser::tagCompare(TXML *data, char * tag){
+
+	if(strcmp(data->tag, tag) == 0){
+		return true;
+	}else{
+		return false;
+	}
+	
+	
+} // tagCompare
+
+// Destructor clase CCharacterParser
+CXMLParser::~CXMLParser(void) {
+
+} // ~CCharacterParser
+
+void CXMLParser::printData(){
+	printXML(_data);
+} // printData
 
 void CXMLParser::printXML(TXML* data, u8 deep){
 
@@ -223,29 +261,5 @@ void CXMLParser::printSingleXML(TXML* data, u8 deep){
 	for(vu8 i = 0; i < deep; ++i){
 		printf(" ");
 	}
-	printf("%s:%s-%d",data->string, data->value, data->numChilds);
+	printf("%s:%s-%d",data->tag, data->value, data->numChilds);
 } // printSingleXML
-
-bool CXMLParser::isValidChar(volatile char c){
-	// numbers   // lower case    // upper case  // character /
-	return c > 21 && c < 125;
-	//return  ( (c > 48 && c < 57) || (c > 65 && c < 90) || (c > 91 && c < 122) || c == 47); 
-			
-}
-
-// Destructor clase CCharacterParser
-CXMLParser::~CXMLParser(void) {
-
-} // ~CCharacterParser
-
-
-
-void CXMLParser::debug(){
-	int index = 0;
-	printf("\n Size %d\n",strlen(_rawData));
-	while(_rawData[index] != 0){
-		printf("%c",_rawData[index] );
-		++index;
-	}
-}
-

@@ -21,7 +21,6 @@
 #include "Movement.h"
 #include "Math.h"
 #include "XMLParser.h"
-#include "XMLParser2.h"
 
 #include "Debug.h"
 
@@ -55,31 +54,48 @@ CCharacter::~CCharacter(void) {
 
 void CCharacter::Init(Vector2 *position) {
 
-	//*
-	CXMLParser *data = new CXMLParser("sakuya");
-	//CXMLParser *data = new CXMLParser("demo");
-	/*/
-	CXMLParser2 *data = new CXMLParser2("demo");
-	/* */
-
-	// leo las caracteristicas del player
-	_health = 100;
+	
+	//CXMLParser *data = new CXMLParser("sakuya");
+	CXMLParser *xmlRaw = new CXMLParser("sakuya");
 	_position = new Vector2(*position);
-	_horizontalSpeed = new Vector2(2,0);
 
+	loadAttributes(xmlRaw->getDataByTag("data"));
+	//loadMovements(xmlRaw->getDataByTag("movements"));
+	//_currentMovement = &_movementList[0];
+	//_currentMovement->StartMovement(_position);
+	_indexMovement = 0;
+	//_movementList[_indexMovement].StartMovement();
+} // Init
+
+void CCharacter::loadAttributes(CXMLParser::TXML *data){
+	// leo las caracteristicas del player
+	for(vu8 i = 0; i < data->numChilds; ++i){
+		if(strcmp(data->childs[i]->tag, "health") == 0){
+			_health = atoi(data->childs[i]->value);
+		}else if(strcmp(data->tag, "a") == 0){
+		
+		}
+	}
+
+	_horizontalSpeed = new Vector2(2,0);
+} // loadAttributes
+
+void CCharacter::loadMovements(CXMLParser::TXML *data){
+
+	//_movementList = new CMovement[data->numChilds]();
 	// leo la lista de movimientos
+	for(vu8 i = 0; i < data->numChilds; ++i){
+		//_movementList[i].Init(data->childs[i], this);
+	}
+
+	/*	
 	_movementList = new CMovement[3]();
 	// load movements
 	_movementList[0].Init("0", this);
 	_movementList[1].Init("1", this);
 	_movementList[2].Init("2", this);
-	
-	
-	//_currentMovement = &_movementList[0];
-	//_currentMovement->StartMovement(_position);
-	_indexMovement = 0;
-	_movementList[_indexMovement].StartMovement();
-} // Init
+	*/
+} // loadMovements
 
 void CCharacter::checkMovement() {
 	if(_input->getDirections()[0] == CInputs::NoDir){
@@ -113,11 +129,11 @@ bool CCharacter::checkAndChangeIfDiferent(u8 newIndex){
 
 void CCharacter::UpdateCharacter(vfloat32 time) {
 	
-
+	/*
 	checkMovement();
 
 	_movementList[_indexMovement].UpdateMovement(time);
-	//_currentMovement->UpdateMovement(time);
+	*/
 
 	
 } // UpdateCharacter

@@ -16,6 +16,7 @@
 #include <nds.h>
 
 #include "Inputs.h"
+#include "XMLParser.h"
 
 // Defines
 class Vector2;
@@ -33,7 +34,7 @@ class CMovement {
 		// Destructor
 		~CMovement(void);
 		
-		void Init(const char *movement, CCharacter *_owner);
+		void Init(CXMLParser::TXML* movement, CCharacter *_owner);
 
 		// startMovement
 		void StartMovement();

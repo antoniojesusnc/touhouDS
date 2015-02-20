@@ -44,9 +44,14 @@ CMovement::~CMovement(void) {
 	Metodos de la clase "CMovement"
 */
 
-void CMovement::Init(const char *movement, CCharacter *owner) {
+void CMovement::Init(CXMLParser::TXML* movement, CCharacter *owner) {
 
-
+	/*
+	strcpy(_name, movement);
+	_owner = owner;
+	_characterPosition = owner->getPosition();
+	
+	
 	if(strcmp(movement,"0") == 0){
 		
 		_sprite = new CSpriteAnimated("sprite/characters/sakuya/sakuya3","sprite/characters/sakuya/sakuya",32,64,6);
@@ -79,7 +84,7 @@ void CMovement::Init(const char *movement, CCharacter *owner) {
 		_offsetPerFrame = new Vector2[_sprite->getMaxFrame()];
 		_lookDirection = CInputs::Left;
 	}
-	
+	*/
 	/*
 	strcpy(_name, movement);	
 
@@ -91,9 +96,7 @@ void CMovement::Init(const char *movement, CCharacter *owner) {
 	_canBeBlock = true;
 	_offsetPerFrame = new Vector2[_sprite->getMaxFrame()];
 	*/
-	strcpy(_name, movement);
-	_owner = owner;
-	_characterPosition = owner->getPosition();
+	
 	
 } // Init
 

@@ -1,4 +1,4 @@
-﻿Build started 2/19/2015 10:25:34 AM.
+﻿Build started 2/20/2015 8:49:57 PM.
      1>Project "C:\nds\Projects\Tutoriales\touhouDS\Tutorial3Movimientos\oop.vcxproj" on node 2 (rebuild target(s)).
      1>CoreClean:
          make clean
@@ -18,13 +18,10 @@
                   ^
          Character.cpp
          arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/build/Character.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Character.cpp -o Character.o 
-         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Character.cpp(63):2: warning: "/*" within comment [-Wcomment]
-           /* */
-          ^
          c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Character.cpp: In member function 'void CCharacter::Init(Vector2*)':
-         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Character.cpp(59):14: warning: unused variable 'data' [-Wunused-variable]
-           CXMLParser *data = new CXMLParser("sakuya");
-                       ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Character.cpp(62):44: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+           loadAttributes(xmlRaw->getDataByTag("data"));
+                                                     ^
          Debug.cpp
          arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/build/Debug.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Debug.cpp -o Debug.o 
          c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Debug.cpp(66):2: warning: "/*" within comment [-Wcomment]
@@ -51,31 +48,9 @@
          XMLParser.cpp
          arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/build/XMLParser.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/XMLParser.cpp -o XMLParser.o 
          c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/XMLParser.cpp: In member function 'char* CXMLParser::ReadFile(const char*)':
-         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/XMLParser.cpp(69):37: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/XMLParser.cpp(66):37: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
             if(fread(entireFile,1,len,inf) != len)
                                               ^
-         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/XMLParser.cpp: In member function 'void CXMLParser::addChildToTXML(CXMLParser::TXML*&, char*, CXMLParser::TXML**&)':
-         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/XMLParser.cpp(176):6: warning: unused variable 'auxSize' [-Wunused-variable]
-           vu8 auxSize;
-               ^
-         XMLParser2.cpp
-         arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/build/XMLParser2.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/XMLParser2.cpp -o XMLParser2.o 
-         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/XMLParser2.cpp: In member function 'char* CXMLParser2::ReadFile(const char*)':
-         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/XMLParser2.cpp(72):37: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
-            if(fread(entireFile,1,len,inf) != len)
-                                              ^
-         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/XMLParser2.cpp: In member function 'CXMLParser2::TXML* CXMLParser2::Parse(const char*)':
-         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/XMLParser2.cpp(93):1: warning: no return statement in function returning non-void [-Wreturn-type]
-          } // Parse
-          ^
-         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/XMLParser2.cpp: In member function 'CXMLParser2::TXML* CXMLParser2::createTXML(char*)':
-         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/XMLParser2.cpp(107):1: warning: no return statement in function returning non-void [-Wreturn-type]
-          } // createEmptyTXML
-          ^
-         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/XMLParser2.cpp: In member function 'CXMLParser2::TXML* CXMLParser2::addChildToTXML(CXMLParser2::TXML**, char*)':
-         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/XMLParser2.cpp(112):1: warning: no return statement in function returning non-void [-Wreturn-type]
-          } // addChildToTXML
-          ^
          main.cpp
          arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/build/main.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/main.cpp -o main.o 
          linking Tutorial3Movimientos.elf
@@ -86,4 +61,4 @@
 
 Compilación correcta.
 
-Time Elapsed 00:00:07.13
+Time Elapsed 00:00:06.42

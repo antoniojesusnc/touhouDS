@@ -15,12 +15,12 @@
 // Includes propietarios NDS
 #include <nds.h>
 #include "Inputs.h"
+#include "XMLParser.h"
 
 // Defines
 class CMovement;
 class CSpriteAnimated;
 class Vector2;
-
 
 // Clase CCharacter
 class CCharacter {
@@ -39,7 +39,7 @@ class CCharacter {
 		void UpdateCharacter(vfloat32 time);
 
 		// other methods
-		void changeLookDirection();
+		void ChangeLookDirection();
 
 		// gets & sets
 		Vector2* getPosition(){return _position;}
@@ -51,6 +51,9 @@ class CCharacter {
 
 		//bool checkAndChangeIfDiferent(CMovement *m);
 		bool checkAndChangeIfDiferent(u8 newIndex);
+		
+		void loadAttributes(CXMLParser::TXML* data);
+		void loadMovements(CXMLParser::TXML* data);
 
 		// characteristics
 		char* _name;

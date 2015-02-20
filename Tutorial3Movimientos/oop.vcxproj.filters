@@ -81,9 +81,6 @@
     <ClCompile Include="source\XMLParser.cpp">
       <Filter>source\UseFul</Filter>
     </ClCompile>
-    <ClCompile Include="source\XMLParser2.cpp">
-      <Filter>source\UseFul</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Makefile" />
@@ -138,9 +135,6 @@
       <Filter>include\Character</Filter>
     </ClInclude>
     <ClInclude Include="source\XMLParser.h">
-      <Filter>include\UseFul</Filter>
-    </ClInclude>
-    <ClInclude Include="source\XMLParser2.h">
       <Filter>include\UseFul</Filter>
     </ClInclude>
   </ItemGroup>
