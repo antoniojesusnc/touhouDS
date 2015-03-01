@@ -46,16 +46,14 @@ CSprite::CSprite(const char *sprite, u16 width, u16 height) {
 
 	_idRam = CSprite::IdRam++;
 	NF_LoadSpriteGfx(sprite, _idRam, width, height);
-	
 	_size = new Vector2(width,height);
-
-	//CDebug::getInstance()->WriteText("a ver: ", &_size );
-
 	_inVram = false;
 	
 	if(CSprite::IdRam >= MAX_ID_SPRITE_RAM){
 		CSprite::IdRam = 0;
 	}
+
+	_position = new Vector2();
 } // CSprite
 
 // Contructor clase CSprite
@@ -63,18 +61,17 @@ CSprite::CSprite(const char *sprite,const char *palette, u16 width, u16 height) 
 	
 	_idVRam = -1;
 	_idScreen= -1;
-
+	
 	_idRam = CSprite::IdRam++;
 	NF_LoadSpriteGfx(sprite, _idRam, width, height);
-	
 	_size = new Vector2(width,height);
 	_inVram = false;
-	
 	if(CSprite::IdRam >= MAX_ID_SPRITE_RAM){
 		CSprite::IdRam = 0;
 	}
-
 	_palette = new CPalette(palette);
+
+	_position = new Vector2();
 } // CSprite
 
 // Destructor clase CSprite
@@ -151,15 +148,15 @@ u16 CSprite::MoveSpriteToVRam(bool upScreen, bool palette, bool loadOnlyFirst){
 
 
 
-void CSprite::CreateSprite(const Vector2 *position) {
+void CSprite::CreateSprite(Vector2 *position) {
 	if(!_inVram)
 		MoveSpriteToVRam(_upScreen,true);
 		
 	_idScreen = CSprite::IdScreen++;
-	_position = new Vector2 (*position);
+	_position->setXY(*position);
 	
 	// Crea el Sprite
-	NF_CreateSprite(getScreen(),_idScreen, _idVRam, _palette->getIdVRam(), (*_position).x, (*_position).y);
+	NF_CreateSprite(getScreen(),_idScreen, _idVRam, _palette->getIdVRam(), _position->getX(), _position->getY());
 
 	if(CSprite::IdScreen >= MAX_ID_SPRITE_SCREEN){
 		CSprite::IdScreen = 0;
@@ -169,23 +166,24 @@ void CSprite::CreateSprite(const Vector2 *position) {
 
 
 // Mueve las bolas
-void CSprite::MoveSpriteToPos(const Vector2 *newPosition) {
+void CSprite::MoveSpriteToPos(Vector2 *newPosition) {
 	if(newPosition == _position)
 		return;
 
-	delete _position;
-	_position = new Vector2(*newPosition);
+	//delete _position;
+	//_position = new Vector2(*newPosition);
+	_position->setXY(newPosition->getX(), newPosition->getY());
 	// Mueve el sprite
 	NF_MoveSprite(getScreen(), _idScreen, _position->getX(), _position->getY());
 	
 }
 
 void CSprite::FlipTo(CInputs::Direction direction){
-	if(direction == CInputs::Right && isflipped()){
+	if(direction == CInputs::DirFront && isflipped()){
 		_flipped = false;
 		NF_HflipSprite(getScreen(), _idScreen, _flipped);
 	}else{
-		if(direction == CInputs::Left && !isflipped()){
+		if(direction == CInputs::DirBack && !isflipped()){
 			_flipped = true;
 			NF_HflipSprite(getScreen(), _idScreen, _flipped);
 		}

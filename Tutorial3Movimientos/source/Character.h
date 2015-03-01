@@ -19,7 +19,7 @@
 
 // Defines
 class CMovement;
-class CSpriteAnimated;
+class CPalette;
 class Vector2;
 
 // Clase CCharacter
@@ -43,7 +43,7 @@ class CCharacter {
 
 		// gets & sets
 		Vector2* getPosition(){return _position;}
-		bool isLookingRight(){return _lookingFor == CInputs::Right;}
+		bool isLookingRight(){return _lookingFor == CInputs::Front;}
 		char* getName(){return _name;}
 
 	private:
@@ -51,9 +51,10 @@ class CCharacter {
 		void checkMovement();
 
 		//bool checkAndChangeIfDiferent(CMovement *m);
-		bool checkAndChangeIfDiferent(u8 newIndex);
+		bool checkChangeCommand(u8 newIndex);
 		
 		void loadAttributes(CXMLParser::TXML* data);
+		void loadPalette();
 		void loadMovements(CXMLParser::TXML* data);
 
 		// characteristics
@@ -62,17 +63,19 @@ class CCharacter {
 		Vector2 *_horizontalSpeed;
 
 		// graphics
+		CPalette *_palette;
 		Vector2* _position;
-		CSpriteAnimated* _standPos;
 
 		// movemnts
 		//CMovement *_currentMovement;
 		
-		CMovement *_movementList;
+		CMovement **_movementList;
 		u8 _indexMovement;
-		CInputs::Direction _lookingFor;
+		CInputs::Commands _lookingFor;
 
-		CInputs *_input;
+		CInputs::Direction *_directions;
+		CInputs::Commands *_commnads;
+		
 	
 };
 

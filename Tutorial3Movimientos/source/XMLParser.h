@@ -41,7 +41,7 @@ class CXMLParser {
 	private:
 
 		TXML* _data;
-
+		char *_rawData;
 		char* ReadFile(const char *file);
 		TXML* Parse(const char *rawData);
 
@@ -56,6 +56,14 @@ class CXMLParser {
 		void printSingleXML(TXML* data, u8 deep = 0);
 		bool tagCompare(TXML *data, char* tag);
 		bool isValidChar(volatile char c);
+
+
+
+		// destory
+		void destroyXML(TXML* data);
+		void destroySingleXML(TXML* data);
+
+
 };
 
 

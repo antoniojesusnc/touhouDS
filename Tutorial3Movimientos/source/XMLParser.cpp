@@ -42,10 +42,10 @@ CXMLParser::CXMLParser(const char *characterName) {
 	strcat(fileName , characterName);
 	strcat(fileName , ".xml");
 
-	char *rawData = ReadFile(fileName);
+	_rawData = ReadFile(fileName);
 	free(fileName);
-	_data = Parse(rawData);
-	free(rawData);
+	_data = Parse(_rawData);
+	//free(rawData);
 	
 } // CCharacterParser
 
@@ -60,8 +60,9 @@ char* CXMLParser::ReadFile(const char *fileName){
 		len = ftell(inf);
 		fseek(inf,0,SEEK_SET);
 
-		char *entireFile = (char*)malloc(len+1);
+		char *entireFile = (char*)malloc(len+2);
 		entireFile[len] = 0;//'\0';
+		entireFile[len+1] = '\0';
 
 		if(fread(entireFile,1,len,inf) != len)
 			NF_Error(404, "file not found",1);
@@ -233,7 +234,26 @@ bool CXMLParser::tagCompare(TXML *data, char * tag){
 // Destructor clase CCharacterParser
 CXMLParser::~CXMLParser(void) {
 
+	free(_rawData);
+
+	destroyXML(_data);
 } // ~CCharacterParser
+
+void CXMLParser::destroyXML(TXML* data){
+
+	for(vu8 i = 0; i < data->numChilds; ++i){
+		destroyXML(data->childs[i]);
+	}
+	destroySingleXML(data);
+} // destroyXML
+
+void CXMLParser::destroySingleXML(TXML* data){
+	free(data->tag);
+	free(data->value);
+	data->father = NULL;
+} // destroySingleXML
+
+
 
 void CXMLParser::printData(){
 	printXML(_data);

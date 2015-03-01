@@ -19,6 +19,8 @@
 #include "Character.h"
 #include "Inputs.h"
 #include "Movement.h"
+#include "SpriteAnimated.h"
+#include "Palette.h"
 #include "Math.h"
 #include "XMLParser.h"
 
@@ -37,7 +39,7 @@ CCharacter::CCharacter(const char *character) {
 	strcpy(_name, character);
 	
 
-	_input = CInputs::getInstance();
+	_commnads = CInputs::getInstance()->getCommands();
 	//_standPos = new CSpriteAnimated("sprite/characters/sakuya/sakuya1","sprite/characters/sakuya/original",32,64, 1);
 	//_standPos = new CSpriteAnimated("sprite/bola","sprite/bola",32,32, 2);
 	//_standPos = new CSpriteAnimated("sprite/characters/sakuya/bola","sprite/characters/sakuya/bola",32,32, 2);
@@ -59,14 +61,18 @@ void CCharacter::Init(Vector2 *position) {
 	
 	//CXMLParser *data = new CXMLParser("sakuya");
 	CXMLParser *xmlRaw = new CXMLParser(_name);
+	//xmlRaw->printData();
 	_position = new Vector2(*position);
 
 	loadAttributes(xmlRaw->getDataByTag("data"));
+	loadPalette();
 	loadMovements(xmlRaw->getDataByTag("movements"));
 	//_currentMovement = &_movementList[0];
 	//_currentMovement->StartMovement(_position);
-	_indexMovement = 0;
-	_movementList[_indexMovement].StartMovement();
+	_indexMovement = (u16)CInputs::Stand;
+	_movementList[_indexMovement]->StartMovement();
+
+	//delete xmlRaw;
 } // Init
 
 void CCharacter::loadAttributes(CXMLParser::TXML *data){
@@ -82,14 +88,52 @@ void CCharacter::loadAttributes(CXMLParser::TXML *data){
 	_horizontalSpeed = new Vector2(2,0);
 } // loadAttributes
 
+void CCharacter::loadPalette(){
+
+	
+	char path[100];
+	strcpy(path,"sprite/characters/");
+	strcat(path, getName());
+	strcat(path, "/");
+	strcat(path, getName());
+	_palette = new CPalette(path);
+	//free(path);
+	
+
+	
+} // loadPallete
+
 void CCharacter::loadMovements(CXMLParser::TXML *data){
 	
-	_movementList = new CMovement[data->numChilds]();
+	//printf("\n %d ",_movementList );//,sizeof(CMovement*));
+
+	u8 num = CInputs::Size;
+	//_movementList = (CMovement**)malloc(sizeof(CMovement*)*data->numChilds);
+	_movementList = (CMovement**)malloc(sizeof(CMovement*)* num);
+	//_movementList = (*CMovement)[data->numChilds];
+	
+	for(vu8 i = 0; i < num; ++i){
+		_movementList[i] = NULL;
+	}
+	CMovement *tempMovement;
+
 	// leo la lista de movimientos
 	for(vu8 i = 0; i < data->numChilds; ++i){
-		_movementList[i].Init(data->childs[i], this);
-	}
+		tempMovement = new CMovement();
+		tempMovement->Init(data->childs[i], this);
+		
+		tempMovement->getSprite()->setPalette(_palette);
 
+		_movementList[tempMovement->getCommandIndex()] = tempMovement;
+		//tempMovement = NULL;		
+	}
+	
+	for(vu8 i = 0; i < num; ++i){
+		if(_movementList[i] != NULL){
+			printf("\n %d %s",i, CInputs::getInstance()->commandToString((CInputs::Commands)i ) );
+			
+		}
+	}
 	/*	
 	_movementList = new CMovement[3]();
 	// load movements
@@ -100,6 +144,9 @@ void CCharacter::loadMovements(CXMLParser::TXML *data){
 } // loadMovements
 
 void CCharacter::checkMovement() {
+
+	checkChangeCommand((u16)_commnads[0]);
+	/*
 	if(_input->getDirections()[0] == CInputs::NoDir){
 		if(checkAndChangeIfDiferent(0)) return;
 	}
@@ -113,17 +160,26 @@ void CCharacter::checkMovement() {
 		*_position -= *_horizontalSpeed;
 		if(checkAndChangeIfDiferent(2)) return;
 	}
+	*/
 
 } // checkMovement
 
-bool CCharacter::checkAndChangeIfDiferent(u8 newIndex){
-	if(_indexMovement != newIndex){
-		
-		_movementList[_indexMovement].CancelMovement();
-		_indexMovement = newIndex;
-		_movementList[_indexMovement].StartMovement();
+bool CCharacter::checkChangeCommand(u8 newIndex){
 
-		return true;
+	if(!_movementList[_indexMovement]->canBeBlock() && _movementList[_indexMovement]->isActivated())
+		return false;
+
+	if(_indexMovement != newIndex || !_movementList[_indexMovement]->isActivated()){
+		
+		if(_movementList[newIndex] != NULL){
+			_movementList[newIndex]->StartMovement();
+			
+			_movementList[_indexMovement]->CancelMovement();
+			_indexMovement = newIndex;
+			
+
+			return true;
+		}
 	}
 	return false;
 } // checkAndChangeIfDiferent
@@ -132,9 +188,18 @@ bool CCharacter::checkAndChangeIfDiferent(u8 newIndex){
 void CCharacter::UpdateCharacter(vfloat32 time) {
 	
 	
-	//checkMovement();
-
-	_movementList[_indexMovement].UpdateMovement(time);
+	checkMovement();
+	
+	
+	if(_movementList[_indexMovement] != NULL){
+		_movementList[_indexMovement]->UpdateMovement(time);
+	}
+	
+	
+	if(_commnads[0] != CInputs::Stand){
+		//printf("\n %d %d %s ",_indexMovement ,_commnads[0], CInputs::getInstance()->commandToString(_commnads[0]) );
+	}
+	
 	
 
 	

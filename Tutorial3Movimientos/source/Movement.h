@@ -20,6 +20,7 @@
 
 // Defines
 class Vector2;
+class CSprite;
 class CSpriteAnimated;
 class CCharacter;
 
@@ -50,10 +51,14 @@ class CMovement {
 		
 		// gets & sets
 
-		char *getName(){return _name;}
+		
 
 		void setActivated(bool activated){_activated = activated;}
-		
+
+		char *getName(){return _name;}
+		int getCommandIndex(){return (int)_command;}
+		CSpriteAnimated* getSprite(){return _sprite;}
+
 		bool isActivated(){ return _activated;}
 		bool canBeBlock(){ return _canBeBlock;}
 		// operators
@@ -73,12 +78,11 @@ class CMovement {
 		void initSprite(CXMLParser::TXML* spriteData);
 		void initFrames(CXMLParser::TXML* frameData);
 
+		CInputs::Commands _command;
+
 		// character Pointers
 		CCharacter *_owner;
 		Vector2 *_characterPosition;
-
-		CInputs::Direction _direction;
-		CInputs::Commands _command;
 
 		// movement attributes
 		char *_name;
@@ -88,15 +92,16 @@ class CMovement {
 		bool _loopeable;
 
 		// attributes per frame
-		Vector2 *_offsetPerFrame;
-		Vector2 *_positionPerFrame;
-		Vector2 *_damagePerFrame;
 		float *_durationPerFrame;
+		u8 *_damagePerFrame;
+		Vector2 **_positionPerFrame;
+		Vector2 **_offsetPerFrame;
 
-
+		// othres
 		u8 _currentDuration;
 		Vector2 *_position;
 		CSpriteAnimated *_sprite;		
+		u8 _frame;
 
 		bool _activated;
 		CInputs::Direction _lookDirection;

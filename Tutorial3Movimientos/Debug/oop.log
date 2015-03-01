@@ -1,4 +1,4 @@
-﻿Build started 2/20/2015 10:08:58 PM.
+﻿Build started 3/1/2015 4:28:34 AM.
      1>Project "C:\nds\Projects\Tutoriales\touhouDS\Tutorial3Movimientos\oop.vcxproj" on node 2 (rebuild target(s)).
      1>CoreClean:
          make clean
@@ -19,10 +19,10 @@
          Character.cpp
          arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/build/Character.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Character.cpp -o Character.o 
          c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Character.cpp: In member function 'void CCharacter::Init(Vector2*)':
-         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Character.cpp(64):44: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Character.cpp(67):44: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
            loadAttributes(xmlRaw->getDataByTag("data"));
                                                      ^
-         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Character.cpp(65):48: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Character.cpp(69):48: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
            loadMovements(xmlRaw->getDataByTag("movements"));
                                                          ^
          Debug.cpp
@@ -34,14 +34,167 @@
          arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/build/Engine.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Engine.cpp -o Engine.o 
          Inputs.cpp
          arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/build/Inputs.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Inputs.cpp -o Inputs.o 
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Inputs.cpp: In member function 'char* CInputs::commandToString(CInputs::Commands)':
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Inputs.cpp(271):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "BackDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Inputs.cpp(273):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "Down";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Inputs.cpp(275):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "FrontDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Inputs.cpp(277):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "Back";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Inputs.cpp(279):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "Stand";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Inputs.cpp(281):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "Front";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Inputs.cpp(283):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "BackUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Inputs.cpp(285):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "Up";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Inputs.cpp(287):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "FrontUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Inputs.cpp(290):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "AttackBackDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Inputs.cpp(292):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "AttackDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Inputs.cpp(294):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "AttackFrontDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Inputs.cpp(296):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "AttackBack";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Inputs.cpp(298):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "AttackStand";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Inputs.cpp(300):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "AttackFront";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Inputs.cpp(302):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "AttackBackUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Inputs.cpp(304):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "AttackUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Inputs.cpp(306):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "AttackFrontUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Inputs.cpp(309):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "ProjBackDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Inputs.cpp(311):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "ProjDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Inputs.cpp(313):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "ProjFrontDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Inputs.cpp(315):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "ProjBack";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Inputs.cpp(317):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "ProjStand";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Inputs.cpp(319):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "ProjFront";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Inputs.cpp(321):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "ProjBackUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Inputs.cpp(323):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "ProjUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Inputs.cpp(325):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "ProjFrontUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Inputs.cpp(328):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "StrongProjBackDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Inputs.cpp(330):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "StrongProjDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Inputs.cpp(332):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "StrongProjFrontDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Inputs.cpp(334):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "StrongProjBack";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Inputs.cpp(336):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "StrongProjStand";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Inputs.cpp(338):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "StrongProjFront";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Inputs.cpp(340):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "StrongProjBackUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Inputs.cpp(342):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "StrongProjUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Inputs.cpp(344):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "StrongProjFrontUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Inputs.cpp(347):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "DashBackDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Inputs.cpp(349):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "DashDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Inputs.cpp(351):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "DashFrontDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Inputs.cpp(353):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "DashBack";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Inputs.cpp(355):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "DashStand";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Inputs.cpp(357):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "DashFront";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Inputs.cpp(359):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "DashBackUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Inputs.cpp(361):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "DashUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Inputs.cpp(363):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "DashFrontUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Inputs.cpp(366):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "Hit";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Inputs.cpp(368):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "HitAir";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Inputs.cpp(370):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "HitGround";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Inputs.cpp(373):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "Start";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Inputs.cpp(375):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "Select";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Inputs.cpp(377):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "NoCommand";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Inputs.cpp(380):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "Error";
+                    ^
          Menu.cpp
          arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/build/Menu.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Menu.cpp -o Menu.o 
          Movement.cpp
          arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/build/Movement.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Movement.cpp -o Movement.o 
-         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Movement.cpp: In member function 'void CMovement::initSprite(CXMLParser::TXML*)':
-         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Movement.cpp(150):12: warning: attempt to free a non-heap object 'path' [-Wfree-nonheap-object]
-           free(path);
-                     ^
          Palette.cpp
          arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/build/Palette.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/Palette.cpp -o Palette.o 
          Sprite.cpp
@@ -55,7 +208,7 @@
          XMLParser.cpp
          arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/build/XMLParser.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/XMLParser.cpp -o XMLParser.o 
          c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/XMLParser.cpp: In member function 'char* CXMLParser::ReadFile(const char*)':
-         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/XMLParser.cpp(66):37: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial3Movimientos/source/XMLParser.cpp(67):37: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
             if(fread(entireFile,1,len,inf) != len)
                                               ^
          main.cpp
@@ -68,4 +221,4 @@
 
 Compilación correcta.
 
-Time Elapsed 00:00:07.65
+Time Elapsed 00:00:07.39

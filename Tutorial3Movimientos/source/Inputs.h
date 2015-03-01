@@ -24,9 +24,18 @@
 class CInputs {
 
 	public:
-		enum Direction{NoDir, Up, Down, Left, Right};
-		enum Commands{NoInput, Attack, WeakProj, StrongProj, Jump, Dash, Start, Select};
-
+		enum Direction{	DirBackDown, DirDown, DirFrontDown, DirBack, DirStand, DirFront, DirBackUp, DirUp, DirFrontUp};
+		enum Commands{
+					BackDown, Down, FrontDown, Back, Stand, Front, BackUp, Up, FrontUp,
+					AttackBackDown, AttackDown, AttackFrontDown, AttackBack, AttackStand, AttackFront, AttackBackUp, AttackUp, AttackFrontUp,
+					ProjBackDown, ProjDown, ProjFrontDown, ProjBack, ProjStand, ProjFront, ProjBackUp, ProjUp, ProjFrontUp,
+					StrongProjBackDown, StrongProjDown, StrongProjFrontDown, StrongProjBack, StrongProjStand, StrongProjFront, StrongProjBackUp, StrongProjUp, StrongProjFrontUp,
+					DashBackDown, DashDown, DashFrontDown, DashBack, DashStand, DashFront, DashBackUp, DashUp, DashFrontUp,
+					Hit, HitAir, HitGround,
+					Start, Select, NoCommand,
+					Size
+		};
+	
 		
 
 		// Destructor
@@ -42,6 +51,8 @@ class CInputs {
 		// singleton
 		static CInputs* getInstance();
 		
+		Commands stringToCommand(char* string);
+		char* commandToString(Commands command);
 
 	private:
 
@@ -54,6 +65,8 @@ class CInputs {
 		void incrementDirectionIndex();
 		void incrementInputsIndex();
 		
+		// debug
+
 		u16 _keys;
 		touchPosition _touchScreen;
 		Vector2 _touchPos;

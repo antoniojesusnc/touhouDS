@@ -42,10 +42,10 @@ class CSpriteAnimated : public CSprite {
 		u16 MoveSpriteToVRam(bool upScreen, bool palette, bool loadOnlyFirst = true);
 		
 		// Crea un spriteAnimated
-		void CreateSprite(const Vector2 *position);
+		void CreateSprite(Vector2 *position);
 
 		// Mueve el spriteAnimated
-		void MoveSpriteToPos(const Vector2 *newPosition);
+		void MoveSpriteToPos(Vector2 *newPosition);
 		
 		// actalizacion del sprite
 		void UpdateAnimation(vfloat32 time);
@@ -54,6 +54,9 @@ class CSpriteAnimated : public CSprite {
 		void setFrame(u8 frame);
 		u8 getMaxFrame(){ return _maxFrame;}
 		u8 getFrame(){ return _currentFrame;}
+		float* getDurationPerFrame(){return _durationPerFrame;}
+		void setDurationPerFrame(float *durationPerFrame){_durationPerFrame = durationPerFrame;}
+
 	private:	
 	
 		float *_durationPerFrame;

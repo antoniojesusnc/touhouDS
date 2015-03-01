@@ -58,10 +58,10 @@ class CSprite {
 		
 		
 		// Crea un sprite
-		virtual void CreateSprite(const Vector2 *position);
+		virtual void CreateSprite(Vector2 *position);
 
 		// Mueve el sprite
-		virtual void MoveSpriteToPos(const Vector2 *newPosition);
+		virtual void MoveSpriteToPos(Vector2 *newPosition);
 		
 		// volteo horizontal
 		void FlipTo(CInputs::Direction direction);
@@ -75,7 +75,7 @@ class CSprite {
 		CPalette* getPalette(){return _palette;}
 		Vector2 *getSize(){return _size;}
 		
-		void setPalette(const CPalette& palette){_palette = new CPalette(palette);}
+		void setPalette(CPalette* palette){_palette = palette;}
 		bool isUpScreen(){return _upScreen;}
 		bool isInVRam(){return _inVram;}
 		bool isflipped(){return _flipped;}

@@ -79,14 +79,16 @@ void CBattle::InitBattle(){
 	//backgroundBot->CreateBackground(false);	
 	
 	Vector2 *pos = new Vector2(192-64,255*0.5f);
+	
 	_characters[0] = new CCharacter("sakuya");
 	_characters[0]->Init(pos);
 	//delete pos;
-
+	
 	
 }
 
 // Mueve las bolas
-void CBattle::Update(vfloat32 time){	
+void CBattle::Update(vfloat32 time){
+	
 	_characters[0]->UpdateCharacter(time);
 } // Update

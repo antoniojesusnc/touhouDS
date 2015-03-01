@@ -31,9 +31,6 @@ CSpriteAnimated::CSpriteAnimated(const char *spriteAnimated, u16 width, u16 heig
 	_maxFrame = frames;
 	_durationPerFrame = new float[frames];
 
-	for(vu8 i = 0; i < frames; ++i){
-		_durationPerFrame[i] = 0.1f;
-	}
 } // CSpriteAnimated
 
 // Contructor clase CSpriteAnimated
@@ -42,9 +39,6 @@ CSpriteAnimated::CSpriteAnimated(const char *spriteAnimated,const char *palette,
 	_maxFrame = frames;
 	_durationPerFrame = new float[frames];
 
-	for(vu8 i = 0; i < frames; ++i){
-		_durationPerFrame[i] = 0.1f;
-	}
 } // CSpriteAnimated
 
 // Destructor clase CSpriteAnimated
@@ -64,13 +58,13 @@ CSpriteAnimated *SpriteAnimated;
 	return CSprite::MoveSpriteToVRam(upScreen, palette, false);
 } // MoveSpriteToVRam
 
-void CSpriteAnimated::CreateSprite(const Vector2 *position) {
+void CSpriteAnimated::CreateSprite(Vector2 *position) {
 	CSprite::CreateSprite(position);
 	_currentFrame = 0;
 } // CreateSprite
 
 // Mueve las bolas
-void CSpriteAnimated::MoveSpriteToPos(const Vector2 *newPosition) {
+void CSpriteAnimated::MoveSpriteToPos(Vector2 *newPosition) {
 	CSprite::MoveSpriteToPos(newPosition);
 } // MoveSpriteToPos
 
@@ -80,7 +74,7 @@ void CSpriteAnimated::setFrame(u8 frame){
 
 void CSpriteAnimated::UpdateAnimation(vfloat32 time){
 	_currentDuration += time;
-	
+	//printf("%f", _currentDuration);
 	if(_durationPerFrame[_currentFrame] < _currentDuration){
 		_currentDuration = 0;
 		++_currentFrame;

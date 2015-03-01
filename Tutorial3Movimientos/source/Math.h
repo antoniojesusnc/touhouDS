@@ -22,15 +22,15 @@
 class Vector2{
 	public:
 	
-	s16 x;
-	s16 y;
+	int x;
+	int y;
 	
 	Vector2(){
 		x = 0;
 		y = 0;
 	}
 
-	Vector2(s16 varX, s16 varY){
+	Vector2(int varX, int varY){
 		x = varX;
 		y = varY;
 	}
@@ -57,7 +57,7 @@ class Vector2{
 		return *this;
 	} // operator = vector2
 
-	Vector2& operator =(const s16 &number){
+	Vector2& operator =(const int &number){
 		x = number;
 		y = number;
 		return *this;
@@ -79,7 +79,7 @@ class Vector2{
 		return *this;
 	} // operator+= vector2
 
-	Vector2& operator+=(const s16 &number){
+	Vector2& operator+=(const int &number){
 		x += number;
 		y += number;
 		return *this;
@@ -91,19 +91,19 @@ class Vector2{
 		return *this;
 	} // operator-= vector2
 
-	Vector2& operator-=(const s16 &number){
+	Vector2& operator-=(const int &number){
 		x -= number;
 		y -= number;
 		return *this;
 	} // operator-= float
 
-	Vector2& operator*=(const s16 &number){
+	Vector2& operator*=(const int &number){
 		x *= number;
 		y *= number;
 		return *this;
 	} // operator*= float
 
-	Vector2& operator/=(const s16 &number){
+	Vector2& operator/=(const int &number){
 		x /= number;
 		y /= number;
 		return *this;
@@ -121,22 +121,25 @@ class Vector2{
 	} // operator - float
 
 	// vector2 to float operators
-	const Vector2 operator*(const s16 &number) const{
+	const Vector2 operator*(const int &number) const{
 		Vector2 r(*this);
 		return r *= number;
 	} // operator + float
 
-	const Vector2 operator/(const s16 &number) const{
+	const Vector2 operator/(const int &number) const{
 		Vector2 r(*this);
 		return r /= number;
 	} // operator - float
 
 
-	s16 getX(){return (*this).x;}
-	s16 getY(){return (*this).y;}
+	int getX(){return x;}
+	int getY(){return y;}
 
-	void setY(s16 yVar){(*this).y = yVar; }
-	void setX(s16 xVar){(*this).x = xVar; }
+	void setX(int xVar){x = xVar; }
+	void setY(int yVar){y = yVar; }
+	
+	void setXY(int xVar, int yVar){setX(xVar);setY(yVar);}
+	void setXY(const Vector2 &pos){setX(pos.x);setY(pos.y);}
 };
 
 
