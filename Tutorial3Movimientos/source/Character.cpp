@@ -172,12 +172,9 @@ bool CCharacter::checkChangeCommand(u8 newIndex){
 	if(_indexMovement != newIndex || !_movementList[_indexMovement]->isActivated()){
 		
 		if(_movementList[newIndex] != NULL){
-			_movementList[newIndex]->StartMovement();
-			
 			_movementList[_indexMovement]->CancelMovement();
 			_indexMovement = newIndex;
-			
-
+			_movementList[_indexMovement ]->StartMovement();
 			return true;
 		}
 	}
@@ -188,13 +185,14 @@ bool CCharacter::checkChangeCommand(u8 newIndex){
 void CCharacter::UpdateCharacter(vfloat32 time) {
 	
 	
-	checkMovement();
+	
 	
 	
 	if(_movementList[_indexMovement] != NULL){
 		_movementList[_indexMovement]->UpdateMovement(time);
 	}
 	
+	checkMovement();
 	
 	if(_commnads[0] != CInputs::Stand){
 		//printf("\n %d %d %s ",_indexMovement ,_commnads[0], CInputs::getInstance()->commandToString(_commnads[0]) );

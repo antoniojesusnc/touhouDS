@@ -43,7 +43,7 @@ CXMLParser::CXMLParser(const char *characterName) {
 	strcat(fileName , ".xml");
 
 	_rawData = ReadFile(fileName);
-	free(fileName);
+	//free(fileName);
 	_data = Parse(_rawData);
 	//free(rawData);
 	

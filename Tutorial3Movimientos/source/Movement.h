@@ -87,9 +87,10 @@ class CMovement {
 		// movement attributes
 		char *_name;
 		u8 _priority;
-		u8 _totalDuration;
+		float _totalDuration;
 		bool _canBeBlock;
 		bool _loopeable;
+		u8 _numFrames;
 
 		// attributes per frame
 		float *_durationPerFrame;
@@ -98,7 +99,7 @@ class CMovement {
 		Vector2 **_offsetPerFrame;
 
 		// othres
-		u8 _currentDuration;
+		float _currentDuration;
 		Vector2 *_position;
 		CSpriteAnimated *_sprite;		
 		u8 _frame;

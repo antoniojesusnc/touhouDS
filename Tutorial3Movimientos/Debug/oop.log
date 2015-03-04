@@ -1,4 +1,4 @@
-﻿Build started 3/1/2015 4:28:34 AM.
+﻿Build started 3/5/2015 1:31:25 AM.
      1>Project "C:\nds\Projects\Tutoriales\touhouDS\Tutorial3Movimientos\oop.vcxproj" on node 2 (rebuild target(s)).
      1>CoreClean:
          make clean
@@ -221,4 +221,4 @@
 
 Compilación correcta.
 
-Time Elapsed 00:00:07.39
+Time Elapsed 00:00:09.14

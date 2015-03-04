@@ -8,7 +8,7 @@
 			<command>Stand</command>
 			<priority>0</priority>
 			<sprite>
-				<nameSprite>sakuya3</nameSprite>
+				<nameSprite>Stand</nameSprite>
 				<width>32</width>
 				<height>64</height>
 				<numFrames>6</numFrames>
@@ -18,7 +18,7 @@
 			<canBeBlocked>true</canBeBlocked>
 			<movementData>
 				<frame>
-					<duration>0.05</duration>
+					<duration>0.066</duration>
 					<damage>0</damage>
 					<positionX>0</positionX>
 					<positionY>0</positionY>
@@ -26,7 +26,7 @@
 					<offsetY>0</offsetY>
 				</frame>
 				<frame>
-					<duration>0.05</duration>
+					<duration>0.066</duration>
 					<damage>0</damage>
 					<positionX>0</positionX>
 					<positionY>0</positionY>
@@ -34,7 +34,7 @@
 					<offsetY>0</offsetY>
 				</frame>
 				<frame>
-					<duration>0.05</duration>
+					<duration>0.066</duration>
 					<damage>0</damage>
 					<positionX>0</positionX>
 					<positionY>0</positionY>
@@ -42,7 +42,7 @@
 					<offsetY>0</offsetY>
 				</frame>
 				<frame>
-					<duration>0.05</duration>
+					<duration>0.066</duration>
 					<damage>0</damage>
 					<positionX>0</positionX>
 					<positionY>0</positionY>
@@ -50,7 +50,7 @@
 					<offsetY>0</offsetY>
 				</frame>
 				<frame>
-					<duration>0.05</duration>
+					<duration>0.066</duration>
 					<damage>0</damage>
 					<positionX>0</positionX>
 					<positionY>0</positionY>
@@ -58,7 +58,7 @@
 					<offsetY>0</offsetY>
 				</frame>
 				<frame>
-					<duration>0.05</duration>
+					<duration>0.066</duration>
 					<damage>0</damage>
 					<positionX>0</positionX>
 					<positionY>0</positionY>
@@ -72,7 +72,7 @@
 			<command>Front</command>
 			<priority>0</priority>
 			<sprite>
-				<nameSprite>sakuya2</nameSprite>
+				<nameSprite>Front</nameSprite>
 				<width>32</width>
 				<height>64</height>
 				<numFrames>9</numFrames>
@@ -82,75 +82,75 @@
 			<canBeBlocked>true</canBeBlocked>
 			<movementData>
 				<frame>
-					<duration>0.05</duration>
+					<duration>0.033</duration>
 					<damage>0</damage>
 					<positionX>0</positionX>
 					<positionY>0</positionY>
-					<offsetX>2</offsetX>
+					<offsetX>3</offsetX>
 					<offsetY>0</offsetY>
 				</frame>
 				<frame>
-					<duration>0.05</duration>
+					<duration>0.033</duration>
 					<damage>0</damage>
 					<positionX>0</positionX>
 					<positionY>0</positionY>
-					<offsetX>2</offsetX>
+					<offsetX>3</offsetX>
 					<offsetY>0</offsetY>
 				</frame>
 				<frame>
-					<duration>0.05</duration>
+					<duration>0.033</duration>
 					<damage>0</damage>
 					<positionX>0</positionX>
 					<positionY>0</positionY>
-					<offsetX>2</offsetX>
+					<offsetX>3</offsetX>
 					<offsetY>0</offsetY>
 				</frame>
 				<frame>
-					<duration>0.05</duration>
+					<duration>0.033</duration>
 					<damage>0</damage>
 					<positionX>0</positionX>
 					<positionY>0</positionY>
-					<offsetX>2</offsetX>
+					<offsetX>3</offsetX>
 					<offsetY>0</offsetY>
 				</frame>
 				<frame>
-					<duration>0.05</duration>
+					<duration>0.033</duration>
 					<damage>0</damage>
 					<positionX>0</positionX>
 					<positionY>0</positionY>
-					<offsetX>2</offsetX>
+					<offsetX>3</offsetX>
 					<offsetY>0</offsetY>
 				</frame>
 				<frame>
-					<duration>0.05</duration>
+					<duration>0.033</duration>
 					<damage>0</damage>
 					<positionX>0</positionX>
 					<positionY>0</positionY>
-					<offsetX>2</offsetX>
+					<offsetX>3</offsetX>
 					<offsetY>0</offsetY>
 				</frame>
 				<frame>
-					<duration>0.05</duration>
+					<duration>0.033</duration>
 					<damage>0</damage>
 					<positionX>0</positionX>
 					<positionY>0</positionY>
-					<offsetX>2</offsetX>
+					<offsetX>3</offsetX>
 					<offsetY>0</offsetY>
 				</frame>
 				<frame>
-					<duration>0.05</duration>
+					<duration>0.033</duration>
 					<damage>0</damage>
 					<positionX>0</positionX>
 					<positionY>0</positionY>
-					<offsetX>2</offsetX>
+					<offsetX>3</offsetX>
 					<offsetY>0</offsetY>
 				</frame>
 				<frame>
-					<duration>0.05</duration>
+					<duration>0.033</duration>
 					<damage>0</damage>
 					<positionX>0</positionX>
 					<positionY>0</positionY>
-					<offsetX>2</offsetX>
+					<offsetX>3</offsetX>
 					<offsetY>0</offsetY>
 				</frame>
 			</movementData>
@@ -160,7 +160,7 @@
 			<command>Back</command>
 			<priority>0</priority>
 			<sprite>
-				<nameSprite>sakuya1</nameSprite>
+				<nameSprite>Back</nameSprite>
 				<width>32</width>
 				<height>64</height>
 				<numFrames>9</numFrames>
@@ -170,75 +170,251 @@
 			<canBeBlocked>true</canBeBlocked>
 			<movementData>
 				<frame>
-					<duration>0.05</duration>
+					<duration>0.033</duration>
 					<damage>0</damage>
 					<positionX>0</positionX>
 					<positionY>0</positionY>
-					<offsetX>-2</offsetX>
+					<offsetX>-3</offsetX>
 					<offsetY>0</offsetY>
 				</frame>
 				<frame>
-					<duration>0.05</duration>
+					<duration>0.033</duration>
 					<damage>0</damage>
 					<positionX>0</positionX>
 					<positionY>0</positionY>
-					<offsetX>-2</offsetX>
+					<offsetX>-3</offsetX>
 					<offsetY>0</offsetY>
 				</frame>
 				<frame>
-					<duration>0.05</duration>
+					<duration>0.033</duration>
 					<damage>0</damage>
 					<positionX>0</positionX>
 					<positionY>0</positionY>
-					<offsetX>-2</offsetX>
+					<offsetX>-3</offsetX>
 					<offsetY>0</offsetY>
 				</frame>
 				<frame>
-					<duration>0.05</duration>
+					<duration>0.033</duration>
 					<damage>0</damage>
 					<positionX>0</positionX>
 					<positionY>0</positionY>
-					<offsetX>-2</offsetX>
+					<offsetX>-3</offsetX>
 					<offsetY>0</offsetY>
 				</frame>
 				<frame>
-					<duration>0.05</duration>
+					<duration>0.033</duration>
 					<damage>0</damage>
 					<positionX>0</positionX>
 					<positionY>0</positionY>
-					<offsetX>-2</offsetX>
+					<offsetX>-3</offsetX>
 					<offsetY>0</offsetY>
 				</frame>
 				<frame>
-					<duration>0.05</duration>
+					<duration>0.033</duration>
 					<damage>0</damage>
 					<positionX>0</positionX>
 					<positionY>0</positionY>
-					<offsetX>-2</offsetX>
+					<offsetX>-3</offsetX>
 					<offsetY>0</offsetY>
 				</frame>
 				<frame>
-					<duration>0.05</duration>
+					<duration>0.033</duration>
 					<damage>0</damage>
 					<positionX>0</positionX>
 					<positionY>0</positionY>
-					<offsetX>-2</offsetX>
+					<offsetX>-3</offsetX>
 					<offsetY>0</offsetY>
 				</frame>
 				<frame>
-					<duration>0.05</duration>
+					<duration>0.033</duration>
 					<damage>0</damage>
 					<positionX>0</positionX>
 					<positionY>0</positionY>
-					<offsetX>-2</offsetX>
+					<offsetX>-3</offsetX>
 					<offsetY>0</offsetY>
 				</frame>
 				<frame>
-					<duration>0.05</duration>
+					<duration>0.033</duration>
 					<damage>0</damage>
 					<positionX>0</positionX>
 					<positionY>0</positionY>
-					<offsetX>-2</offsetX>
+					<offsetX>-3</offsetX>
+					<offsetY>0</offsetY>
+				</frame>
+			</movementData>
+		</movement>
+		<movement>
+			<name>AttackStand</name>
+			<command>AttackStand</command>
+			<priority>0</priority>
+			<sprite>
+				<nameSprite>AttackStand</nameSprite>
+				<width>64</width>
+				<height>64</height>
+				<numFrames>8</numFrames>
+			</sprite>
+			<totalDuration>0.264</totalDuration>
+			<loopable>false</loopable>
+			<canBeBlocked>false</canBeBlocked>
+			<movementData>
+				<frame>
+					<duration>0.033</duration>
+					<damage>0</damage>
+					<positionX>-9</positionX>
+					<positionY>3</positionY>
+					<offsetX>0</offsetX>
+					<offsetY>0</offsetY>
+				</frame>
+				<frame>
+					<duration>0.033</duration>
+					<damage>0</damage>
+					<positionX>-9</positionX>
+					<positionY>3</positionY>
+					<offsetX>0</offsetX>
+					<offsetY>0</offsetY>
+				</frame>
+				<frame>
+					<duration>0.033</duration>
+					<damage>0</damage>
+					<positionX>-9</positionX>
+					<positionY>3</positionY>
+					<offsetX>0</offsetX>
+					<offsetY>0</offsetY>
+				</frame>
+				<frame>
+					<duration>0.033</duration>
+					<damage>0</damage>
+					<positionX>-9</positionX>
+					<positionY>3</positionY>
+					<offsetX>0</offsetX>
+					<offsetY>0</offsetY>
+				</frame>
+				<frame>
+					<duration>0.033</duration>
+					<damage>0</damage>
+					<positionX>-9</positionX>
+					<positionY>3</positionY>
+					<offsetX>0</offsetX>
+					<offsetY>0</offsetY>
+				</frame>
+				<frame>
+					<duration>0.033</duration>
+					<damage>0</damage>
+					<positionX>-9</positionX>
+					<positionY>3</positionY>
+					<offsetX>0</offsetX>
+					<offsetY>0</offsetY>
+				</frame>
+				<frame>
+					<duration>0.033</duration>
+					<damage>0</damage>
+					<positionX>-9</positionX>
+					<positionY>3</positionY>
+					<offsetX>0</offsetX>
+					<offsetY>0</offsetY>
+				</frame>
+				<frame>
+					<duration>0.033</duration>
+					<damage>0</damage>
+					<positionX>-9</positionX>
+					<positionY>3</positionY>
+					<offsetX>0</offsetX>
+					<offsetY>0</offsetY>
+				</frame>
+			</movementData>
+		</movement>
+		<movement>
+			<name>AttackFront</name>
+			<command>AttackFront</command>
+			<priority>0</priority>
+			<sprite>
+				<nameSprite>AttackFront</nameSprite>
+				<width>64</width>
+				<height>64</height>
+				<numFrames>10</numFrames>
+			</sprite>
+			<totalDuration>0.66</totalDuration>
+			<loopable>false</loopable>
+			<canBeBlocked>false</canBeBlocked>
+			<movementData>
+				<frame>
+					<duration>0.066</duration>
+					<damage>0</damage>
+					<positionX>-9</positionX>
+					<positionY>3</positionY>
+					<offsetX>0</offsetX>
+					<offsetY>0</offsetY>
+				</frame>
+				<frame>
+					<duration>0.066</duration>
+					<damage>0</damage>
+					<positionX>-9</positionX>
+					<positionY>3</positionY>
+					<offsetX>0</offsetX>
+					<offsetY>0</offsetY>
+				</frame>
+				<frame>
+					<duration>0.066</duration>
+					<damage>0</damage>
+					<positionX>-9</positionX>
+					<positionY>3</positionY>
+					<offsetX>0</offsetX>
+					<offsetY>0</offsetY>
+				</frame>
+				<frame>
+					<duration>0.066</duration>
+					<damage>0</damage>
+					<positionX>-9</positionX>
+					<positionY>3</positionY>
+					<offsetX>0</offsetX>
+					<offsetY>0</offsetY>
+				</frame>
+				<frame>
+					<duration>0.066</duration>
+					<damage>0</damage>
+					<positionX>-9</positionX>
+					<positionY>3</positionY>
+					<offsetX>0</offsetX>
+					<offsetY>0</offsetY>
+				</frame>
+				<frame>
+					<duration>0.066</duration>
+					<damage>0</damage>
+					<positionX>-9</positionX>
+					<positionY>3</positionY>
+					<offsetX>0</offsetX>
+					<offsetY>0</offsetY>
+				</frame>
+				<frame>
+					<duration>0.066</duration>
+					<damage>0</damage>
+					<positionX>-9</positionX>
+					<positionY>3</positionY>
+					<offsetX>0</offsetX>
+					<offsetY>0</offsetY>
+				</frame>
+				<frame>
+					<duration>0.066</duration>
+					<damage>0</damage>
+					<positionX>-9</positionX>
+					<positionY>3</positionY>
+					<offsetX>0</offsetX>
+					<offsetY>0</offsetY>
+				</frame>
+				<frame>
+					<duration>0.066</duration>
+					<damage>0</damage>
+					<positionX>-9</positionX>
+					<positionY>3</positionY>
+					<offsetX>0</offsetX>
+					<offsetY>0</offsetY>
+				</frame>
+				<frame>
+					<duration>0.066</duration>
+					<damage>0</damage>
+					<positionX>-9</positionX>
+					<positionY>3</positionY>
+					<offsetX>0</offsetX>
 					<offsetY>0</offsetY>
 				</frame>
 			</movementData>

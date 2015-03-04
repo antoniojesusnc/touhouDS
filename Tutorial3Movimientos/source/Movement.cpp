@@ -49,7 +49,8 @@ CMovement::~CMovement(void) {
 void CMovement::Init(CXMLParser::TXML* movementData, CCharacter *owner) {
 	_owner = owner;
 	_characterPosition = owner->getPosition();
-	_position = new Vector2(*_characterPosition);
+	_position = new Vector2(0,0);
+	_position->setXY(_characterPosition->getX(),_characterPosition->getY());
 
 	char *auxTag;
 	for(vu8 i = 0; i < movementData->numChilds; ++i){
@@ -112,22 +113,25 @@ void CMovement::initSprite(CXMLParser::TXML* spriteData) {
 
 void CMovement::initFrames(CXMLParser::TXML* movementData) {
 	
-	vu8 numFrames = movementData->numChilds;
+	_numFrames = movementData->numChilds;
 	
 	
-	_durationPerFrame = (float*)malloc(sizeof(float)*numFrames);
-	_damagePerFrame = (u8*)malloc(sizeof(u8)*numFrames);
-	_positionPerFrame = (Vector2**)malloc(sizeof(Vector2*)*numFrames);
-	_offsetPerFrame = (Vector2**)malloc(sizeof(Vector2*)*numFrames);
+	_durationPerFrame = (float*)malloc(sizeof(float)*_numFrames);
+	_damagePerFrame = (u8*)malloc(sizeof(u8)*_numFrames);
+	_offsetPerFrame = (Vector2**)malloc(sizeof(Vector2*)*_numFrames);
+	_positionPerFrame = (Vector2**)malloc(sizeof(Vector2*)*_numFrames);
 	
-	for(vu8 i = 0; i < numFrames; ++i){
+	
+	for(vu8 i = 0; i < _numFrames; ++i){
+		
 		_positionPerFrame[i] = new Vector2(0,0);
 		_offsetPerFrame[i] = new Vector2(0,0);
+		
 	}
 	
 	
 	char* auxTagFrame;
-	for(vu8 i = 0; i < numFrames; ++i){
+	for(vu8 i = 0; i < _numFrames; ++i){
 		for(vu8 k = 0; k < movementData->childs[k]->numChilds; ++k){
 			auxTagFrame = movementData->childs[i]->childs[k]->tag;
 			if(strcmp(auxTagFrame, "duration") == 0){
@@ -137,7 +141,7 @@ void CMovement::initFrames(CXMLParser::TXML* movementData) {
 			}else if(strcmp(auxTagFrame, "positionX") == 0){
 				_positionPerFrame[i]->setX(atoi(movementData->childs[i]->childs[k]->value));
 			}else if(strcmp(auxTagFrame, "positionY") == 0){
-				_positionPerFrame[i]->setX(atoi(movementData->childs[i]->childs[k]->value));
+				_positionPerFrame[i]->setY(atoi(movementData->childs[i]->childs[k]->value));
 			}else if(strcmp(auxTagFrame, "offsetX") == 0){
 				_offsetPerFrame[i]->setX(atoi(movementData->childs[i]->childs[k]->value));
 				//_offsetPerFrame[i]->x = atoi(movementData->childs[i]->childs[k]->value);
@@ -158,7 +162,7 @@ void CMovement::StartMovement() {
 
 	_activated = true;
 	
-	
+	_currentDuration = 0;
 	_frame = 0;
 	//_position = _position + *position;
 	_sprite->MoveSpriteToVRam(true,true);
@@ -167,7 +171,7 @@ void CMovement::StartMovement() {
 	*_characterPosition += *_offsetPerFrame[_frame];
 	_position->setXY(*_characterPosition);
 	//printf("\n02 %d %d",_position->getX(), _position->getY());
-	*_position += *_positionPerFrame[_sprite->getFrame()];
+	*_position += *_positionPerFrame[_frame];
 
 	_sprite->CreateSprite(_position);
 	_sprite->FlipTo(_lookDirection);
@@ -201,15 +205,22 @@ void CMovement::UpdateMovement(vfloat32 time) {
 		//printf("\n 3 %d %d",_characterPosition->getX(), _characterPosition->getY());
 		_position->setXY(*_characterPosition);
 		//printf("\n 4 %d %d",_characterPosition->getX(), _characterPosition->getY());
-		*_position += *_positionPerFrame[_sprite->getFrame()];
+
+		/*
+		if( _positionPerFrame[_frame]->getX() != 0){
+			printf("\nX %d ",_positionPerFrame[_frame]->getX());
+			printf("\nY %d ",_positionPerFrame[_frame]->getY());
+		}
+		*/
+
+		*_position += *_positionPerFrame[_frame];
 
 		_sprite->MoveSpriteToPos(_position);
 	}
 	
 
 	_currentDuration += time;
-	
-	if(!_loopeable && _currentDuration >= _totalDuration){
+	if(_currentDuration >= _totalDuration){
 		if(_loopeable){
 			_currentDuration = 0;
 		}else{

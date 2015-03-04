@@ -28,7 +28,7 @@
 
 u8 CSprite::MAX_ID_SPRITE_RAM = 255;
 u8 CSprite::MAX_ID_SPRITE_VRAM = 64;
-u8 CSprite::MAX_ID_SPRITE_SCREEN = 127;
+u8 CSprite::MAX_ID_SPRITE_SCREEN = 126;
 
 u8 CSprite::IdRam = 0;
 u8 CSprite::IdVRam = 0;
@@ -45,6 +45,7 @@ CSprite::CSprite(const char *sprite, u16 width, u16 height) {
 	_idScreen= -1;
 
 	_idRam = CSprite::IdRam++;
+	printf("\n 1ram %d", _idRam);
 	NF_LoadSpriteGfx(sprite, _idRam, width, height);
 	_size = new Vector2(width,height);
 	_inVram = false;
@@ -63,6 +64,7 @@ CSprite::CSprite(const char *sprite,const char *palette, u16 width, u16 height) 
 	_idScreen= -1;
 	
 	_idRam = CSprite::IdRam++;
+	printf("\n 2ram %d", _idRam);
 	NF_LoadSpriteGfx(sprite, _idRam, width, height);
 	_size = new Vector2(width,height);
 	_inVram = false;
