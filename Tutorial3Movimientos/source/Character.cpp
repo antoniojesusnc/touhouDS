@@ -38,8 +38,9 @@ CCharacter::CCharacter(const char *character) {
 	_name[lenth] = '\0';
 	strcpy(_name, character);
 	
-
-	_commnads = CInputs::getInstance()->getCommands();
+	_input = CInputs::getInstance();
+	_commands = _input->getCommands();
+	_directions = _input->getDirections();
 	//_standPos = new CSpriteAnimated("sprite/characters/sakuya/sakuya1","sprite/characters/sakuya/original",32,64, 1);
 	//_standPos = new CSpriteAnimated("sprite/bola","sprite/bola",32,32, 2);
 	//_standPos = new CSpriteAnimated("sprite/characters/sakuya/bola","sprite/characters/sakuya/bola",32,32, 2);
@@ -63,6 +64,9 @@ void CCharacter::Init(Vector2 *position) {
 	CXMLParser *xmlRaw = new CXMLParser(_name);
 	//xmlRaw->printData();
 	_position = new Vector2(*position);
+	_groundY = _position->getY();
+	_jumping = CInputs::DirStand;
+	
 
 	loadAttributes(xmlRaw->getDataByTag("data"));
 	loadPalette();
@@ -80,8 +84,9 @@ void CCharacter::loadAttributes(CXMLParser::TXML *data){
 	for(vu8 i = 0; i < data->numChilds; ++i){
 		if(strcmp(data->childs[i]->tag, "health") == 0){
 			_health = atoi(data->childs[i]->value);
-		}else if(strcmp(data->tag, "a") == 0){
-		
+		}else if(strcmp(data->childs[i]->tag, "maxJumpHeight") == 0){
+			_maxJumpHeight = _position->getY() - atoi(data->childs[i]->value);
+			printf("\n\n%d",_maxJumpHeight );
 		}
 	}
 
@@ -144,8 +149,28 @@ void CCharacter::loadMovements(CXMLParser::TXML *data){
 } // loadMovements
 
 void CCharacter::checkMovement() {
+	
+	bool canJump = _jumping == CInputs::DirStand;
 
-	checkChangeCommand((u16)_commnads[0]);
+	if(canJump){
+		//printf("\n %s %s",CInputs::getInstance()->directionToString(_jumping), CInputs::getInstance()->directionToString(_directions[0]));
+		if(_directions[0] == CInputs::DirUp){
+			_jumping = CInputs::DirUp;
+			checkChangeCommand((u16)CInputs::Up, true);
+		} else if(_directions[0] == CInputs::DirFrontUp){
+			_jumping = CInputs::DirFrontUp;
+			checkChangeCommand((u16)CInputs::FrontUp, true);
+		} else if(_directions[0] == CInputs::DirBackUp){
+			_jumping = CInputs::DirBackUp;
+			checkChangeCommand((u16)CInputs::BackUp, true);
+		}
+	}
+
+	if(canJump ){
+		checkChangeCommand((u16)_commands[0]);
+	}else{
+		checkChangeCommand((u16)_input->commandToJumpCommand(_commands[0]));
+	}
 	/*
 	if(_input->getDirections()[0] == CInputs::NoDir){
 		if(checkAndChangeIfDiferent(0)) return;
@@ -164,14 +189,20 @@ void CCharacter::checkMovement() {
 
 } // checkMovement
 
-bool CCharacter::checkChangeCommand(u8 newIndex){
+bool CCharacter::checkChangeCommand(u8 newIndex, bool force){
 
-	if(!_movementList[_indexMovement]->canBeBlock() && _movementList[_indexMovement]->isActivated())
+	/*
+	if(newIndex != CInputs::Stand && newIndex != CInputs::NoCommand){
+		printf("\n %d %s ",newIndex, CInputs::getInstance()->commandToString((CInputs::Commands)(newIndex)) );
+	}
+	*/
+
+	if(!force && (!_movementList[_indexMovement]->canBeBlock() && _movementList[_indexMovement]->isActivated()) )
 		return false;
 
-	if(_indexMovement != newIndex || !_movementList[_indexMovement]->isActivated()){
+	if(force || (_indexMovement != newIndex || !_movementList[_indexMovement]->isActivated()) ){
 		
-		if(_movementList[newIndex] != NULL){
+		if(force || _movementList[newIndex] != NULL){
 			_movementList[_indexMovement]->CancelMovement();
 			_indexMovement = newIndex;
 			_movementList[_indexMovement ]->StartMovement();
@@ -181,10 +212,54 @@ bool CCharacter::checkChangeCommand(u8 newIndex){
 	return false;
 } // checkAndChangeIfDiferent
 
+void CCharacter::executeJump() {
+	vu8 jumpSpeed = 2;
+	if(_jumping != CInputs::DirStand){
+		if(_jumping == CInputs::DirUp){
+			_position->setY(_position->getY() - jumpSpeed);
+		} else if(_jumping == CInputs::DirFrontUp){
+			_position->setXY(_position->getX() + jumpSpeed*0.5f, _position->getY() - jumpSpeed);
+		} else if(_jumping == CInputs::DirBackUp){
+			_position->setXY(_position->getX() - jumpSpeed*0.5f, _position->getY() - jumpSpeed);
+
+		} else if(_jumping == CInputs::DirDown){
+			_position->setY(_position->getY() + jumpSpeed);
+		} else if(_jumping == CInputs::DirFrontDown){
+			_position->setXY(_position->getX() + jumpSpeed*0.5f, _position->getY() + jumpSpeed);
+		} else if(_jumping == CInputs::DirBackDown){
+			_position->setXY(_position->getX() - jumpSpeed*0.5f, _position->getY() + jumpSpeed);
+		}
+	}
+
+	if(_position->getY() <= _maxJumpHeight){
+		_position->setY(_maxJumpHeight);
+
+		if(_jumping == CInputs::DirUp){
+			_jumping = CInputs::DirDown;
+		} else if(_jumping == CInputs::DirFrontUp){
+			_jumping = CInputs::DirFrontDown;
+		} else if(_jumping == CInputs::DirBackUp){
+			_jumping = CInputs::DirBackDown;
+		} 
+	}
+
+	if(_position->getY() >= _groundY){
+		_position->setY(_groundY);
+		_jumping = CInputs::DirStand;
+		checkChangeCommand((u16)CInputs::Stand, true);
+		/*
+		if(_jumping == CInputs::DirDown){
+			_jumping = CInputs::DirStand;
+		} else if(_jumping == CInputs::DirFrontDown){
+			_jumping = CInputs::DirStand;
+		} else if(_jumping == CInputs::DirBackDown){
+			_jumping = CInputs::DirStand;
+		}
+		*/
+	}
+} // executeJump
 
 void CCharacter::UpdateCharacter(vfloat32 time) {
-	
-	
 	
 	
 	
@@ -194,7 +269,10 @@ void CCharacter::UpdateCharacter(vfloat32 time) {
 	
 	checkMovement();
 	
-	if(_commnads[0] != CInputs::Stand){
+	if(_jumping != CInputs::DirStand){
+		executeJump();
+	}
+	if(_commands[0] != CInputs::Stand){
 		//printf("\n %d %d %s ",_indexMovement ,_commnads[0], CInputs::getInstance()->commandToString(_commnads[0]) );
 	}
 	

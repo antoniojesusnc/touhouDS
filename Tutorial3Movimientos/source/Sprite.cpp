@@ -45,7 +45,6 @@ CSprite::CSprite(const char *sprite, u16 width, u16 height) {
 	_idScreen= -1;
 
 	_idRam = CSprite::IdRam++;
-	printf("\n 1ram %d", _idRam);
 	NF_LoadSpriteGfx(sprite, _idRam, width, height);
 	_size = new Vector2(width,height);
 	_inVram = false;

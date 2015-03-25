@@ -103,23 +103,23 @@ void CInputs::resetDirections(){
 void CInputs::checkCombos(){
 	
 	if(_keys & KEY_B){
-		_commnads[_commnadsIndex] = (Commands)( ((u16)_directions[0])+(9*1) );
+		_commands[_commandsIndex] = (Commands)( ((u16)_directions[0])+(9*1) );
 	} else if(_keys & KEY_A){
-		_commnads[_commnadsIndex] = (Commands)( ((u16)_directions[0])+(9*2) );
+		_commands[_commandsIndex] = (Commands)( ((u16)_directions[0])+(9*2) );
 	} else if(_keys & KEY_Y){
-		_commnads[_commnadsIndex] = (Commands)( ((u16)_directions[0])+(9*3) );
+		_commands[_commandsIndex] = (Commands)( ((u16)_directions[0])+(9*3) );
 	} else if(_keys & KEY_X){
-		_commnads[_commnadsIndex] = (Commands)( ((u16)_directions[0])+(9*4) );
+		_commands[_commandsIndex] = (Commands)( ((u16)_directions[0])+(9*4) );
 	} else {
-		_commnads[_commnadsIndex] = (Commands)( ((u16)_directions[0])+(9*0) );
+		_commands[_commandsIndex] = (Commands)( ((u16)_directions[0])+(9*0) );
 	}
 
 } // checkCombos
 
 void CInputs::incrementInputsIndex(){
-	++_commnadsIndex;
-	if(_commnadsIndex > 4){
-		_commnadsIndex = 0;
+	++_commandsIndex;
+	if(_commandsIndex > 4){
+		_commandsIndex = 0;
 	}
 } // incrementInputsIndex
 		
@@ -247,6 +247,102 @@ CInputs::Commands CInputs::stringToCommand(char *string){
 		return DashUp;
 	}else if(strcmp(string, "DashFrontUp") == 0){
 		return DashFrontUp;
+
+// jumping
+	}else if(strcmp(string, "JumpBackDown") == 0){
+		return JumpBackDown;
+	}else if(strcmp(string, "JumpDown") == 0){
+		return JumpDown;
+	}else if(strcmp(string, "JumpFrontDown") == 0){
+		return JumpFrontDown;
+	}else if(strcmp(string, "JumpBack") == 0){
+		return JumpBack;
+	}else if(strcmp(string, "JumpStand") == 0){
+		return JumpStand;
+	}else if(strcmp(string, "JumpFront") == 0){
+		return JumpFront;
+	}else if(strcmp(string, "JumpBackUp") == 0){
+		return JumpBackUp;
+	}else if(strcmp(string, "JumpUp") == 0){
+		return JumpUp;
+	}else if(strcmp(string, "JumpFrontUp") == 0){
+		return JumpFrontUp;
+// attacks
+	}else if(strcmp(string, "JumpAttackBackDown") == 0){
+		return JumpAttackBackDown;
+	}else if(strcmp(string, "JumpAttackDown") == 0){
+		return JumpAttackDown;
+	}else if(strcmp(string, "JumpAttackFrontDown") == 0){
+		return JumpAttackFrontDown;
+	}else if(strcmp(string, "JumpAttackBack") == 0){
+		return JumpAttackBack;
+	}else if(strcmp(string, "JumpAttackStand") == 0){
+		return JumpAttackStand;
+	}else if(strcmp(string, "JumpAttackFront") == 0){
+		return JumpAttackFront;
+	}else if(strcmp(string, "JumpAttackBackUp") == 0){
+		return JumpAttackBackUp;
+	}else if(strcmp(string, "JumpAttackUp") == 0){
+		return JumpAttackUp;
+	}else if(strcmp(string, "JumpAttackFrontUp") == 0){
+		return JumpAttackFrontUp;
+// proj
+	}else if(strcmp(string, "JumpProjBackDown") == 0){
+		return JumpProjBackDown;
+	}else if(strcmp(string, "JumpProjDown") == 0){
+		return JumpProjDown;
+	}else if(strcmp(string, "JumpProjFrontDown") == 0){
+		return JumpProjFrontDown;
+	}else if(strcmp(string, "JumpProjBack") == 0){
+		return JumpProjBack;
+	}else if(strcmp(string, "JumpProjStand") == 0){
+		return JumpProjStand;
+	}else if(strcmp(string, "JumpProjFront") == 0){
+		return JumpProjFront;
+	}else if(strcmp(string, "JumpProjBackUp") == 0){
+		return JumpProjBackUp;
+	}else if(strcmp(string, "JumpProjUp") == 0){
+		return JumpProjUp;
+	}else if(strcmp(string, "JumpProjFrontUp") == 0){
+		return JumpProjFrontUp;
+// strong proj
+	}else if(strcmp(string, "JumpStrongProjBackDown") == 0){
+		return JumpStrongProjBackDown;
+	}else if(strcmp(string, "JumpStrongProjDown") == 0){
+		return JumpStrongProjDown;
+	}else if(strcmp(string, "JumpStrongProjFrontDown") == 0){
+		return JumpStrongProjFrontDown;
+	}else if(strcmp(string, "JumpStrongProjBack") == 0){
+		return JumpStrongProjBack;
+	}else if(strcmp(string, "JumpStrongProjStand") == 0){
+		return JumpStrongProjStand;
+	}else if(strcmp(string, "JumpStrongProjFront") == 0){
+		return JumpStrongProjFront;
+	}else if(strcmp(string, "JumpStrongProjBackUp") == 0){
+		return JumpStrongProjBackUp;
+	}else if(strcmp(string, "JumpStrongProjUp") == 0){
+		return JumpStrongProjUp;
+	}else if(strcmp(string, "JumpStrongProjFrontUp") == 0){
+		return JumpStrongProjFrontUp;
+// dash
+	}else if(strcmp(string, "JumpDashBackDown") == 0){
+		return JumpDashBackDown;
+	}else if(strcmp(string, "JumpDashDown") == 0){
+		return JumpDashDown;
+	}else if(strcmp(string, "JumpDashFrontDown") == 0){
+		return JumpDashFrontDown;
+	}else if(strcmp(string, "JumpDashBack") == 0){
+		return JumpDashBack;
+	}else if(strcmp(string, "JumpDashStand") == 0){
+		return JumpDashStand;
+	}else if(strcmp(string, "JumpDashFront") == 0){
+		return JumpDashFront;
+	}else if(strcmp(string, "JumpDashBackUp") == 0){
+		return JumpDashBackUp;
+	}else if(strcmp(string, "JumpDashUp") == 0){
+		return JumpDashUp;
+	}else if(strcmp(string, "JumpDashFrontUp") == 0){
+		return JumpDashFrontUp;
 // hits
 	}else if(strcmp(string, "Hit") == 0){
 		return Hit;
@@ -267,6 +363,7 @@ CInputs::Commands CInputs::stringToCommand(char *string){
 
 char *CInputs::commandToString(CInputs::Commands command){
 	switch(command){
+	// dirs
 		case BackDown:
 			return "BackDown";
 		case  Down:
@@ -285,7 +382,8 @@ char *CInputs::commandToString(CInputs::Commands command){
 			return "Up";
 		case  FrontUp:
 			return "FrontUp";
-
+	
+	// attack
 		case AttackBackDown:
 			return "AttackBackDown";
 		case  AttackDown:
@@ -304,7 +402,8 @@ char *CInputs::commandToString(CInputs::Commands command){
 			return "AttackUp";
 		case  AttackFrontUp:
 			return "AttackFrontUp";
-
+	
+	// proj
 		case ProjBackDown:
 			return "ProjBackDown";
 		case  ProjDown:
@@ -324,6 +423,7 @@ char *CInputs::commandToString(CInputs::Commands command){
 		case  ProjFrontUp:
 			return "ProjFrontUp";
 		
+	// strong proj
 		case StrongProjBackDown:
 			return "StrongProjBackDown";
 		case  StrongProjDown:
@@ -343,6 +443,7 @@ char *CInputs::commandToString(CInputs::Commands command){
 		case  StrongProjFrontUp:
 			return "StrongProjFrontUp";
 			
+	// dash
 		case DashBackDown:
 			return "DashBackDown";
 		case  DashDown:
@@ -362,6 +463,106 @@ char *CInputs::commandToString(CInputs::Commands command){
 		case  DashFrontUp:
 			return "DashFrontUp";
 		
+			// dirs
+		case JumpBackDown:
+			return "JumpBackDown";
+		case JumpDown:
+			return "JumpDown";
+		case JumpFrontDown:
+			return "JumpFrontDown";
+		case JumpBack:
+			return "JumpBack";
+		case JumpStand:
+			return "JumpStand";
+		case JumpFront:
+			return "JumpFront";
+		case JumpBackUp:
+			return "JumpBackUp";
+		case JumpUp:
+			return "JumpUp";
+		case JumpFrontUp:
+			return "JumpFrontUp";
+	
+	// attack
+		case JumpAttackBackDown:
+			return "JumpAttackBackDown";
+		case JumpAttackDown:
+			return "JumpAttackDown";
+		case JumpAttackFrontDown:
+			return "JumpAttackFrontDown";
+		case JumpAttackBack:
+			return "JumpAttackBack";
+		case JumpAttackStand:
+			return "JumpAttackStand";
+		case JumpAttackFront:
+			return "JumpAttackFront";
+		case JumpAttackBackUp:
+			return "JumpAttackBackUp";
+		case JumpAttackUp:
+			return "JumpAttackUp";
+		case JumpAttackFrontUp:
+			return "JumpAttackFrontUp";
+	
+	// proj
+		case JumpProjBackDown:
+			return "JumpProjBackDown";
+		case JumpProjDown:
+			return "JumpProjDown";
+		case JumpProjFrontDown:
+			return "JumpProjFrontDown";
+		case JumpProjBack:
+			return "JumpProjBack";
+		case JumpProjStand:
+			return "JumpProjStand";
+		case JumpProjFront:
+			return "JumpProjFront";
+		case JumpProjBackUp:
+			return "JumpProjBackUp";
+		case JumpProjUp:
+			return "JumpProjUp";
+		case JumpProjFrontUp:
+			return "JumpProjFrontUp";
+	
+		// strong proj
+		case JumpStrongProjBackDown:
+			return "JumpStrongProjBackDown";
+		case JumpStrongProjDown:
+			return "JumpStrongProjDown";
+		case JumpStrongProjFrontDown:
+			return "JumpStrongProjFrontDown";
+		case JumpStrongProjBack:
+			return "JumpStrongProjBack";
+		case JumpStrongProjStand:
+			return "JumpStrongProjStand";
+		case JumpStrongProjFront:
+			return "JumpStrongProjFront";
+		case JumpStrongProjBackUp:
+			return "JumpStrongProjBackUp";
+		case JumpStrongProjUp:
+			return "JumpStrongProjUp";
+		case JumpStrongProjFrontUp:
+			return "JumpStrongProjFrontUp";
+			
+	// dash
+		case JumpDashBackDown:
+			return "JumpDashBackDown";
+		case JumpDashDown:
+			return "JumpDashDown";
+		case JumpDashFrontDown:
+			return "JumpDashFrontDown";
+		case JumpDashBack:
+			return "JumpDashBack";
+		case JumpDashStand:
+			return "JumpDashStand";
+		case JumpDashFront:
+			return "JumpDashFront";
+		case JumpDashBackUp:
+			return "JumpDashBackUp";
+		case JumpDashUp:
+			return "JumpDashUp";
+		case JumpDashFrontUp:
+			return "JumpDashFrontUp";
+
 		case Hit:
 			return "Hit";
 		case  HitAir:
@@ -378,5 +579,151 @@ char *CInputs::commandToString(CInputs::Commands command){
 
 		default:
 			return "Error";
+	}
+}
+
+char *CInputs::directionToString(CInputs::Direction dir){
+	switch(dir){
+		case DirBackDown:
+			return "BackDown";
+		case DirDown:
+			return "Down";
+		case DirFrontDown:
+			return "FrontDown";
+		case DirBack:
+			return "Back";
+		case DirStand:
+			return "Stand";
+		case DirFront:
+			return "Front";
+		case DirBackUp:
+			return "BackUp";
+		case DirUp:
+			return "Up";
+		case DirFrontUp:
+			return "FrontUp";
+	}
+}
+
+CInputs::Commands CInputs::commandToJumpCommand(CInputs::Commands command){
+	switch(command){
+	
+	/*
+	// dirs
+		case BackDown:
+			return JumpBackDown;
+		case  Down:
+			return JumpDown;
+		case  FrontDown:
+			return JumpFrontDown;
+		case  Back:
+			return JumpBack;
+		case  Stand:
+			return JumpStand;
+		case  Front:
+			return JumpFront;
+		case  BackUp:
+			return JumpBackUp;
+		case  Up:
+			return JumpUp;
+		case  FrontUp:
+			return JumpFrontUp;
+	*/
+	// attack
+		case AttackBackDown:
+			return JumpAttackBackDown;
+		case  AttackDown:
+			return JumpAttackDown;
+		case  AttackFrontDown:
+			return JumpAttackFrontDown;
+		case  AttackBack:
+			return JumpAttackBack;
+		case  AttackStand:
+			return JumpAttackStand;
+		case  AttackFront:
+			return JumpAttackFront;
+		case  AttackBackUp:
+			return JumpAttackBackUp;
+		case  AttackUp:
+			return JumpAttackUp;
+		case  AttackFrontUp:
+			return JumpAttackFrontUp;
+	
+	// proj
+		case ProjBackDown:
+			return JumpProjBackDown;
+		case  ProjDown:
+			return JumpProjDown;
+		case  ProjFrontDown:
+			return JumpProjFrontDown;
+		case  ProjBack:
+			return JumpProjBack;
+		case  ProjStand:
+			return JumpProjStand;
+		case  ProjFront:
+			return JumpProjFront;
+		case  ProjBackUp:
+			return JumpProjBackUp;
+		case  ProjUp:
+			return JumpProjUp;
+		case  ProjFrontUp:
+			return JumpProjFrontUp;
+		
+	// strong proj
+		case StrongProjBackDown:
+			return JumpStrongProjBackDown;
+		case  StrongProjDown:
+			return JumpStrongProjDown;
+		case  StrongProjFrontDown:
+			return JumpStrongProjFrontDown;
+		case  StrongProjBack:
+			return JumpStrongProjBack;
+		case  StrongProjStand:
+			return JumpStrongProjStand;
+		case  StrongProjFront:
+			return JumpStrongProjFront;
+		case  StrongProjBackUp:
+			return JumpStrongProjBackUp;
+		case  StrongProjUp:
+			return JumpStrongProjUp;
+		case  StrongProjFrontUp:
+			return JumpStrongProjFrontUp;
+			
+	// dash
+		case DashBackDown:
+			return JumpDashBackDown;
+		case  DashDown:
+			return JumpDashDown;
+		case  DashFrontDown:
+			return JumpDashFrontDown;
+		case  DashBack:
+			return JumpDashBack;
+		case  DashStand:
+			return JumpDashStand;
+		case  DashFront:
+			return JumpDashFront;
+		case  DashBackUp:
+			return JumpDashBackUp;
+		case  DashUp:
+			return JumpDashUp;
+		case  DashFrontUp:
+			return JumpDashFrontUp;
+		
+
+		case Hit:
+			return Hit;
+		case  HitAir:
+			return HitAir;
+		case  HitGround:
+			return HitGround;
+		
+		case Start:
+			return Start;
+		case  Select:
+			return Select;
+		default :
+			return NoCommand;
+
+		
 	}
 }

@@ -51,16 +51,23 @@ class CCharacter {
 		void checkMovement();
 
 		//bool checkAndChangeIfDiferent(CMovement *m);
-		bool checkChangeCommand(u8 newIndex);
+		bool checkChangeCommand(u8 newIndex, bool force = false);
 		
 		void loadAttributes(CXMLParser::TXML* data);
 		void loadPalette();
 		void loadMovements(CXMLParser::TXML* data);
+		void executeJump();
 
 		// characteristics
 		char* _name;
 		u16 _health;
 		Vector2 *_horizontalSpeed;
+
+		// jump variables
+		u8 _groundY;
+		u8 _maxJumpHeight;
+
+		CInputs::Direction _jumping;
 
 		// graphics
 		CPalette *_palette;
@@ -73,8 +80,10 @@ class CCharacter {
 		u8 _indexMovement;
 		CInputs::Commands _lookingFor;
 
+		CInputs *_input;
 		CInputs::Direction *_directions;
-		CInputs::Commands *_commnads;
+		CInputs::Commands *_commands;
+		
 		
 	
 };

@@ -31,6 +31,13 @@ class CInputs {
 					ProjBackDown, ProjDown, ProjFrontDown, ProjBack, ProjStand, ProjFront, ProjBackUp, ProjUp, ProjFrontUp,
 					StrongProjBackDown, StrongProjDown, StrongProjFrontDown, StrongProjBack, StrongProjStand, StrongProjFront, StrongProjBackUp, StrongProjUp, StrongProjFrontUp,
 					DashBackDown, DashDown, DashFrontDown, DashBack, DashStand, DashFront, DashBackUp, DashUp, DashFrontUp,
+
+					JumpBackDown, JumpDown, JumpFrontDown, JumpBack, JumpStand, JumpFront, JumpBackUp, JumpUp, JumpFrontUp,
+					JumpAttackBackDown, JumpAttackDown, JumpAttackFrontDown, JumpAttackBack, JumpAttackStand, JumpAttackFront, JumpAttackBackUp, JumpAttackUp, JumpAttackFrontUp,
+					JumpProjBackDown, JumpProjDown, JumpProjFrontDown, JumpProjBack, JumpProjStand, JumpProjFront, JumpProjBackUp, JumpProjUp, JumpProjFrontUp,
+					JumpStrongProjBackDown, JumpStrongProjDown, JumpStrongProjFrontDown, JumpStrongProjBack, JumpStrongProjStand, JumpStrongProjFront, JumpStrongProjBackUp, JumpStrongProjUp, JumpStrongProjFrontUp,
+					JumpDashBackDown, JumpDashDown, JumpDashFrontDown, JumpDashBack, JumpDashStand, JumpDashFront, JumpDashBackUp, JumpDashUp, JumpDashFrontUp,
+
 					Hit, HitAir, HitGround,
 					Start, Select, NoCommand,
 					Size
@@ -45,15 +52,17 @@ class CInputs {
 		void Update();
 		
 		Direction* getDirections(){return _directions;}
-		Commands* getCommands(){return _commnads;}
+		Commands* getCommands(){return _commands;}
 		Vector2* getTouchPos(){return &_touchPos;}
 
 		// singleton
 		static CInputs* getInstance();
 		
+		Commands commandToJumpCommand(Commands command);
+
 		Commands stringToCommand(char* string);
 		char* commandToString(Commands command);
-
+		char *directionToString(Direction dir);
 	private:
 
 		void checkCombos();
@@ -74,8 +83,8 @@ class CInputs {
 		Direction _directions[2];
 		u8 _directionIndex;
 		
-		Commands _commnads[4];
-		u8 _commnadsIndex;
+		Commands _commands[4];
+		u8 _commandsIndex;
 
 		// singleton
 		// private constructor
