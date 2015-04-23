@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="source">
+      <UniqueIdentifier>{65419019-e425-42c0-bdce-623e931efc74}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include">
+      <UniqueIdentifier>{5dc17ff2-ca0c-4ce3-a44f-d460327bcaff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\Essentials">
+      <UniqueIdentifier>{d77f3185-829a-4aa9-9f6b-225a34b2e250}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\Essentials">
+      <UniqueIdentifier>{8747ff02-34af-4999-9838-919e02b70c84}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\Scenes">
+      <UniqueIdentifier>{b9929f13-6575-4c73-a10d-38c0bf1cb60d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\Scenes">
+      <UniqueIdentifier>{b01cef08-2a00-4753-93ce-8929c3e83ed5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\UseFul">
+      <UniqueIdentifier>{daeab1bd-b253-4bad-9507-94a61ff3eeba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\UseFul">
+      <UniqueIdentifier>{b9ba8ea2-7aba-4c2e-bff4-e4c27913f0a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\Character">
+      <UniqueIdentifier>{8fce0932-a146-434c-8cc8-de11c54b4d14}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\Character">
+      <UniqueIdentifier>{470b64ab-422f-45d5-bc20-2bf542722616}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="source\main.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Background.cpp">
+      <Filter>source\Essentials</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Palette.cpp">
+      <Filter>source\Essentials</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Sprite.cpp">
+      <Filter>source\Essentials</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Text.cpp">
+      <Filter>source\Essentials</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Menu.cpp">
+      <Filter>source\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Engine.cpp">
+      <Filter>source\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Button.cpp">
+      <Filter>source\Essentials</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Debug.cpp">
+      <Filter>source\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Time.cpp">
+      <Filter>source\UseFul</Filter>
+    </ClCompile>
+    <ClCompile Include="source\SpriteAnimated.cpp">
+      <Filter>source\Essentials</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Battle.cpp">
+      <Filter>source\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Inputs.cpp">
+      <Filter>source\Essentials</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Character.cpp">
+      <Filter>source\Character</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Movement.cpp">
+      <Filter>source\Character</Filter>
+    </ClCompile>
+    <ClCompile Include="source\XMLParser.cpp">
+      <Filter>source\UseFul</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Makefile" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="source\Text.h">
+      <Filter>include\Essentials</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Background.h">
+      <Filter>include\Essentials</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Palette.h">
+      <Filter>include\Essentials</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Sprite.h">
+      <Filter>include\Essentials</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Menu.h">
+      <Filter>include\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Math.h">
+      <Filter>include\UseFul</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Engine.h">
+      <Filter>include\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Includes.h">
+      <Filter>include\UseFul</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Time.h">
+      <Filter>include\UseFul</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Button.h">
+      <Filter>include\Essentials</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Debug.h">
+      <Filter>include\UseFul</Filter>
+    </ClInclude>
+    <ClInclude Include="source\SpriteAnimated.h">
+      <Filter>include\Essentials</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Battle.h">
+      <Filter>include\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Inputs.h">
+      <Filter>include\Essentials</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Character.h">
+      <Filter>include\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Movement.h">
+      <Filter>include\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="source\XMLParser.h">
+      <Filter>include\UseFul</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
