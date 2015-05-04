@@ -1,4 +1,4 @@
 touhouDS
 ========
 
-Proyecto de final de carrera. Adaptacion del juego touhou 12.3 para Nintendo DS.
+Game for DS based in Touhou 12.3
