@@ -25,6 +25,13 @@
 
 // static variables
 
+// Constructor de copia
+CSpriteAnimated::CSpriteAnimated(CSpriteAnimated &sprite) : CSprite(sprite){
+	_maxFrame = sprite.getMaxFrame();
+	_durationPerFrame = sprite.getDurationPerFrame();
+
+}
+
 // Contructor clase CSpriteAnimatedAnimated
 CSpriteAnimated::CSpriteAnimated(const char *spriteAnimated, u16 width, u16 height, u8 frames)
 	: CSprite (spriteAnimated,width,height) {
@@ -40,6 +47,7 @@ CSpriteAnimated::CSpriteAnimated(const char *spriteAnimated,const char *palette,
 	_durationPerFrame = new float[frames];
 
 } // CSpriteAnimated
+
 
 // Destructor clase CSpriteAnimated
 CSpriteAnimated::~CSpriteAnimated(void) {
@@ -69,7 +77,8 @@ void CSpriteAnimated::MoveSpriteToPos(Vector2 *newPosition) {
 } // MoveSpriteToPos
 
 void CSpriteAnimated::setFrame(u8 frame){
-	NF_SpriteFrame(getScreen(),_idScreen,frame);
+	if(_inVram)
+		NF_SpriteFrame(getScreen(),_idScreen,frame);
 } // setFrame
 
 void CSpriteAnimated::UpdateAnimation(vfloat32 time){

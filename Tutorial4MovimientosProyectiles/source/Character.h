@@ -19,6 +19,7 @@
 
 // Defines
 class CMovement;
+class CProjectileMovement;
 class CPalette;
 class Vector2;
 
@@ -52,10 +53,12 @@ class CCharacter {
 
 		//bool checkAndChangeIfDiferent(CMovement *m);
 		bool checkChangeCommand(u8 newIndex, bool force = false);
-		
+		void activateProjMovements(u8 index);
+
 		void loadAttributes(CXMLParser::TXML* data);
 		void loadPalette();
 		void loadMovements(CXMLParser::TXML* data);
+		void loadProjMovements(CXMLParser::TXML* data);
 		void executeJump();
 
 		// characteristics
@@ -78,6 +81,13 @@ class CCharacter {
 		
 		CMovement **_movementList;
 		u8 _indexMovement;
+
+
+		CProjectileMovement **_projMovementList;
+		CProjectileMovement** _activeProjMovements;
+		int _maxActiveMovement;
+		bool _someProjActive;
+
 		CInputs::Commands _lookingFor;
 
 		CInputs *_input;

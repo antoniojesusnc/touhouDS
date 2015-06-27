@@ -72,7 +72,6 @@ class Vector2{
 		return !(*this == v);
 	} // operator == vector2
 
-	// overloading arithmethic operators for Vector2
 	Vector2& operator+=(const Vector2 &v2){
 		x += v2.x;
 		y += v2.y;

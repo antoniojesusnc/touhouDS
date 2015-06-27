@@ -37,11 +37,17 @@ class CSprite {
 		static u8 IdVRam;
 		static u8 IdScreen;
 
+
+		// Constructor de copia
+		CSprite(CSprite &sprite);
+
 		// Contructores
 		CSprite(const char *sprite, u16 witdh, u16 height);
 		
 		// Constructor con paleta
 		CSprite(const char *sprite,const char *palette, u16 witdh, u16 height);
+
+		
 
 		// Destructor
 		~CSprite(void);
@@ -76,6 +82,11 @@ class CSprite {
 		Vector2 *getSize(){return _size;}
 		
 		void setPalette(CPalette* palette){_palette = palette;}
+		void setInVRam(bool inVram){_inVram = inVram;}
+
+		void setIdVRam(u8 idVram){_idVRam = idVram;}
+		void setUpScreen(bool upScreen){_upScreen = upScreen;}
+
 		bool isUpScreen(){return _upScreen;}
 		bool isInVRam(){return _inVram;}
 		bool isflipped(){return _flipped;}

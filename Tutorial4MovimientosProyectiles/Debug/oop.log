@@ -1,4 +1,4 @@
-﻿Build started 3/29/2015 7:41:11 PM.
+﻿Build started 6/28/2015 3:53:32 AM.
      1>Project "C:\nds\Projects\Tutoriales\touhouDS\Tutorial4MovimientosProyectiles\oop.vcxproj" on node 2 (rebuild target(s)).
      1>CoreClean:
          make clean
@@ -19,12 +19,15 @@
          Character.cpp
          arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial4MovimientosProyectiles/build/Character.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial4MovimientosProyectiles/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial4MovimientosProyectiles/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial4MovimientosProyectiles/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial4MovimientosProyectiles/source/Character.cpp -o Character.o 
          c:/nds/Projects/Tutoriales/touhouDS/Tutorial4MovimientosProyectiles/source/Character.cpp: In member function 'void CCharacter::Init(Vector2*)':
-         c:/nds/Projects/Tutoriales/touhouDS/Tutorial4MovimientosProyectiles/source/Character.cpp(71):44: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial4MovimientosProyectiles/source/Character.cpp(72):44: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
            loadAttributes(xmlRaw->getDataByTag("data"));
                                                      ^
-         c:/nds/Projects/Tutoriales/touhouDS/Tutorial4MovimientosProyectiles/source/Character.cpp(73):48: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial4MovimientosProyectiles/source/Character.cpp(74):48: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
            loadMovements(xmlRaw->getDataByTag("movements"));
                                                          ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial4MovimientosProyectiles/source/Character.cpp(75):56: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+           loadProjMovements(xmlRaw->getDataByTag("projMovements"));
+                                                                 ^
          Debug.cpp
          arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial4MovimientosProyectiles/build/Debug.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial4MovimientosProyectiles/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial4MovimientosProyectiles/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial4MovimientosProyectiles/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial4MovimientosProyectiles/source/Debug.cpp -o Debug.o 
          c:/nds/Projects/Tutoriales/touhouDS/Tutorial4MovimientosProyectiles/source/Debug.cpp(66):2: warning: "/*" within comment [-Wcomment]
@@ -363,6 +366,19 @@
          arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial4MovimientosProyectiles/build/Movement.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial4MovimientosProyectiles/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial4MovimientosProyectiles/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial4MovimientosProyectiles/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial4MovimientosProyectiles/source/Movement.cpp -o Movement.o 
          Palette.cpp
          arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial4MovimientosProyectiles/build/Palette.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial4MovimientosProyectiles/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial4MovimientosProyectiles/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial4MovimientosProyectiles/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial4MovimientosProyectiles/source/Palette.cpp -o Palette.o 
+         Projectile.cpp
+         arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial4MovimientosProyectiles/build/Projectile.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial4MovimientosProyectiles/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial4MovimientosProyectiles/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial4MovimientosProyectiles/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial4MovimientosProyectiles/source/Projectile.cpp -o Projectile.o 
+         ProjectileMovement.cpp
+         arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial4MovimientosProyectiles/build/ProjectileMovement.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial4MovimientosProyectiles/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial4MovimientosProyectiles/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial4MovimientosProyectiles/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial4MovimientosProyectiles/source/ProjectileMovement.cpp -o ProjectileMovement.o 
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial4MovimientosProyectiles/source/ProjectileMovement.cpp(140):2: warning: multi-line comment [-Wcomment]
+           //printf("\n Starting");\
+           ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial4MovimientosProyectiles/source/ProjectileMovement.cpp(179):2: warning: "/*" within comment [-Wcomment]
+           /*
+          ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial4MovimientosProyectiles/source/ProjectileMovement.cpp(182):3: warning: "/*" within comment [-Wcomment]
+           //*_characterPosition += *_offsetPerFrame[_frame];
+          ^
          Sprite.cpp
          arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial4MovimientosProyectiles/build/Sprite.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial4MovimientosProyectiles/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial4MovimientosProyectiles/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial4MovimientosProyectiles/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial4MovimientosProyectiles/source/Sprite.cpp -o Sprite.o 
          SpriteAnimated.cpp
@@ -387,4 +403,4 @@
 
 Compilación correcta.
 
-Time Elapsed 00:00:16.42
+Time Elapsed 00:00:06.75

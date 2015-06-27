@@ -38,6 +38,24 @@ u8 CSprite::IdScreen = 0;
 	Metodos de la clase "CSprite"
 */
 
+CSprite::CSprite(CSprite &sprite){
+	_idRam = sprite.getIdRam();
+	_size = new Vector2(*sprite.getSize());
+
+	_palette = sprite.getPalette();
+	
+	if(sprite.isInVRam()){
+		
+		_inVram = true;
+		_idVRam = sprite.getIdVRam();
+		_position = new Vector2(*sprite.getPosition());
+		_upScreen = sprite.isUpScreen();
+
+	}else{
+		_inVram = false;
+	}
+}
+
 // Contructor clase CSprite
 CSprite::CSprite(const char *sprite, u16 width, u16 height) {
 	
@@ -75,6 +93,8 @@ CSprite::CSprite(const char *sprite,const char *palette, u16 width, u16 height) 
 	_position = new Vector2();
 } // CSprite
 
+
+
 // Destructor clase CSprite
 CSprite::~CSprite(void) {
 
@@ -105,7 +125,7 @@ void CSprite::removeFromVRam(bool palette){
 
 	NF_FreeSpriteGfx(getScreen(), getIdVRam());
 	_inVram = false;
-	_idVRam = -1;
+	//_idVRam = -1;
 	
 	if(palette){
 		_palette->removeFromVRam();
@@ -116,7 +136,7 @@ void CSprite::removeFromScreen(){
 	_flipped = false;
 
 	NF_DeleteSprite(getScreen(), getIdScreen());
-	_idScreen = -1;
+	//_idScreen = -1;
 } // removeFromScreen
 
 // Crea el puntero externo a la clase
@@ -131,6 +151,7 @@ u16 CSprite::MoveSpriteToVRam(bool upScreen, bool palette, bool loadOnlyFirst){
 	_idVRam = CSprite::IdVRam++;
 	_upScreen = upScreen;
 	
+
 	NF_VramSpriteGfx(getScreen(), _idRam, _idVRam, loadOnlyFirst);
 	
 	_inVram = true;
@@ -150,9 +171,12 @@ u16 CSprite::MoveSpriteToVRam(bool upScreen, bool palette, bool loadOnlyFirst){
 
 
 void CSprite::CreateSprite(Vector2 *position) {
-	if(!_inVram)
+	if(!_inVram){
 		MoveSpriteToVRam(_upScreen,true);
+		printf("noooooooooo");
+	}
 		
+
 	_idScreen = CSprite::IdScreen++;
 	_position->setXY(*position);
 	

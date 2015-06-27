@@ -23,6 +23,7 @@ class Vector2;
 class CSprite;
 class CSpriteAnimated;
 class CCharacter;
+class CPalette;
 
 // Clase CMovement
 class CMovement {
@@ -35,14 +36,17 @@ class CMovement {
 		// Destructor
 		~CMovement(void);
 		
-		void Init(CXMLParser::TXML* movementData, CCharacter *_owner);
+		virtual void Init(CXMLParser::TXML* movementData, CCharacter *_owner, CPalette *palette);
 		
 
 		// startMovement
-		void StartMovement();
+		virtual void StartMovement();
 		
+		// finish
+		virtual void FinishMovement();
+
 		// cancel
-		void CancelMovement();
+		virtual void CancelMovement();
 		
 
 		// update
@@ -61,6 +65,7 @@ class CMovement {
 
 		bool isActivated(){ return _activated;}
 		bool canBeBlock(){ return _canBeBlock;}
+		bool isProjectile(){return _projectile;}
 		// operators
 
 		
@@ -73,10 +78,13 @@ class CMovement {
 			return !(*this == m);
 		} // operator ==
 	
-	private:
+	protected:
 		
-		void initSprite(CXMLParser::TXML* spriteData);
-		void initFrames(CXMLParser::TXML* frameData);
+		virtual void initSprite(CXMLParser::TXML* spriteData, CPalette *palette);
+		virtual void initFrames(CXMLParser::TXML* frameData);
+
+		virtual void updateSprite(float time);
+		virtual void updateTime(float time);
 
 		CInputs::Commands _command;
 
@@ -91,6 +99,7 @@ class CMovement {
 		bool _canBeBlock;
 		bool _loopeable;
 		u8 _numFrames;
+		bool _projectile;
 
 		// attributes per frame
 		float *_durationPerFrame;

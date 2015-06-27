@@ -29,11 +29,16 @@ class CSpriteAnimated : public CSprite {
 
 	public:
 		
+		// Consturctor de copia
+		CSpriteAnimated(CSpriteAnimated &sprite);
+
 		// Contructores
 		CSpriteAnimated(const char *spriteAnimated, u16 witdh, u16 height, u8 frames);
 		
 		// Constructor con paleta
 		CSpriteAnimated(const char *spriteAnimated,const char *palette, u16 witdh, u16 height, u8 frames);
+		
+		
 
 		// Destructor
 		~CSpriteAnimated(void);
@@ -65,6 +70,8 @@ class CSpriteAnimated : public CSprite {
 
 		u8 _currentFrame;
 		u8 _maxFrame;
+
+
 };
 
 

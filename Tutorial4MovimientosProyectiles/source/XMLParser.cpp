@@ -223,6 +223,7 @@ CXMLParser::TXML* CXMLParser::getDataByTag(char * tag, TXML* current){
 bool CXMLParser::tagCompare(TXML *data, char * tag){
 
 	if(strcmp(data->tag, tag) == 0){
+		//printXML(data);
 		return true;
 	}else{
 		return false;

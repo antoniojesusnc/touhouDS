@@ -66,6 +66,8 @@
     <ClCompile Include="source\Menu.cpp" />
     <ClCompile Include="source\Movement.cpp" />
     <ClCompile Include="source\Palette.cpp" />
+    <ClCompile Include="source\Projectile.cpp" />
+    <ClCompile Include="source\ProjectileMovement.cpp" />
     <ClCompile Include="source\Sprite.cpp" />
     <ClCompile Include="source\SpriteAnimated.cpp" />
     <ClCompile Include="source\Text.cpp" />
@@ -88,6 +90,8 @@
     <ClInclude Include="source\Menu.h" />
     <ClInclude Include="source\Movement.h" />
     <ClInclude Include="source\Palette.h" />
+    <ClInclude Include="source\Projectile.h" />
+    <ClInclude Include="source\ProjectileMovement.h" />
     <ClInclude Include="source\Sprite.h" />
     <ClInclude Include="source\SpriteAnimated.h" />
     <ClInclude Include="source\Text.h" />

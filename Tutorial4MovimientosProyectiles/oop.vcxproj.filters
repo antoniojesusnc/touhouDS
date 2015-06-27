@@ -81,6 +81,12 @@
     <ClCompile Include="source\XMLParser.cpp">
       <Filter>source\UseFul</Filter>
     </ClCompile>
+    <ClCompile Include="source\ProjectileMovement.cpp">
+      <Filter>source\Character</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Projectile.cpp">
+      <Filter>source\Character</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Makefile" />
@@ -136,6 +142,12 @@
     </ClInclude>
     <ClInclude Include="source\XMLParser.h">
       <Filter>include\UseFul</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ProjectileMovement.h">
+      <Filter>include\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Projectile.h">
+      <Filter>include\Character</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -41,6 +41,8 @@
 
 // othes
 #include "Movement.h"
+#include "ProjectileMovement.h"
+#include "Projectile.h"
 
 // Includes clases de escenas
 #include "Debug.h"

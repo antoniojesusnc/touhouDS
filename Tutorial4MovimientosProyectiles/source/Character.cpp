@@ -19,6 +19,7 @@
 #include "Character.h"
 #include "Inputs.h"
 #include "Movement.h"
+#include "ProjectileMovement.h"
 #include "SpriteAnimated.h"
 #include "Palette.h"
 #include "Math.h"
@@ -66,11 +67,12 @@ void CCharacter::Init(Vector2 *position) {
 	_position = new Vector2(*position);
 	_groundY = _position->getY();
 	_jumping = CInputs::DirStand;
-	
+	_maxActiveMovement = 5;
 
 	loadAttributes(xmlRaw->getDataByTag("data"));
 	loadPalette();
 	loadMovements(xmlRaw->getDataByTag("movements"));
+	loadProjMovements(xmlRaw->getDataByTag("projMovements"));
 	//_currentMovement = &_movementList[0];
 	//_currentMovement->StartMovement(_position);
 	_indexMovement = (u16)CInputs::Stand;
@@ -125,9 +127,7 @@ void CCharacter::loadMovements(CXMLParser::TXML *data){
 	// leo la lista de movimientos
 	for(vu8 i = 0; i < data->numChilds; ++i){
 		tempMovement = new CMovement();
-		tempMovement->Init(data->childs[i], this);
-		
-		tempMovement->getSprite()->setPalette(_palette);
+		tempMovement->Init(data->childs[i], this, _palette);
 
 		_movementList[tempMovement->getCommandIndex()] = tempMovement;
 		//tempMovement = NULL;		
@@ -136,6 +136,50 @@ void CCharacter::loadMovements(CXMLParser::TXML *data){
 	for(vu8 i = 0; i < num; ++i){
 		if(_movementList[i] != NULL){
 			printf("\n %d %s",i, CInputs::getInstance()->commandToString((CInputs::Commands)i ) );
+			
+		}
+	}
+	/*	
+	_movementList = new CMovement[3]();
+	// load movements
+	_movementList[0].Init("0", this);
+	_movementList[1].Init("1", this);
+	_movementList[2].Init("2", this);
+	*/
+} // loadMovements
+
+void CCharacter::loadProjMovements(CXMLParser::TXML *data){
+	
+	//printf("\n %d ",_movementList );//,sizeof(CMovement*));
+	// max 5 movements
+	_activeProjMovements = (CProjectileMovement**)malloc(sizeof(CProjectileMovement*)* _maxActiveMovement);
+	for(vu8 i = 0; i < _maxActiveMovement; ++i){
+		_activeProjMovements[i] = NULL;
+	}
+	_someProjActive = false;
+
+	u8 num = CInputs::Size;
+	//_movementList = (CMovement**)malloc(sizeof(CMovement*)*data->numChilds);
+	_projMovementList = (CProjectileMovement**)malloc(sizeof(CProjectileMovement*)* num);
+	//_movementList = (*CMovement)[data->numChilds];
+	
+	for(vu8 i = 0; i < num; ++i){
+		_projMovementList[i] = NULL;
+	}
+	CProjectileMovement *tempProjMovement;
+
+	// leo la lista de movimientos
+	for(vu8 i = 0; i < data->numChilds; ++i){
+		tempProjMovement= new CProjectileMovement();
+		tempProjMovement->Init(data->childs[i], this, _palette);
+
+		_projMovementList[tempProjMovement->getCommandIndex()] = tempProjMovement;
+		//tempMovement = NULL;		
+	}
+	
+	for(vu8 i = 0; i < num; ++i){
+		if(_projMovementList[i] != NULL){
+			printf("\nProj %d %s",i, CInputs::getInstance()->commandToString((CInputs::Commands)i ) );
 			
 		}
 	}
@@ -206,6 +250,11 @@ bool CCharacter::checkChangeCommand(u8 newIndex, bool force){
 			_movementList[_indexMovement]->CancelMovement();
 			_indexMovement = newIndex;
 			_movementList[_indexMovement ]->StartMovement();
+
+			if(_projMovementList[_indexMovement] != NULL){
+				activateProjMovements(newIndex);
+			}
+
 			return true;
 		}
 	}
@@ -259,6 +308,31 @@ void CCharacter::executeJump() {
 	}
 } // executeJump
 
+void CCharacter::activateProjMovements(u8 index){
+	bool exist = false;
+	
+	if(_someProjActive){
+		for(vu8 i = 0; i < _maxActiveMovement && !exist; ++i){
+			if(_activeProjMovements[i]->getCommandIndex() == index){
+				exist = true;
+				_activeProjMovements[i]->CancelMovement();
+				_activeProjMovements[i] = NULL;
+			}
+		}
+	}
+
+	for(vu8 i = 0; i < _maxActiveMovement; ++i){
+		if(_activeProjMovements[i] == NULL){
+			_activeProjMovements[i] = _projMovementList[index];
+			_activeProjMovements[i]->StartMovement();
+			_someProjActive = true;
+			return;
+		}
+	}
+	
+} // activateProjMovements
+
+
 void CCharacter::UpdateCharacter(vfloat32 time) {
 	
 	
@@ -266,6 +340,23 @@ void CCharacter::UpdateCharacter(vfloat32 time) {
 	if(_movementList[_indexMovement] != NULL){
 		_movementList[_indexMovement]->UpdateMovement(time);
 	}
+
+	if(_someProjActive){
+		_someProjActive = false;
+		for(vu8 i = 0; i < _maxActiveMovement; ++i){
+			if(_activeProjMovements[i] != NULL){
+				if(_activeProjMovements[i]->isActivated()){
+					_activeProjMovements[i]->UpdateMovement(time);
+					if(_activeProjMovements[i]->isActivated()){
+						_someProjActive = true;
+					}else{
+						_activeProjMovements[i] = NULL;
+					}
+				}
+			} // end if
+		}
+	} // some proj Activae
+
 	
 	checkMovement();
 	

@@ -23,6 +23,7 @@
 #include "SpriteAnimated.h"
 #include "Sprite.h"
 
+class CPalette;
 // static variables
 /*
 	Metodos de la clase "CMovement"
@@ -46,11 +47,12 @@ CMovement::~CMovement(void) {
 	Metodos de la clase "CMovement"
 */
 
-void CMovement::Init(CXMLParser::TXML* movementData, CCharacter *owner) {
+void CMovement::Init(CXMLParser::TXML* movementData, CCharacter *owner, CPalette *palette) {
 	_owner = owner;
 	_characterPosition = owner->getPosition();
 	_position = new Vector2(0,0);
 	_position->setXY(_characterPosition->getX(),_characterPosition->getY());
+	_projectile = false;
 
 	char *auxTag;
 	for(vu8 i = 0; i < movementData->numChilds; ++i){
@@ -63,13 +65,15 @@ void CMovement::Init(CXMLParser::TXML* movementData, CCharacter *owner) {
 		}else if(strcmp(auxTag, "priority") == 0){
 			_priority = atoi(movementData->childs[i]->value);
 		}else if(strcmp(auxTag, "sprite") == 0){
-			initSprite(movementData->childs[i]);
+			initSprite(movementData->childs[i], palette);
 		}else if(strcmp(auxTag, "totalDuration") == 0){
 			_totalDuration = atof(movementData->childs[i]->value);
 		}else if(strcmp(auxTag, "loopable") == 0){
 			_loopeable = strcmp(movementData->childs[i]->value, "true") == 0?true:false;
 		}else if(strcmp(auxTag, "canBeBlocked") == 0){
 			_canBeBlock = strcmp(movementData->childs[i]->value, "true") == 0?true:false;
+		}else if(strcmp(auxTag, "projectile") == 0){
+			_projectile = strcmp(movementData->childs[i]->value, "true") == 0?true:false;
 		}else if(strcmp(auxTag, "movementData") == 0){
 			
 			initFrames(movementData->childs[i]);
@@ -80,7 +84,7 @@ void CMovement::Init(CXMLParser::TXML* movementData, CCharacter *owner) {
 	_sprite->setDurationPerFrame(_durationPerFrame);
 } // Init
 
-void CMovement::initSprite(CXMLParser::TXML* spriteData) {
+void CMovement::initSprite(CXMLParser::TXML* spriteData, CPalette *palette) {
 
 	vu8 width;
 	vu8 height;
@@ -96,6 +100,7 @@ void CMovement::initSprite(CXMLParser::TXML* spriteData) {
 			strcat(path, _owner->getName());
 			strcat(path, "/");
 			strcat(path, spriteData->childs[i]->value);
+			//printf("\n %s",spriteData->childs[i]->value);
 		}else if(strcmp(auxTag, "width") == 0){
 			width = atoi(spriteData->childs[i]->value);
 		}else if(strcmp(auxTag, "height") == 0){
@@ -105,11 +110,14 @@ void CMovement::initSprite(CXMLParser::TXML* spriteData) {
 		}
 	}
 	//_sprite = new CSpriteAnimated(path,"sprite/characters/sakuya/sakuya",width,height,numFrames);
+	//printf("\n path %s",path);
 	_sprite = new CSpriteAnimated(path,width,height,numFrames);
 	//printf("\n %s %d %d %d", path, width, height, numFrames);
 	_sprite->setDurationPerFrame(_durationPerFrame);
+
+	_sprite->setPalette(palette);
 	//free(path);
-}
+} // initSprite
 
 void CMovement::initFrames(CXMLParser::TXML* movementData) {
 	
@@ -157,7 +165,8 @@ void CMovement::initFrames(CXMLParser::TXML* movementData) {
 			}
 		}
 	} // end for frames
-}
+} // initFrames
+
 void CMovement::StartMovement() {
 
 	_activated = true;
@@ -179,20 +188,44 @@ void CMovement::StartMovement() {
 
 } // StartMovement
 
+void CMovement::FinishMovement() {
+	setActivated(false);
+	
+} // FinishMovement
+
 void CMovement::CancelMovement() {
-	_activated = false;
+	FinishMovement();
 	//delete _position;
 	//_position = NULL;
 	//*_characterPosition += *_offsetPerFrame[_frame];
 
+	
 	_sprite->removeFromScreen();
 	_sprite->removeFromVRam();
+	
 
 } // CancelMovement
 
 void CMovement::UpdateMovement(vfloat32 time) {
 	if(!isActivated())
 		return;
+	
+
+	updateSprite(time);
+	updateTime(time);
+} // UpdateMovement
+void CMovement::updateTime(vfloat32 time) {
+	_currentDuration += time;
+	if(_currentDuration >= _totalDuration){
+		if(_loopeable){
+			_currentDuration = 0;
+		}else{
+			FinishMovement();
+		}
+	}
+} // updateTime
+
+void CMovement::updateSprite(vfloat32 time) {
 	
 	_sprite->UpdateAnimation(time);
 	
@@ -217,14 +250,4 @@ void CMovement::UpdateMovement(vfloat32 time) {
 
 		_sprite->MoveSpriteToPos(_position);
 	}
-	
-
-	_currentDuration += time;
-	if(_currentDuration >= _totalDuration){
-		if(_loopeable){
-			_currentDuration = 0;
-		}else{
-			setActivated(false);
-		}
-	}
-} // UpdateMovement
+} // updateSprite
