@@ -1,0 +1,411 @@
+﻿Build started 6/29/2015 3:54:08 AM.
+     1>Project "C:\nds\Projects\Tutoriales\touhouDS\Tutorial5Colisiones\oop.vcxproj" on node 2 (rebuild target(s)).
+     1>CoreClean:
+         make clean
+         clean ...
+       Rebuild:
+         make clean && make -r 2>&1 | sed -e 's/\(.[a-zA-Z]\+\):\([0-9]\+\):/\1(\2):/
+         clean ...
+         Background.cpp
+         arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/build/Background.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Background.cpp -o Background.o 
+         Battle.cpp
+         arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/build/Battle.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Battle.cpp -o Battle.o 
+         Button.cpp
+         arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/build/Button.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Button.cpp -o Button.o 
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Button.cpp: In destructor 'CButton::~CButton()':
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Button.cpp(47):9: warning: deleting object of polymorphic class type 'CSprite' which has non-virtual destructor might cause undefined behaviour [-Wdelete-non-virtual-dtor]
+           delete _fgSprite;
+                  ^
+         Character.cpp
+         arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/build/Character.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Character.cpp -o Character.o 
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Character.cpp(292):2: warning: "/*" within comment [-Wcomment]
+           /*
+          ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Character.cpp: In member function 'void CCharacter::Init(Vector2*)':
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Character.cpp(73):44: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+           loadAttributes(xmlRaw->getDataByTag("data"));
+                                                     ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Character.cpp(75):48: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+           loadMovements(xmlRaw->getDataByTag("movements"));
+                                                         ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Character.cpp(76):56: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+           loadProjMovements(xmlRaw->getDataByTag("projMovements"));
+                                                                 ^
+         Collision.cpp
+         arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/build/Collision.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Collision.cpp -o Collision.o 
+         Debug.cpp
+         arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/build/Debug.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Debug.cpp -o Debug.o 
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Debug.cpp(66):2: warning: "/*" within comment [-Wcomment]
+           /* */
+          ^
+         Engine.cpp
+         arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/build/Engine.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Engine.cpp -o Engine.o 
+         Inputs.cpp
+         arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/build/Inputs.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp -o Inputs.o 
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp: In member function 'char* CInputs::commandToString(CInputs::Commands)':
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(368):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "BackDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(370):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "Down";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(372):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "FrontDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(374):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "Back";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(376):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "Stand";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(378):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "Front";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(380):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "BackUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(382):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "Up";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(384):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "FrontUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(388):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "AttackBackDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(390):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "AttackDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(392):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "AttackFrontDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(394):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "AttackBack";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(396):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "AttackStand";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(398):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "AttackFront";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(400):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "AttackBackUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(402):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "AttackUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(404):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "AttackFrontUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(408):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "ProjBackDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(410):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "ProjDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(412):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "ProjFrontDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(414):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "ProjBack";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(416):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "ProjStand";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(418):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "ProjFront";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(420):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "ProjBackUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(422):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "ProjUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(424):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "ProjFrontUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(428):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "StrongProjBackDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(430):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "StrongProjDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(432):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "StrongProjFrontDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(434):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "StrongProjBack";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(436):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "StrongProjStand";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(438):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "StrongProjFront";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(440):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "StrongProjBackUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(442):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "StrongProjUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(444):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "StrongProjFrontUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(448):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "DashBackDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(450):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "DashDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(452):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "DashFrontDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(454):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "DashBack";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(456):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "DashStand";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(458):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "DashFront";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(460):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "DashBackUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(462):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "DashUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(464):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "DashFrontUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(468):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpBackDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(470):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(472):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpFrontDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(474):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpBack";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(476):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpStand";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(478):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpFront";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(480):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpBackUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(482):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(484):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpFrontUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(488):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpAttackBackDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(490):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpAttackDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(492):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpAttackFrontDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(494):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpAttackBack";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(496):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpAttackStand";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(498):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpAttackFront";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(500):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpAttackBackUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(502):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpAttackUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(504):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpAttackFrontUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(508):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpProjBackDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(510):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpProjDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(512):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpProjFrontDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(514):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpProjBack";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(516):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpProjStand";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(518):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpProjFront";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(520):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpProjBackUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(522):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpProjUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(524):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpProjFrontUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(528):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpStrongProjBackDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(530):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpStrongProjDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(532):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpStrongProjFrontDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(534):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpStrongProjBack";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(536):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpStrongProjStand";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(538):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpStrongProjFront";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(540):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpStrongProjBackUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(542):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpStrongProjUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(544):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpStrongProjFrontUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(548):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpDashBackDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(550):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpDashDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(552):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpDashFrontDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(554):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpDashBack";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(556):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpDashStand";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(558):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpDashFront";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(560):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpDashBackUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(562):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpDashUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(564):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpDashFrontUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(567):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "Hit";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(569):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "HitAir";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(571):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "HitGround";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(574):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "Start";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(576):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "Select";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(578):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "NoCommand";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(581):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "Error";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp: In member function 'char* CInputs::directionToString(CInputs::Direction)':
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(588):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "BackDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(590):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "Down";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(592):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "FrontDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(594):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "Back";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(596):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "Stand";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(598):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "Front";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(600):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "BackUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(602):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "Up";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(604):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "FrontUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Inputs.cpp(606):1: warning: control reaches end of non-void function [-Wreturn-type]
+          }
+          ^
+         Menu.cpp
+         arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/build/Menu.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Menu.cpp -o Menu.o 
+         Movement.cpp
+         arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/build/Movement.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Movement.cpp -o Movement.o 
+         Palette.cpp
+         arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/build/Palette.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Palette.cpp -o Palette.o 
+         Projectile.cpp
+         arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/build/Projectile.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Projectile.cpp -o Projectile.o 
+         ProjectileMovement.cpp
+         arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/build/ProjectileMovement.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/ProjectileMovement.cpp -o ProjectileMovement.o 
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/ProjectileMovement.cpp(140):2: warning: multi-line comment [-Wcomment]
+           //printf("\n Starting");\
+           ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/ProjectileMovement.cpp(179):2: warning: "/*" within comment [-Wcomment]
+           /*
+          ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/ProjectileMovement.cpp(182):3: warning: "/*" within comment [-Wcomment]
+           //*_characterPosition += *_offsetPerFrame[_frame];
+          ^
+         Sprite.cpp
+         arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/build/Sprite.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Sprite.cpp -o Sprite.o 
+         SpriteAnimated.cpp
+         arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/build/SpriteAnimated.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/SpriteAnimated.cpp -o SpriteAnimated.o 
+         Text.cpp
+         arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/build/Text.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Text.cpp -o Text.o 
+         Time.cpp
+         arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/build/Time.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/Time.cpp -o Time.o 
+         XMLParser.cpp
+         arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/build/XMLParser.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/XMLParser.cpp -o XMLParser.o 
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/XMLParser.cpp: In member function 'char* CXMLParser::ReadFile(const char*)':
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/XMLParser.cpp(67):37: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+            if(fread(entireFile,1,len,inf) != len)
+                                              ^
+         main.cpp
+         arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/build/main.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial5Colisiones/source/main.cpp -o main.o 
+         linking Tutorial5Colisiones.elf
+         Nintendo DS rom tool 1.50.1 - Apr  2 2014
+         by Rafael Vuijk, Dave Murphy, Alexei Karpenko
+         built ... Tutorial5Colisiones.nds
+     1>Done Building Project "C:\nds\Projects\Tutoriales\touhouDS\Tutorial5Colisiones\oop.vcxproj" (rebuild target(s)).
+
+Compilación correcta.
+
+Time Elapsed 00:00:07.84
