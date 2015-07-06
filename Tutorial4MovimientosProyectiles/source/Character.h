@@ -84,7 +84,7 @@ class CCharacter {
 
 
 		CProjectileMovement **_projMovementList;
-		CProjectileMovement** _activeProjMovements;
+		CProjectileMovement **_activeProjMovements;
 		int _maxActiveMovement;
 		bool _someProjActive;
 

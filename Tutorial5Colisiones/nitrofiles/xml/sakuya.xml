@@ -1059,7 +1059,6 @@
 		<projMovement>
 			<name>ProjectileProjStand</name>
 			<command>ProjStand</command>			
-
 			<sprite>
 				<nameSprite>ProjectileProjStand</nameSprite>
 				<width>32</width>
