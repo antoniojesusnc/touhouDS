@@ -72,24 +72,19 @@ void CBattle::InitBattle(){
 	// top background
 	
 	
-	_topBackground = new CBackground("bg/background01",256,256);
-	_topBackground->CreateBackground(true);
 	
-
-
-	//_botBackground = new CBackground("bg/background01",256,256);
-	//_botBackground->CreateBackground(false);
-
+	
 	
 	// bot background
 	//_botBackground = new CBackground("bg/bg3",256,256);
 	/*_botBackground->CreateBackground(false);	
 	*/
+	
 	Vector2 *pos = new Vector2(192-128,255*0.5f);
 	
 	_characters[0] = new CCharacter("sakuya", false);
 	_characters[0]->Init(pos);
-
+	
 	pos->setX(pos->getX()+64);
 	_characters[1] = new CCharacter("sakuya", true);
 	_characters[1]->Init(pos);
@@ -102,16 +97,29 @@ void CBattle::InitBattle(){
 
 	_remainingTime = 60;
 	_acum = 0;
+	
+	_topBackground = new CBackground("bg/background01",256,256);
+	_topBackground->CreateBackground(true);
+	
+	//_topBackground->CreateBackground(false);
+	
+	
+	_botBackground = new CBackground("bg/nfl",256,256);
+	_botBackground->CreateBackground(false);
+	
+	
 }
 
 // Mueve las bolas
 void CBattle::Update(vfloat32 time){
 	
+	
 	_acum += time;
 
 	_characters[0]->UpdateCharacter(time);
+	
 	_characters[1]->UpdateCharacter(time);
-
+	
 	_collision->CheckCollision(_characters[0], _characters[1]);
 	_collision->CheckCollision(_characters[1], _characters[0]);
 

@@ -66,6 +66,7 @@ CEngine::CEngine(){
 	// initial Scene
 	_arcade = NULL;
 	_menu = NULL;
+	_newScene = SIZE;
 	/*
 	_currentScene = MENU;
 	_menu = new CMenu(this);
@@ -84,7 +85,6 @@ CEngine::~CEngine(void) {
 	if(_arcade)
 		delete _arcade;
 
-	NF_ResetSpriteBuffers();
 
 } // ~ CEngine
 
@@ -93,10 +93,15 @@ CEngine::~CEngine(void) {
 */
 void CEngine::ChangeScene(Scenes newScene){
 
+	_newScene = newScene;
+}
+
+void CEngine::ExecuteChangeScene(){
 	UnloadCurrentScene();
 
-	_currentScene = newScene;
-	
+	_currentScene = _newScene;
+	_newScene = SIZE;
+
 	LoadNewScene();
 } // ChangeScene
 
@@ -118,24 +123,28 @@ void CEngine::UnloadCurrentScene(){
 	
 	swiWaitForVBlank();
 
-	NF_ResetSpriteBuffers();
 	NF_ResetTiledBgBuffers();
+	NF_ResetSpriteBuffers();
 	NF_ResetRawSoundBuffers();
-	NF_VramSpriteGfxDefrag(0);
-	NF_VramSpriteGfxDefrag(1);
 
+	NF_SetRootFolder("NITROFS");
 	swiWaitForVBlank();
 } // unloadCurrentScene
 
 void CEngine::LoadNewScene(){
+
 	switch(_currentScene){
-		case MENU: 
+		case MENU:
 			_menu = new CMenu(this);
 			_menu->InitMenu();
 			break;
 		case ARCADE: 
+			
+			
+
 			_arcade = new CBattle(this);
 			_arcade->InitBattle();
+			
 			break;
 		case VERSUS: 
 			break;
@@ -156,11 +165,12 @@ void CEngine::InitEngine(){
 	
 	//consoleDemoInit();
 	
-	_currentScene = ARCADE;
+	_currentScene = MENU;
+	//_currentScene = ARCADE;
 	
 	LoadNewScene();
 	
-	//CXMLParser *data = new CXMLParser("demo");
+	
 } // InitEngine
 
 
@@ -186,7 +196,7 @@ void CEngine::MainBucle(){
 
 
 		// update textLayers
-		NF_UpdateTextLayers();
+		//NF_UpdateTextLayers();
 	
 		// wait for Vsinc
 		NF_SpriteOamSet(0);
@@ -197,5 +207,9 @@ void CEngine::MainBucle(){
 		oamUpdate(&oamMain);
 		oamUpdate(&oamSub);
 		
+		if(_newScene != SIZE){
+			ExecuteChangeScene();
+			swiWaitForVBlank();	
+		}
 	}
 } // Update

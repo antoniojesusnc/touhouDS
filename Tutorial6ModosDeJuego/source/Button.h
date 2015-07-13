@@ -45,6 +45,7 @@ class CButton {
 		CSprite *_fgSprite;
 		Vector2 *_position;
 
+		
 };
 
 

@@ -33,7 +33,7 @@ class CMovement {
 		// Destructor
 		~CMovement(void);
 		
-		void Init(const char *movement, CCharacter *_owner);
+		void Init(const char *movement, CCharacter *owner);
 
 		// startMovement
 		void StartMovement();

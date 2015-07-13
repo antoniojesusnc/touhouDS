@@ -33,7 +33,9 @@
 // Contructor clase CButton
 CButton::CButton(const char* nameSprite,int width, int height, Vector2* position){
 	
+	
 	_fgSprite = new CSprite(nameSprite, nameSprite,width, height);
+	
 	_fgSprite->MoveSpriteToVRam(false,true);
 	_fgSprite->CreateSprite(position);
 	
@@ -47,7 +49,7 @@ CButton::~CButton(void) {
 	delete _fgSprite;
 	
 
-	delete _position;
+	//delete _position;
 } // ~CButton
 
 

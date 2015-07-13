@@ -43,19 +43,27 @@ CMenu::CMenu(CEngine* engine) {
 // Destructor clase CMenu
 CMenu::~CMenu(void) {
 	/*
-	delete [] _buttons;
+
+	delete _buttons[0];
+	delete _topBackground;
+
 	/*/
 	
+
 	for(_indexBucle = 0; _indexBucle < 4; ++_indexBucle){
 		
 		delete _buttons[_indexBucle];
 		
 	}
-	/* */
-	
 	delete _topBackground;
 	delete _botBackground;
+	/* */
+		
+	
 
+
+	
+	
 
 } // ~CMenu
 
@@ -69,27 +77,15 @@ void CMenu::InitMenu(){
 	// top background
 	
 
-	_topBackground = new CBackground("bg/nfl",256,256);
-	_topBackground->CreateBackground(true);
 	
 	
-
-
-	
-	// bot background
-	//CBackground *backgroundBot = new CBackground("bg/n256,256);
-	//backgroundBot->CreateBackground(false);	
 	
 	Vector2 *position = new Vector2(50,40);
-	//NF_Error(2,"a %d a",4);
-	//_genericSprite->CreateSprite(position);
 	
 	_buttons[0]	= new CButton("sprite/bola", 32, 32, position);
-
 	
 	position->setX(170);
 	_buttons[1]	= new CButton("sprite/bola", 32, 32, position);
-
 	
 	position->setX(50);
 	position->setY(120);
@@ -98,20 +94,32 @@ void CMenu::InitMenu(){
 	position->setX(170);
 	position->setY(120);
 	_buttons[3]	= new CButton("sprite/bola", 32, 32, position);
-	/* */
 	
-
-
+	free(position);
+	
 	//delete position;
+	
+	
+	_topBackground = new CBackground("bg/nfl",256,256);
+	_topBackground->CreateBackground(true);
+	
+	
+	_botBackground = new CBackground("bg/background01",256,256);
+	_botBackground->CreateBackground(false);
+	
+	
 }
 
 // Mueve las bolas
 void CMenu::Update(vfloat32 time){
 	
+	
 	if(_buttons[0]->IsTouched()) {
 		
 		//_engine->ChangeScene(CEngine::MENU);
+		_engine->ChangeScene(CEngine::ARCADE);
 	}
+	
 	
 
 } // Update

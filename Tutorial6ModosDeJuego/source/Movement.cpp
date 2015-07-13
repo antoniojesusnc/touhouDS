@@ -114,7 +114,7 @@ void CMovement::initSprite(CXMLParser::TXML* spriteData, CPalette *palette) {
 	_sprite->setDurationPerFrame(_durationPerFrame);
 
 	_sprite->setPalette(palette);
-	//free(path);
+	
 } // initSprite
 
 void CMovement::initFrames(CXMLParser::TXML* movementData) {
@@ -188,17 +188,17 @@ void CMovement::StartMovement() {
 	_currentDuration = 0;
 	_frame = 0;
 	//_position = _position + *position;
+
+	
 	_sprite->MoveSpriteToVRam(true,true);
 
-	//printf("\n01 %d %d",_characterPosition->getX(), _characterPosition->getY());
 	*_characterPosition += *_offsetPerFrame[_frame];
 	_position->setXY(*_characterPosition);
-	//printf("\n02 %d %d",_position->getX(), _position->getY());
 	*_position += *_positionPerFrame[_frame];
 
 	_sprite->CreateSprite(_position);
 	_sprite->FlipTo(_lookDirection);
-	//_sprite->CreateSprite( _offsetPerFrame[0] + _characterPosition);
+	
 
 } // StartMovement
 

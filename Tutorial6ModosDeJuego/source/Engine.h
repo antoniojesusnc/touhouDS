@@ -26,7 +26,7 @@ class CEngine {
 
 	public:
 		
-		enum Scenes{MENU, ARCADE, VERSUS, OPTION};
+		enum Scenes{MENU, ARCADE, VERSUS, OPTION, SIZE};
 		
 		// Contructores
 		CEngine();
@@ -51,9 +51,10 @@ class CEngine {
 		
 		void UnloadCurrentScene();
 		void LoadNewScene();
+		void ExecuteChangeScene();
 
 		CEngine::Scenes _currentScene;
-
+		CEngine::Scenes _newScene;
 		// scenes
 		CMenu* _menu;
 		CBattle* _arcade;

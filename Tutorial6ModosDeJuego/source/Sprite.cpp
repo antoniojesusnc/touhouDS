@@ -31,9 +31,9 @@ u8 CSprite::MAX_ID_SPRITE_RAM = 255;
 u8 CSprite::MAX_ID_SPRITE_VRAM = 64;
 u8 CSprite::MAX_ID_SPRITE_SCREEN = 126;
 
-u8 CSprite::IdRam = 0;
-u8 CSprite::IdVRam = 0;
-u8 CSprite::IdScreen = 0;
+u8 CSprite::IdRam = 1;
+u8 CSprite::IdVRam = 1;
+u8 CSprite::IdScreen = 1;
 
 /*
 	Metodos de la clase "CSprite"
@@ -78,11 +78,12 @@ CSprite::CSprite(const char *sprite, u16 width, u16 height) {
 // Contructor clase CSprite
 CSprite::CSprite(const char *sprite,const char *palette, u16 width, u16 height) {
 	
+	
 	_idVRam = -1;
 	_idScreen= -1;
 	
 	_idRam = CSprite::IdRam++;
-	printf("\n 2ram %d", _idRam);
+	//printf("\n 2ram %d", _idRam);
 	NF_LoadSpriteGfx(sprite, _idRam, width, height);
 	_size = new Vector2(width,height);
 	_inVram = false;
@@ -90,8 +91,9 @@ CSprite::CSprite(const char *sprite,const char *palette, u16 width, u16 height) 
 		CSprite::IdRam = 0;
 	}
 	_palette = new CPalette(palette);
-
+	
 	_position = new Vector2();
+
 } // CSprite
 
 
@@ -99,10 +101,12 @@ CSprite::CSprite(const char *sprite,const char *palette, u16 width, u16 height) 
 // Destructor clase CSprite
 CSprite::~CSprite(void) {
 
-	if(_idScreen >= 0)
-		removeFromScreen();
 	if(_idVRam >= 0)
 		removeFromVRam(false);
+
+	if(_idScreen >= 0)
+		removeFromScreen();
+	
 	if(_idRam >= 0)
 		removeFromRam();
 
@@ -111,8 +115,8 @@ CSprite::~CSprite(void) {
 	//NF_UnloadSpriteGfx(getIdRam()); // delete from ram
 	
 	delete _palette;
-	delete _size;
-	delete _position;
+	//delete _size;
+	//delete _position;
 }
 
 void CSprite::removeFromRam(){
@@ -126,7 +130,7 @@ void CSprite::removeFromVRam(bool palette){
 
 	NF_FreeSpriteGfx(getScreen(), getIdVRam());
 	_inVram = false;
-	//_idVRam = -1;
+	_idVRam = -1;
 	
 	if(palette){
 		_palette->removeFromVRam();
@@ -137,7 +141,7 @@ void CSprite::removeFromScreen(){
 	_flipped = false;
 
 	NF_DeleteSprite(getScreen(), getIdScreen());
-	//_idScreen = -1;
+	_idScreen = -1;
 } // removeFromScreen
 
 // Crea el puntero externo a la clase

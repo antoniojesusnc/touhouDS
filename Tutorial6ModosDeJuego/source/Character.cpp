@@ -37,8 +37,9 @@ CCharacter::CCharacter(const char *character, bool pnj) {
 	_pnj = pnj;
 	vu8 lenth = strlen(character);
 	_name = (char*)malloc(sizeof(char)*(lenth) );
-	_name[lenth] = '\0';
 	strcpy(_name, character);
+	_name[lenth] = '\0';
+	
 	
 	_input = CInputs::getInstance();
 	_commands = _input->getCommands();
@@ -52,6 +53,8 @@ CCharacter::CCharacter(const char *character, bool pnj) {
 
 // Destructor clase CCharacter
 CCharacter::~CCharacter(void) {
+	free(_name);
+
 
 } // ~CCharacter
 
@@ -64,21 +67,26 @@ void CCharacter::Init(Vector2 *position) {
 	
 	//CXMLParser *data = new CXMLParser("sakuya");
 	CXMLParser *xmlRaw = new CXMLParser(_name);
-	//xmlRaw->printData();
+	
+	
 	_position = new Vector2(*position);
 	_groundY = _position->getY();
 	_jumping = CInputs::DirStand;
 	_maxActiveMovement = 5;
-
+	
 	loadAttributes(xmlRaw->getDataByTag("data"));
+	
 	loadPalette();
+	
 	loadMovements(xmlRaw->getDataByTag("movements"));
+	
 	loadProjMovements(xmlRaw->getDataByTag("projMovements"));
-	//_currentMovement = &_movementList[0];
-	//_currentMovement->StartMovement(_position);
+	
 	_indexMovement = (u16)CInputs::Stand;
-	_movementList[_indexMovement]->StartMovement();
-
+	if(_movementList[_indexMovement] != NULL)
+		_movementList[_indexMovement]->StartMovement();
+	
+	free(xmlRaw);
 	//delete xmlRaw;
 } // Init
 
@@ -157,14 +165,15 @@ void CCharacter::loadMovements(CXMLParser::TXML *data){
 		//tempMovement = NULL;		
 	}
 	
-	/*
+	
+	printf("\n MOVEments");
 	for(vu8 i = 0; i < num; ++i){
 		if(_movementList[i] != NULL){
 			printf("\n %d %s",i, CInputs::getInstance()->commandToString((CInputs::Commands)i ) );
 			
 		}
 	}
-	*/
+	
 
 	/*	
 	_movementList = new CMovement[3]();

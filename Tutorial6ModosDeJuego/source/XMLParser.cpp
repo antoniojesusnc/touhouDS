@@ -37,15 +37,20 @@
 // Contructor clase CCharacterParser
 CXMLParser::CXMLParser(const char *characterName) {
 	
-	char *fileName = new char[30];
+
+	char *fileName = (char*)malloc(strlen(characterName)+9);
+	// se crea con basura, y para q el cat funcione bien
+	fileName[0] = '\0';  
 	strcat(fileName , "xml/");
 	strcat(fileName , characterName);
 	strcat(fileName , ".xml");
+	//fileName[strlen(characterName)+9] = '\0';
+	printf("%s",fileName);
 
 	_rawData = ReadFile(fileName);
 	//free(fileName);
 	_data = Parse(_rawData);
-	//free(rawData);
+	//free(_rawData);
 	
 } // CCharacterParser
 
