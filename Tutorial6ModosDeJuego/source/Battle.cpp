@@ -39,11 +39,8 @@
 
 
 // Contructor clase CBattle
-CBattle::CBattle(CEngine* engine) {
-	_engine = engine;
+CBattle::CBattle(CEngine* engine):CScene(engine)  {
 	
-	_topBackground = NULL;
-	_botBackground = NULL;
 } // CBattle
 
 // Destructor clase CBattle
@@ -51,9 +48,6 @@ CBattle::~CBattle(void) {
 	/*
 	delete [] _buttons;
 	/*/
-	
-	delete _topBackground;
-	delete _botBackground;
 
 	for(vu8 i = 0; i < 2; ++i){
 		delete _characters[i];
@@ -66,7 +60,7 @@ CBattle::~CBattle(void) {
 	Metodos de la clase "CBattle"
 */
 
-void CBattle::InitBattle(){
+void CBattle::InitScene(){
 
 	// backgrounds
 	// top background

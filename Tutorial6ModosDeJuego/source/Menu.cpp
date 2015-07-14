@@ -33,11 +33,8 @@
 
 
 // Contructor clase CMenu
-CMenu::CMenu(CEngine* engine) {
-	_engine = engine;
+CMenu::CMenu(CEngine* engine):CScene(engine) {
 	
-	_topBackground = NULL;
-	_botBackground = NULL;
 } // CMenu
 
 // Destructor clase CMenu
@@ -49,14 +46,12 @@ CMenu::~CMenu(void) {
 
 	/*/
 	
-
 	for(_indexBucle = 0; _indexBucle < 4; ++_indexBucle){
 		
 		delete _buttons[_indexBucle];
 		
 	}
-	delete _topBackground;
-	delete _botBackground;
+	//delete _buttons;
 	/* */
 		
 	
@@ -71,14 +66,10 @@ CMenu::~CMenu(void) {
 	Metodos de la clase "CMenu"
 */
 
-void CMenu::InitMenu(){
+void CMenu::InitScene(){
 
 	// backgrounds
 	// top background
-	
-
-	
-	
 	
 	Vector2 *position = new Vector2(50,40);
 	
@@ -117,7 +108,13 @@ void CMenu::Update(vfloat32 time){
 	if(_buttons[0]->IsTouched()) {
 		
 		//_engine->ChangeScene(CEngine::MENU);
-		_engine->ChangeScene(CEngine::ARCADE);
+		_engine->ChangeScene(CEngine::ARCADE_CHAR_SELECT);
+	}
+
+	if(_buttons[2]->IsTouched()) {
+		
+		//_engine->ChangeScene(CEngine::MENU);
+		_engine->ChangeScene(CEngine::OPTION);
 	}
 	
 	

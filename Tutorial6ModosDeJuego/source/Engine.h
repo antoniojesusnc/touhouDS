@@ -18,15 +18,21 @@
 #include "Includes.h"
 
 // Defines
-class CMenu;
-class CBattle;
+class CScene;
 
 // Clase CEngine
 class CEngine {
 
 	public:
 		
-		enum Scenes{MENU, ARCADE, VERSUS, OPTION, SIZE};
+		struct TOptions{
+			u8 level;
+			u8 character1;
+			u8 character2;
+			u8 time;
+		};
+
+		enum Scenes{MENU, ARCADE_BATTLE, ARCADE_CHAR_SELECT, VERSUS_BATTLE, VERSUS_CHAR_SELECT, OPTION, SIZE};
 		
 		// Contructores
 		CEngine();
@@ -44,9 +50,15 @@ class CEngine {
 
 		void MainBucle();
 
-		// Gets y sets
-		CMenu* getMenu(){return _menu;};	
 		
+		// gets & sets
+		TOptions* getGameData(){
+			return &_gameData;
+		}
+		
+		
+
+
 	private:
 		
 		void UnloadCurrentScene();
@@ -56,12 +68,11 @@ class CEngine {
 		CEngine::Scenes _currentScene;
 		CEngine::Scenes _newScene;
 		// scenes
-		CMenu* _menu;
-		CBattle* _arcade;
-
+		CScene *_curScene;
 		// others
 		CInputs *_input;
 		CTime *_time;
+		TOptions _gameData;
 };
 
 #endif

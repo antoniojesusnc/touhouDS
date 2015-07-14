@@ -1,5 +1,5 @@
-#ifndef __MENU_H__
-#define __MENU_H__
+#ifndef __SCENE_H__
+#define __SCENE_H__
 
 
 
@@ -14,43 +14,40 @@
 
 // Includes propietarios NDS
 #include <nds.h>
-#include "Math.h"
-#include "Scene.h"
-
 
 // Defines
-class CScene;
-class CButton;
-class CText;
-class CSprite;
+class CEngine;
 class CBackground;
 
-// Clase CMenu
-class CMenu : public CScene {
+// Clase CScene
+class CScene {
 
 	public:
 				
 		// Contructores
-		CMenu(CEngine* engine);
+		CScene(CEngine* engine);
 		
 		// Destructor
-		~CMenu(void);
+		virtual ~CScene(void);
 
 		
 
 		//	Metodos
-		void InitScene();
+		virtual void InitScene() = 0;
 
-		void Update(vfloat32 time);
+		virtual void Update(vfloat32 time) = 0;
 
 		
-	private:
+	protected:
+		
+		CBackground *_topBackground;
+		CBackground *_botBackground;
+
+
 		//CSprite *_genericSprite;
 		//CText *_genericText;
-		CButton* _buttons[4];
 
-		u8 _indexBucle;
-		u8 _buttonSelected;
+		CEngine* _engine;
 };
 
 

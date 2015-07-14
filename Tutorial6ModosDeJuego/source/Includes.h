@@ -48,7 +48,11 @@
 
 // Includes clases de escenas
 #include "Debug.h"
+
+#include "Scene.h"
 #include "Menu.h"
+#include "CharacterSelector.h"
+#include "Options.h"
 #include "Battle.h"
 #include "Engine.h"
 

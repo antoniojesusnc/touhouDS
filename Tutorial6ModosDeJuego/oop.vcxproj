@@ -59,6 +59,7 @@
     <ClCompile Include="source\Battle.cpp" />
     <ClCompile Include="source\Button.cpp" />
     <ClCompile Include="source\Character.cpp" />
+    <ClCompile Include="source\CharacterSelector.cpp" />
     <ClCompile Include="source\Collision.cpp" />
     <ClCompile Include="source\Debug.cpp" />
     <ClCompile Include="source\Hud.cpp" />
@@ -67,9 +68,11 @@
     <ClCompile Include="source\Engine.cpp" />
     <ClCompile Include="source\Menu.cpp" />
     <ClCompile Include="source\Movement.cpp" />
+    <ClCompile Include="source\Options.cpp" />
     <ClCompile Include="source\Palette.cpp" />
     <ClCompile Include="source\Projectile.cpp" />
     <ClCompile Include="source\ProjectileMovement.cpp" />
+    <ClCompile Include="source\Scene.cpp" />
     <ClCompile Include="source\Sprite.cpp" />
     <ClCompile Include="source\SpriteAnimated.cpp" />
     <ClCompile Include="source\Text.cpp" />
@@ -84,6 +87,7 @@
     <ClInclude Include="source\Battle.h" />
     <ClInclude Include="source\Button.h" />
     <ClInclude Include="source\Character.h" />
+    <ClInclude Include="source\CharacterSelector.h" />
     <ClInclude Include="source\Collision.h" />
     <ClInclude Include="source\Debug.h" />
     <ClInclude Include="source\Hud.h" />
@@ -93,9 +97,11 @@
     <ClInclude Include="source\Math.h" />
     <ClInclude Include="source\Menu.h" />
     <ClInclude Include="source\Movement.h" />
+    <ClInclude Include="source\Options.h" />
     <ClInclude Include="source\Palette.h" />
     <ClInclude Include="source\Projectile.h" />
     <ClInclude Include="source\ProjectileMovement.h" />
+    <ClInclude Include="source\Scene.h" />
     <ClInclude Include="source\Sprite.h" />
     <ClInclude Include="source\SpriteAnimated.h" />
     <ClInclude Include="source\Text.h" />

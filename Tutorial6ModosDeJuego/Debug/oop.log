@@ -1,4 +1,4 @@
-﻿Build started 7/13/2015 12:53:49 AM.
+﻿Build started 7/15/2015 2:25:06 AM.
      1>Project "C:\nds\Projects\Tutoriales\touhouDS\Tutorial6ModosDeJuego\oop.vcxproj" on node 2 (rebuild target(s)).
      1>CoreClean:
          make clean
@@ -31,6 +31,8 @@
          c:/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/Character.cpp(83):56: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
            loadProjMovements(xmlRaw->getDataByTag("projMovements"));
                                                                  ^
+         CharacterSelector.cpp
+         arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/build/CharacterSelector.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/CharacterSelector.cpp -o CharacterSelector.o 
          Collision.cpp
          arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/build/Collision.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/Collision.cpp -o Collision.o 
          Debug.cpp
@@ -40,18 +42,10 @@
           ^
          Engine.cpp
          arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/build/Engine.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/Engine.cpp -o Engine.o 
-         c:/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/Engine.cpp: In member function 'void CEngine::UnloadCurrentScene()':
-         c:/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/Engine.cpp(109):8: warning: enumeration value 'SIZE' not handled in switch [-Wswitch]
-           switch(_currentScene){
-                 ^
          c:/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/Engine.cpp: In member function 'void CEngine::LoadNewScene()':
-         c:/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/Engine.cpp(136):8: warning: enumeration value 'SIZE' not handled in switch [-Wswitch]
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/Engine.cpp(119):8: warning: enumeration value 'SIZE' not handled in switch [-Wswitch]
            switch(_currentScene){
                  ^
-         c:/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/Engine.cpp: In member function 'void CEngine::MainBucle()':
-         c:/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/Engine.cpp(184):9: warning: enumeration value 'SIZE' not handled in switch [-Wswitch]
-            switch(_currentScene){
-                  ^
          Hud.cpp
          arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/build/Hud.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/Hud.cpp -o Hud.o 
          Inputs.cpp
@@ -383,6 +377,8 @@
          arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/build/Menu.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/Menu.cpp -o Menu.o 
          Movement.cpp
          arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/build/Movement.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/Movement.cpp -o Movement.o 
+         Options.cpp
+         arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/build/Options.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/Options.cpp -o Options.o 
          Palette.cpp
          arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/build/Palette.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/Palette.cpp -o Palette.o 
          Projectile.cpp
@@ -403,6 +399,8 @@
               printf("\n1%d %d",i, _durationPerFrame[i]);
                                                        ^
          c:/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/ProjectileMovement.cpp(105):46: warning: format '%d' expects argument of type 'int', but argument 3 has type 'double' [-Wformat=]
+         Scene.cpp
+         arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/build/Scene.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/Scene.cpp -o Scene.o 
          Sprite.cpp
          arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/build/Sprite.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/Sprite.cpp -o Sprite.o 
          SpriteAnimated.cpp
@@ -427,4 +425,4 @@
 
 Compilación correcta.
 
-Time Elapsed 00:00:08.11
+Time Elapsed 00:00:08.78

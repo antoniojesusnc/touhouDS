@@ -57,9 +57,6 @@
     <ClCompile Include="source\Button.cpp">
       <Filter>source\Essentials</Filter>
     </ClCompile>
-    <ClCompile Include="source\Debug.cpp">
-      <Filter>source\Scenes</Filter>
-    </ClCompile>
     <ClCompile Include="source\Time.cpp">
       <Filter>source\UseFul</Filter>
     </ClCompile>
@@ -91,6 +88,18 @@
       <Filter>source\Character</Filter>
     </ClCompile>
     <ClCompile Include="source\Hud.cpp">
+      <Filter>source\UseFul</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Options.cpp">
+      <Filter>source\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="source\CharacterSelector.cpp">
+      <Filter>source\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Scene.cpp">
+      <Filter>source\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Debug.cpp">
       <Filter>source\UseFul</Filter>
     </ClCompile>
   </ItemGroup>
@@ -160,6 +169,15 @@
     </ClInclude>
     <ClInclude Include="source\Hud.h">
       <Filter>include\UseFul</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Options.h">
+      <Filter>include\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="source\CharacterSelector.h">
+      <Filter>include\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Scene.h">
+      <Filter>include\Scenes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -18,6 +18,7 @@
 #include <nf_lib.h>
 // Includes del programa
 #include "Engine.h"
+#include "Scene.h"
 
 
 // debug
@@ -64,8 +65,7 @@ CEngine::CEngine(){
 	//NF_InitRawSoundBuffers();
 	
 	// initial Scene
-	_arcade = NULL;
-	_menu = NULL;
+	_curScene = NULL;
 	_newScene = SIZE;
 	/*
 	_currentScene = MENU;
@@ -79,11 +79,7 @@ CEngine::CEngine(){
 
 // Destructor clase CEngine
 CEngine::~CEngine(void) {
-	if(_menu)
-		delete _menu;
-
-	if(_arcade)
-		delete _arcade;
+	delete _curScene;
 
 
 } // ~ CEngine
@@ -106,20 +102,7 @@ void CEngine::ExecuteChangeScene(){
 } // ChangeScene
 
 void CEngine::UnloadCurrentScene(){
-	switch(_currentScene){
-		case MENU: 
-			delete _menu;
-			_menu = NULL;
-			break;
-		case ARCADE: 
-			delete _arcade;
-			_arcade = NULL;
-			break;
-		case VERSUS: 
-			break;
-		case OPTION: 
-			break;
-	}
+	delete _curScene;
 	
 	swiWaitForVBlank();
 
@@ -134,23 +117,21 @@ void CEngine::UnloadCurrentScene(){
 void CEngine::LoadNewScene(){
 
 	switch(_currentScene){
-		case MENU:
-			_menu = new CMenu(this);
-			_menu->InitMenu();
+		case MENU: _curScene = new CMenu(this);		
 			break;
-		case ARCADE: 
-			
-			
-
-			_arcade = new CBattle(this);
-			_arcade->InitBattle();
-			
+		case OPTION: _curScene = new COptions(this);		
 			break;
-		case VERSUS: 
+		case ARCADE_BATTLE: _curScene = new CBattle(this);		
 			break;
-		case OPTION: 
+		case ARCADE_CHAR_SELECT: _curScene = new CCharacterSelector(this);		
+			break;
+		case VERSUS_BATTLE: _curScene = new CMenu(this);		
+			break;
+		case VERSUS_CHAR_SELECT: _curScene = new CMenu(this);		
 			break;
 	}
+	_curScene->InitScene();
+
 	swiWaitForVBlank();
 } // LoadNextScene
 
@@ -181,19 +162,7 @@ void CEngine::MainBucle(){
 		_input->Update();
 		_time->Update();
 		
-		switch(_currentScene){
-			case MENU: _menu->Update(CTime::deltaTime());
-				break;
-			case ARCADE: _arcade->Update(CTime::deltaTime());
-				break;
-			case VERSUS: 
-				break;
-			case OPTION: 
-				break;
-		}
-		
-	
-
+		_curScene->Update(CTime::deltaTime());
 
 		// update textLayers
 		//NF_UpdateTextLayers();

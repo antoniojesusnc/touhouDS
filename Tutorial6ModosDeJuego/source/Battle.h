@@ -15,11 +15,12 @@
 // Includes propietarios NDS
 #include <nds.h>
 #include "Math.h"
-#include "Engine.h"
+#include "Scene.h"
+
 
 
 // Defines
-class CEngine;
+class CScene;
 class CButton;
 class CText;
 class CSprite;
@@ -30,7 +31,7 @@ class CCollision;
 class CHud;
 
 // Clase CBattle
-class CBattle {
+class CBattle : public CScene {
 
 	public:
 				
@@ -43,7 +44,7 @@ class CBattle {
 		
 
 		//	Metodos
-		void InitBattle();
+		void InitScene();
 
 		void Update(vfloat32 time);
 
@@ -52,8 +53,6 @@ class CBattle {
 		
 	private:
 		
-		CBackground *_topBackground;
-		CBackground *_botBackground;
 
 		CCharacter *_characters[2];
 
@@ -61,8 +60,6 @@ class CBattle {
 		float _acum;
 		//CSprite *_genericSprite;
 		//CText *_genericText;
-
-		CEngine* _engine;
 
 		CCollision *_collision;
 

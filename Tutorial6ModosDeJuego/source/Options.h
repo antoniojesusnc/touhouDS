@@ -1,5 +1,5 @@
-#ifndef __MENU_H__
-#define __MENU_H__
+#ifndef __OPTIONS_H__
+#define __OPTIONS_H__
 
 
 
@@ -17,7 +17,6 @@
 #include "Math.h"
 #include "Scene.h"
 
-
 // Defines
 class CScene;
 class CButton;
@@ -25,16 +24,16 @@ class CText;
 class CSprite;
 class CBackground;
 
-// Clase CMenu
-class CMenu : public CScene {
+// Clase COptions
+class COptions : public CScene {
 
 	public:
 				
 		// Contructores
-		CMenu(CEngine* engine);
+		COptions(CEngine* engine);
 		
 		// Destructor
-		~CMenu(void);
+		~COptions(void);
 
 		
 
@@ -45,12 +44,13 @@ class CMenu : public CScene {
 
 		
 	private:
-		//CSprite *_genericSprite;
-		//CText *_genericText;
-		CButton* _buttons[4];
+		CButton* _backButton;
 
-		u8 _indexBucle;
-		u8 _buttonSelected;
+		CButton* _brightnessButton;
+
+		CButton* _30SecondButton;
+		CButton* _60SecondButton;
+		CButton* _90SecondButton;
 };
 
 
