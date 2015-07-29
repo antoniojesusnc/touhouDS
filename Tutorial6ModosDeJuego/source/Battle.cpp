@@ -52,7 +52,7 @@ CBattle::~CBattle(void) {
 	for(vu8 i = 0; i < 2; ++i){
 		delete _characters[i];
 	}
-	
+	delete _hud;
 
 } // ~CBattle
 
@@ -76,52 +76,98 @@ void CBattle::InitScene(){
 	
 	Vector2 *pos = new Vector2(192-128,255*0.5f);
 	
-	_characters[0] = new CCharacter("sakuya", false);
+	char *character1= getPlayerNameById(_engine->getGameData()->character1);
+	_characters[0] = new CCharacter(character1, false);
 	_characters[0]->Init(pos);
+	//free(character1);
 	
 	pos->setX(pos->getX()+64);
-	_characters[1] = new CCharacter("sakuya", true);
+	char *character2 = getPlayerNameById(_engine->getGameData()->character1);
+	_characters[1] = new CCharacter(character2, true);
 	_characters[1]->Init(pos);
+	//free(character2);
 	//delete pos;
 	
 	_collision = new CCollision();
 
 	_hud = new CHud();
+
 	_hud->InitHud(_characters[0], _characters[1], 60);
 
 	_remainingTime = 60;
 	_acum = 0;
 	
-	_topBackground = new CBackground("bg/background01",256,256);
+	char *level = getScenarioById(_engine->getGameData()->level);
+	_topBackground = new CBackground(level,256,256);
 	_topBackground->CreateBackground(true);
-	
+	//free(level);
 	//_topBackground->CreateBackground(false);
 	
 	
-	_botBackground = new CBackground("bg/nfl",256,256);
+	_botBackground = new CBackground("bg/battle/bg",256,256);
 	_botBackground->CreateBackground(false);
 	
-	
+	_pauseMenuOpen = false;
 }
 
 // Mueve las bolas
 void CBattle::Update(vfloat32 time){
 	
 	
-	_acum += time;
+	if(_pauseMenuOpen){
+		_hud->UpdatePause();
+		if(_hud->getButtonPressed() != 0){
+			if(_hud->getButtonPressed() == 1){
+				// click in resume
+				_hud->ShowPause(false);
+				_pauseMenuOpen = false;
+			}else{
+				_engine->ChangeScene(CEngine::MENU);
+			}
+		}
+	}else{
+		if(CInputs::getInstance()->getCommands()[0] == CInputs::Start){
+			_hud->ShowPause(true);
+			_pauseMenuOpen = true;
+			return;
+		}
 
-	_characters[0]->UpdateCharacter(time);
-	
-	_characters[1]->UpdateCharacter(time);
-	
-	_collision->CheckCollision(_characters[0], _characters[1]);
-	_collision->CheckCollision(_characters[1], _characters[0]);
+		_acum += time;
 
+		_characters[0]->UpdateCharacter(time);
+		_characters[1]->UpdateCharacter(time);
 	
-	if(_acum > 1){
-		_acum -= 1;
-		_remainingTime -= 1;
+		_collision->CheckCollision(_characters[0], _characters[1]);
+		_collision->CheckCollision(_characters[1], _characters[0]);
+
+		if(_acum > 1){
+			_acum -= 1;
+			_remainingTime -= 1;		
+		}
+
+		_hud->Update(_characters[0],_characters[1],_remainingTime);
+	}
+} // Update
+
+
+char* CBattle::getPlayerNameById(u8 id){
+	switch(id){
+		case 0: return "sakuya";
+		case 1: return "sakuya";
+		case 2: return "sakuya";
+		case 3: return "sakuya";
 	}
 
-	_hud->Update(_characters[0],_characters[1],_remainingTime);
-} // Update
+	return "sakuya";
+} // getPlayerNameById
+
+char* CBattle::getScenarioById(u8 id){
+	switch(id){
+		case 0: return "bg/battle/background01";
+		case 1: return "bg/battle/background02";
+		case 2: return "bg/battle/background03";
+		case 3: return "bg/battle/background04";
+	}
+
+	return "bg/battle/background01";
+} // getScenarioById

@@ -20,7 +20,9 @@
 
 // Defines
 class CSprite;
+class CSpriteAnimated;
 class CText;
+class CPalette;
 
 // Clase CButton
 class CButton {
@@ -28,7 +30,7 @@ class CButton {
 	public:
 				
 		// Contructores
-		CButton(const char* nameSprite,int width, int height, Vector2* position);
+		CButton(const char* nameSprite,int width, int height, Vector2* position, bool isSelectable = false);
 
 		// Destructor
 		~CButton(void);
@@ -36,16 +38,20 @@ class CButton {
 		
 
 		// gets & sets
-		bool IsTouched();
-		CSprite * getFgSprite(void){return _fgSprite;}
+		void setSelected(bool selected);
 
+		bool IsTouched();
+		CSpriteAnimated * getFgSprite(void){return _sprite;}
+		bool isSelected(){return _selected;}
 		
+
 	private:
 		
-		CSprite *_fgSprite;
+		CSpriteAnimated *_sprite;
 		Vector2 *_position;
 
-		
+		bool _isSelectable;
+		bool _selected;
 };
 
 

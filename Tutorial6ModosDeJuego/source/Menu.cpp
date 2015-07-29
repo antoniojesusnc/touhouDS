@@ -46,6 +46,9 @@ CMenu::~CMenu(void) {
 
 	/*/
 	
+	delete _logo01;
+	delete _logo02;
+
 	for(_indexBucle = 0; _indexBucle < 4; ++_indexBucle){
 		
 		delete _buttons[_indexBucle];
@@ -68,35 +71,47 @@ CMenu::~CMenu(void) {
 
 void CMenu::InitScene(){
 
-	// backgrounds
-	// top background
-	
-	Vector2 *position = new Vector2(50,40);
-	
-	_buttons[0]	= new CButton("sprite/bola", 32, 32, position);
-	
-	position->setX(170);
-	_buttons[1]	= new CButton("sprite/bola", 32, 32, position);
-	
-	position->setX(50);
-	position->setY(120);
-	_buttons[2]	= new CButton("sprite/bola", 32, 32, position);
+	Vector2 *position = new Vector2(0,0);
 
-	position->setX(170);
+	// logo
+	position->setXY(64,64);
+	_logo01 = new CSprite("sprite/menu/MainLogo01", "sprite/menu/MainLogo01",64,64);
+	_logo01->MoveSpriteToVRam(true, true);
+	_logo01->CreateSprite(position);
+	
+	position->setX(128);
+	_logo02 = new CSprite("sprite/menu/MainLogo02", "sprite/menu/MainLogo02",64,64);
+	_logo02->MoveSpriteToVRam(true, true);
+	_logo02->CreateSprite(position);
+
+
+	// buttons
+	position->setXY(64,70);
+	_buttons[0]	= new CButton("sprite/menu/ArcadeText", 64, 32, position);
+	
+	position->setX(128);
+	_buttons[1]	= new CButton("sprite/menu/StoryText", 64, 32, position);
+	
+	position->setX(64);
 	position->setY(120);
-	_buttons[3]	= new CButton("sprite/bola", 32, 32, position);
+	_buttons[2]	= new CButton("sprite/menu/ConfigText", 64, 32, position);
+
+	position->setX(128);
+	position->setY(120);
+	_buttons[3]	= new CButton("sprite/menu/VSPlayerText", 64, 32, position);
 	
 	free(position);
 	
 	//delete position;
 	
 	
-	_topBackground = new CBackground("bg/nfl",256,256);
+	_topBackground = new CBackground("bg/menu/menuTopBG",256,256);
 	_topBackground->CreateBackground(true);
 	
 	
-	_botBackground = new CBackground("bg/background01",256,256);
+	_botBackground = new CBackground("bg/menu/menuBotBG",256,256);
 	_botBackground->CreateBackground(false);
+	
 	
 	
 }

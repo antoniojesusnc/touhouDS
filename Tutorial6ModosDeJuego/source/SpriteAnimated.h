@@ -41,7 +41,7 @@ class CSpriteAnimated : public CSprite {
 		
 
 		// Destructor
-		~CSpriteAnimated(void);
+		virtual ~CSpriteAnimated();
 		
 		//	Metodos
 		u16 MoveSpriteToVRam(bool upScreen, bool palette, bool loadOnlyFirst = true);

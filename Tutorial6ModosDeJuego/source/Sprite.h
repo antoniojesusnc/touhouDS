@@ -50,7 +50,7 @@ class CSprite {
 		
 
 		// Destructor
-		~CSprite(void);
+		virtual ~CSprite();
 
 		void removeFromRam();
 
@@ -105,8 +105,6 @@ class CSprite {
 
 		CPalette* _palette;
 		Vector2 *_position;
-	
-	
 };
 
 

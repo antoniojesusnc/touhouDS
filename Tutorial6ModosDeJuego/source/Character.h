@@ -29,7 +29,7 @@ class CCharacter {
 	public:
 		
 		// Contructores
-		CCharacter(const char *character, bool pnj);
+		CCharacter(const char* character, bool pnj);
 		
 		// Destructor
 		~CCharacter(void);
@@ -77,8 +77,9 @@ class CCharacter {
 		void loadMovements(CXMLParser::TXML* data);
 		void loadProjMovements(CXMLParser::TXML* data);
 		
-
 		void executeJump();
+
+		
 
 		// characteristics
 		char* _name;

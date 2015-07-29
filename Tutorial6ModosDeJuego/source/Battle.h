@@ -53,6 +53,8 @@ class CBattle : public CScene {
 		
 	private:
 		
+		char *getPlayerNameById(u8 id);
+		char *getScenarioById(u8 id);
 
 		CCharacter *_characters[2];
 
@@ -65,8 +67,7 @@ class CBattle : public CScene {
 
 		CHud *_hud;
 
-		u8 temp1;
-		u8 temp2;
+		bool _pauseMenuOpen;
 };
 
 

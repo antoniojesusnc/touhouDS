@@ -22,6 +22,7 @@
 #include "Hud.h"
 #include "Palette.h"
 #include "SpriteAnimated.h"
+#include "Button.h"
 #include "Text.h"
 #include "Character.h"
 
@@ -33,11 +34,40 @@
 // Contructor clase CHud
 CHud::CHud() {
 	
+	_healthBarPlayer1 = NULL;
+	_healthBarPlayer2 = NULL;
+	_timeTems = NULL;
+	_timeUnits = NULL;
+
+	// Pause menu
+	_pauseBackground = NULL;
+	_pauseText = NULL;
+	_pauseResumeButton = NULL;
+	_pauseExitButton = NULL;
+
+	// victory and Loose menu
+	_victoryText = NULL;
+	_looseText = NULL;
+
 } // CHud
 
 // Destructor clase CHud
 CHud::~CHud(void) {
 
+	delete _healthBarPlayer1;
+	delete _healthBarPlayer2;
+	delete _timeTems;
+	delete _timeUnits;
+
+	// Pause menu
+	delete _pauseBackground;
+	delete _pauseText;
+	delete _pauseResumeButton;
+	delete _pauseExitButton;
+
+	// victory and Loose menu
+	delete _victoryText;
+	delete _looseText;
 
 } // ~CHud
 
@@ -80,12 +110,20 @@ void CHud::InitHud(CCharacter * player1, CCharacter * player2, u8 initialTime){
 
 
 
-	delete positions;
+	
 
 	temp1 = 0;
 	temp2 = 0;
 
 	Update(player1, player2, initialTime);
+
+	
+
+	// victory and loose text
+	_victoryText = NULL;
+	_looseText = NULL;
+
+	delete positions;
 }
 
 // Mueve las bolas
@@ -101,3 +139,56 @@ void CHud::Update(CCharacter * player1, CCharacter * player2, u8 time){
 	_timeUnits->setFrame(time%10);
 
 } // Update
+
+void CHud::ShowPause(bool pause){
+	if(pause){
+		// pause menu
+		// top elements
+		Vector2 *positions = new Vector2();
+		
+		CPalette *pausePalleteTop = new CPalette("sprite/hud/hud");
+		pausePalleteTop->MovePaletteToVRam(true);
+	
+		_pauseText = new CSpriteAnimated("sprite/hud/healthBar0",32,32,10);
+		_pauseText->MoveSpriteToVRam(true,false,true);
+		_pauseText->setPalette(pausePalleteTop);
+		_pauseText->CreateSprite(positions);
+
+		// bot elements
+		CPalette *pausePalleteBot = new CPalette("sprite/hud/hud");
+		pausePalleteBot->MovePaletteToVRam(false);
+
+		positions->setXY(128,80);
+		_pauseBackground = new CSpriteAnimated("sprite/hud/healthBar0",32,32,10);
+		_pauseBackground->MoveSpriteToVRam(false,false,true);
+		_pauseBackground->setPalette(pausePalleteBot);
+		_pauseBackground->CreateSprite(positions);		
+	
+		_pauseResumeButton = new CButton("sprite/bola", 32, 32, positions);
+		_pauseExitButton = new CButton("sprite/bola", 32, 32, positions);
+
+		free(positions);
+	}else{
+		
+		delete _pauseBackground;
+		delete _pauseText;
+		delete _pauseResumeButton;
+		delete _pauseExitButton;
+		_buttonPressed = 0;
+
+		_pauseBackground = NULL;
+		_pauseText = NULL;
+		_pauseResumeButton = NULL;
+		_pauseExitButton = NULL;
+	}
+} // ShowPause
+
+void CHud::UpdatePause(){
+	if(_pauseResumeButton->IsTouched()) {
+		_buttonPressed = 1;
+	}else if(_pauseExitButton->IsTouched()) {
+		_buttonPressed = 2;
+	}else{
+		_buttonPressed = 0;
+	}
+} // UpdatePause

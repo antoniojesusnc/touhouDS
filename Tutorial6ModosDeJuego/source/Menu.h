@@ -47,7 +47,11 @@ class CMenu : public CScene {
 	private:
 		//CSprite *_genericSprite;
 		//CText *_genericText;
+		CSprite* _logo01;
+		CSprite* _logo02;
+
 		CButton* _buttons[4];
+
 
 		u8 _indexBucle;
 		u8 _buttonSelected;

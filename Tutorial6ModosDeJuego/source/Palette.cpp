@@ -23,8 +23,8 @@
 u8 CPalette::MAX_ID_PALETTE_RAM = 15;
 u8 CPalette::MAX_ID_PALETTE_VRAM = 15;
 		
-u8 CPalette::IdRam = 0;
-u8 CPalette::IdVRam = 0;
+u8 CPalette::IdRam = 1;
+u8 CPalette::IdVRam = 1;
 
 /*
 	Metodos de la clase "CPalette"
@@ -39,7 +39,7 @@ CPalette::CPalette(const char *palette) {
 	_inVram = false;
 	
 	if(CPalette::IdRam >= MAX_ID_PALETTE_RAM){
-		CPalette::IdRam = 0;
+		CPalette::IdRam = 1;
 	}
 }
 
@@ -47,7 +47,10 @@ CPalette::CPalette(const char *palette) {
 CPalette::~CPalette(void) {
 	//NF_UnloadExBgPal(getIdRam());
 	removeFromVRam();
-	NF_UnloadSpritePal(getIdRam()); // delete from ram
+	if(getIdRam() > 0){
+		NF_UnloadSpritePal(getIdRam()); // delete from ram
+		_idRam = 0;
+	}
 } // ~CPalette
 
 void CPalette::removeFromVRam(){

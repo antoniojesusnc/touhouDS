@@ -110,8 +110,10 @@ void CInputs::checkCombos(){
 		_commands[_commandsIndex] = (Commands)( ((u16)_directions[0])+(9*3) );
 	} else if(_keys & KEY_X){
 		_commands[_commandsIndex] = (Commands)( ((u16)_directions[0])+(9*4) );
+	} else if(_keys & KEY_START){
+		_commands[_commandsIndex] = CInputs::Start;
 	} else {
-		_commands[_commandsIndex] = (Commands)( ((u16)_directions[0])+(9*0) );
+		_commands[_commandsIndex] = CInputs::Stand;
 	}
 
 } // checkCombos
@@ -133,19 +135,14 @@ void CInputs::Update(){
 	scanKeys();
 	//_keys = keysDown();
 	
-
 	_keys = keysHeld();
 
 	touchRead(&_touchScreen);
 	_touchPos.x = _touchScreen.px;
 	_touchPos.y = _touchScreen.py;
 	
-	
-
 	//_keys = keysUp();
-	
 	_keys = keysCurrent ();
-	
 	
 } // Update
 

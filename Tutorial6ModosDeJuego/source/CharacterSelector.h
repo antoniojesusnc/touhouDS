@@ -52,6 +52,8 @@ class CCharacterSelector : public CScene {
 		//CSprite *_genericSprite;
 		//CText *_genericText;
 
+		CSpriteAnimated *_characters[4];
+
 		CSpriteAnimated *_character1;
 		CSpriteAnimated *_character2;
 

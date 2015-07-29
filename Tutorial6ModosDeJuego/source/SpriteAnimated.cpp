@@ -50,7 +50,28 @@ CSpriteAnimated::CSpriteAnimated(const char *spriteAnimated,const char *palette,
 
 
 // Destructor clase CSpriteAnimated
-CSpriteAnimated::~CSpriteAnimated(void) {
+CSpriteAnimated::~CSpriteAnimated() {
+
+	/*
+	if(_idVRam >= 0)
+		removeFromVRam(false);
+
+	if(_idScreen >= 0)
+		removeFromScreen();
+	
+	if(_idRam >= 0)
+		removeFromRam();
+
+	//NF_DeleteSprite(getScreen(), getIdScreen()); // delete from screen
+	//NF_FreeSpriteGfx(getScreen(), getIdVRam()); // delete from vRam
+	//NF_UnloadSpriteGfx(getIdRam()); // delete from ram
+	
+	
+	delete _palette;
+	
+
+	_palette = NULL;
+	*/
 
 }
 

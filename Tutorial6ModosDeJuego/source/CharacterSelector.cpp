@@ -21,7 +21,7 @@
 #include "CharacterSelector.h"
 #include "Background.h"
 #include "Sprite.h"
-#include "Text.h"
+#include "SpriteAnimated.h"
 #include "Button.h"
 #include "Inputs.h"
 
@@ -56,6 +56,10 @@ CCharacterSelector::~CCharacterSelector(void) {
 	for(vu8 i = 0; i < 4; ++i){
 		delete _characterButtons[i];
 	}
+
+	for(vu8 i = 0; i < 4; ++i){
+		delete _characters[i];
+	}
 	//free(_characterButtons);
 
 	for(vu8 i = 0; i < 4; ++i){
@@ -78,45 +82,53 @@ CCharacterSelector::~CCharacterSelector(void) {
 
 void CCharacterSelector::InitScene(){
 
-	// backgrounds
-	// top background
-	
-
 	
 	
-	
+	// exit and play button	
 	Vector2 *position = new Vector2(0,0);
-	_backButton	= new CButton("sprite/bola", 32, 32, position);
+	_backButton	= new CButton("sprite/charSelector/exitButton", 32, 16, position);
 	position->setXY(255-32,0);
-	_startButton = new CButton("sprite/bola", 32, 32, position);
+	_startButton = new CButton("sprite/charSelector/playButton", 32, 16, position);
 
 
+
+	// characters
 	position->setXY(64,80);
-	_characterButtons[0] = new CButton("sprite/bola", 32, 32, position);
+	_characterButtons[0] = new CButton("sprite/charSelector/aya", 32, 64, position, true);
 	position->setXY(96,80);
-	_characterButtons[1]	= new CButton("sprite/bola", 32 , 32, position);
+	_characterButtons[1]	= new CButton("sprite/charSelector/sakuya", 32 , 64, position, true);
 	position->setXY(128,80);
-	_characterButtons[2] = new CButton("sprite/bola", 32, 32, position);
+	_characterButtons[2] = new CButton("sprite/charSelector/hong", 32, 64, position, true);
 	position->setXY(160,80);
-	_characterButtons[3] = new CButton("sprite/bola", 32, 32, position);
+	_characterButtons[3] = new CButton("sprite/charSelector/tenshi", 32, 64, position, true);
 
+	// scenarios
 	position->setXY(0,150);
-	_scenarioButtons[0] = new CButton("sprite/bola", 32, 32, position);
+	_scenarioButtons[0] = new CButton("sprite/charSelector/bg1", 64, 32, position, true);
 	position->setXY(64,150);
-	_scenarioButtons[1] = new CButton("sprite/bola", 32 , 32, position);
+	_scenarioButtons[1] = new CButton("sprite/charSelector/bg2", 64 ,32, position, true);
 	position->setXY(128,150);
-	_scenarioButtons[2] = new CButton("sprite/bola", 32, 32, position);
+	_scenarioButtons[2] = new CButton("sprite/charSelector/bg3", 64, 32, position, true);
 	position->setXY(192,150);
-	_scenarioButtons[3] = new CButton("sprite/bola", 32, 32, position);
+	_scenarioButtons[3] = new CButton("sprite/charSelector/bg4", 64, 32, position, true);
 
 	free(position);
 	
-	//delete position;
-	_topBackground = new CBackground("bg/nfl",256,256);
+	// load characters in memory
+	_characters[0] = new CSpriteAnimated("sprite/charSelector/ayaSelected", "sprite/charSelector/ayaSelected", 32,64,8);
+	_characters[1] = new CSpriteAnimated("sprite/charSelector/sakuyaSelected", "sprite/charSelector/sakuyaSelected", 32,64,6);
+	_characters[2] = new CSpriteAnimated("sprite/charSelector/hongSelected", "sprite/charSelector/hongSelected", 32,64,6);
+	_characters[3] = new CSpriteAnimated("sprite/charSelector/tenshiSelected", "sprite/charSelector/tenshiSelected", 64,64,8);
+	
+
+	// background
+	_topBackground = new CBackground("bg/charSelector/back_blue",256,256);
 	_topBackground->CreateBackground(true);
 	
-	_botBackground = new CBackground("bg/background01",256,256);
+	
+	_botBackground = new CBackground("bg/charSelector/back_red",256,256);
 	_botBackground->CreateBackground(false);
+	
 
 
 	_character1 = NULL;
@@ -126,11 +138,34 @@ void CCharacterSelector::InitScene(){
 }
 
 void CCharacterSelector::selectCharacter(u8 idCharacter){
+	if(_engine->getGameData()->character1 < 100)
+		_characterButtons[_engine->getGameData()->character1]->setSelected(false);
 
-}
+	_engine->getGameData()->character1 = idCharacter;
+	_characterButtons[idCharacter]->setSelected(true);
+
+	_allSelected = _engine->getGameData()->level < 100;
+
+
+	if(_character1 != NULL){
+		_character1->removeFromScreen();
+		_character1->removeFromVRam();
+	}
+
+	_character1 = _characters[idCharacter];
+	_character1->MoveSpriteToVRam(true, true);
+	Vector2 *position = new Vector2(32,192-80);
+	_character1->CreateSprite(position);
+	
+} // selectCharacter
 
 void CCharacterSelector::selectScenario(u8 idScenario){
+	if(_engine->getGameData()->level < 100)
+		_scenarioButtons[_engine->getGameData()->level]->setSelected(false);
+	_engine->getGameData()->level = idScenario;
+	_scenarioButtons[idScenario]->setSelected(true);
 
+	_allSelected = _engine->getGameData()->character1 < 100;
 }
 
 // Mueve las bolas
@@ -153,6 +188,10 @@ void CCharacterSelector::Update(vfloat32 time){
 			if(_scenarioButtons[i]->IsTouched())
 				selectScenario(i);
 		}
+	}
+
+	if(_character1 != NULL){
+		_character1->UpdateAnimation(time);
 	}
 
 } // Update

@@ -53,8 +53,9 @@ CEngine::CEngine(){
 	// init buffer for sprite and palletes
 	NF_InitSpriteBuffers();
 	// init sisrym for 3d
+	NF_InitSpriteSys(1,128);
 	NF_InitSpriteSys(0,128);
-	NF_InitSpriteSys(1);
+	
 	//NF_Init3dSpriteSys();
 
 	// Init textBuffer
@@ -117,7 +118,11 @@ void CEngine::UnloadCurrentScene(){
 void CEngine::LoadNewScene(){
 
 	switch(_currentScene){
-		case MENU: _curScene = new CMenu(this);		
+		case MENU: _curScene = new CMenu(this);
+			_gameData.character1 = 100;
+			_gameData.character2 = 100;
+			_gameData.level = 100;
+
 			break;
 		case OPTION: _curScene = new COptions(this);		
 			break;

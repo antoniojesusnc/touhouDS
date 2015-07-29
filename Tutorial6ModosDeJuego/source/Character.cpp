@@ -33,11 +33,11 @@
 */
 
 // Contructor clase CCharacter
-CCharacter::CCharacter(const char *character, bool pnj) {
+CCharacter::CCharacter(const char* character, bool pnj) {
 	_pnj = pnj;
 	vu8 lenth = strlen(character);
 	_name = (char*)malloc(sizeof(char)*(lenth) );
-	strcpy(_name, character);
+	strcpy(_name, character );
 	_name[lenth] = '\0';
 	
 	
