@@ -41,6 +41,15 @@ CMovement::CMovement() {
 
 // Destructor clase CMovement
 CMovement::~CMovement(void) {
+
+	
+	//free(_owner);
+	//free(_characterPosition);
+
+	//free (_durationPerFrame);
+	//free (_damagePerFrame);
+
+	delete _sprite;
 } // ~CMovement
 
 /*

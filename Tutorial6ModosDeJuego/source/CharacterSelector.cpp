@@ -115,10 +115,22 @@ void CCharacterSelector::InitScene(){
 	free(position);
 	
 	// load characters in memory
+
+	//float allDurations[8] = {0.2f,0.2f,0.2f,0.2f,0.2f,0.2f,0.2f,0.2f};
+	
+	float *allDurations = (float*)malloc(sizeof(float)*8);
+	for(vu8 i = 0; i < 8; ++i){
+		allDurations[i] = 0.1f;
+	}
+	
 	_characters[0] = new CSpriteAnimated("sprite/charSelector/ayaSelected", "sprite/charSelector/ayaSelected", 32,64,8);
+	_characters[0]->setDurationPerFrame(allDurations);
 	_characters[1] = new CSpriteAnimated("sprite/charSelector/sakuyaSelected", "sprite/charSelector/sakuyaSelected", 32,64,6);
+	_characters[1]->setDurationPerFrame(allDurations);
 	_characters[2] = new CSpriteAnimated("sprite/charSelector/hongSelected", "sprite/charSelector/hongSelected", 32,64,6);
+	_characters[2]->setDurationPerFrame(allDurations);
 	_characters[3] = new CSpriteAnimated("sprite/charSelector/tenshiSelected", "sprite/charSelector/tenshiSelected", 64,64,8);
+	_characters[3]->setDurationPerFrame(allDurations);
 	
 
 	// background
@@ -156,7 +168,6 @@ void CCharacterSelector::selectCharacter(u8 idCharacter){
 	_character1->MoveSpriteToVRam(true, true);
 	Vector2 *position = new Vector2(32,192-80);
 	_character1->CreateSprite(position);
-	
 } // selectCharacter
 
 void CCharacterSelector::selectScenario(u8 idScenario){

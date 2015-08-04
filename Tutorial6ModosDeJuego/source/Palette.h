@@ -14,7 +14,7 @@
 
 // Includes propietarios NDS
 #include <nds.h>
-
+#include <set>
 // Defines
 
 
@@ -29,12 +29,16 @@ class CPalette {
 		static u8 IdRam;
 		static u8 IdVRam;
 
+		static std::set<u8> ALLRamId;
+		static std::set<u8> ALLVRamId;
+
 		// Contructores
 		CPalette(const char *palette);
 		
 		// Destructor
 		~CPalette(void);
 
+		void removeFromRam();
 		void removeFromVRam();
 		
 		//	Metodos

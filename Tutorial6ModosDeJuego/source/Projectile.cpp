@@ -43,6 +43,8 @@ CProjectile::CProjectile(CSpriteAnimated *sprite, float speedX, float speedY) {
 // Destructor clase CProjectile
 CProjectile::~CProjectile(void) {
 
+	//delete _sprite;
+
 } // ~CProjectile
 
 /*

@@ -16,6 +16,7 @@
 
 // Includes propietarios NDS
 #include <nds.h>
+#include <set>
 #include "Math.h"
 #include "Palette.h"
 #include "Inputs.h"
@@ -37,7 +38,9 @@ class CSprite {
 		static u8 IdVRam;
 		static u8 IdScreen;
 
-
+		static std::set<u8> ALLRamId;
+		static std::set<u8> ALLVRamId;
+		static std::set<u8> ALLScreenId;
 		// Constructor de copia
 		CSprite(CSprite &sprite);
 
@@ -81,11 +84,12 @@ class CSprite {
 		CPalette* getPalette(){return _palette;}
 		Vector2 *getSize(){return _size;}
 		
-		void setPalette(CPalette* palette){_palette = palette;}
+		void setPalette(CPalette* palette){_palette = palette;_externPalette = true;}
 		void setInVRam(bool inVram){_inVram = inVram;}
 
 		void setIdVRam(u8 idVram){_idVRam = idVram;}
 		void setUpScreen(bool upScreen){_upScreen = upScreen;}
+		void setOrder(u8 layer);
 
 		bool isUpScreen(){return _upScreen;}
 		bool isInVRam(){return _inVram;}
@@ -101,8 +105,10 @@ class CSprite {
 		bool _inVram;
 		bool _flipped;
 
+
 		Vector2 *_size;
 
+		bool _externPalette;
 		CPalette* _palette;
 		Vector2 *_position;
 };

@@ -90,6 +90,7 @@ CSpriteAnimated *SpriteAnimated;
 void CSpriteAnimated::CreateSprite(Vector2 *position) {
 	CSprite::CreateSprite(position);
 	_currentFrame = 0;
+	_currentDuration = 0;
 } // CreateSprite
 
 // Mueve las bolas

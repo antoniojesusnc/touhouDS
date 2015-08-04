@@ -39,7 +39,8 @@ CButton::CButton(const char* nameSprite,int width, int height, Vector2* position
 	
 	_sprite->MoveSpriteToVRam(false,true);
 	_sprite->CreateSprite(position);
-	
+	_sprite->setOrder(0);
+
 	_position = new Vector2(*position);
 
 } // ctor

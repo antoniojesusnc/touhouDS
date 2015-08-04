@@ -55,7 +55,14 @@ CCharacter::CCharacter(const char* character, bool pnj) {
 CCharacter::~CCharacter(void) {
 	free(_name);
 
-
+	
+	delete _palette;
+	
+	for(vu8 i = 0; i < CInputs::Size; ++i){
+		delete _movementList[i];
+		delete _projMovementList[i];
+	}
+	
 } // ~CCharacter
 
 /*

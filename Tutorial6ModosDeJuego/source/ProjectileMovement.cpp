@@ -39,6 +39,12 @@ CProjectileMovement::CProjectileMovement() {
 
 // Destructor clase CProjectileMovement
 CProjectileMovement::~CProjectileMovement(void) {
+
+	for(vu8 i = 0; i < _numProjectiles; ++i){
+		delete _projectiles[i];
+	}
+	free(_projectiles);
+
 } // ~CProjectileMovement
 
 /*

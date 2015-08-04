@@ -1,4 +1,4 @@
-﻿Build started 7/30/2015 3:32:21 AM.
+﻿Build started 8/5/2015 2:29:58 AM.
      1>Project "C:\nds\Projects\Tutoriales\touhouDS\Tutorial6ModosDeJuego\oop.vcxproj" on node 2 (rebuild target(s)).
      1>CoreClean:
          make clean
@@ -46,17 +46,24 @@
          arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/build/Button.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/Button.cpp -o Button.o 
          Character.cpp
          arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/build/Character.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/Character.cpp -o Character.o 
-         c:/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/Character.cpp(301):2: warning: "/*" within comment [-Wcomment]
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/Character.cpp(308):2: warning: "/*" within comment [-Wcomment]
            /*
           ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/Character.cpp: In destructor 'CCharacter::~CCharacter()':
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/Character.cpp(62):25: warning: deleting object of polymorphic class type 'CMovement' which has non-virtual destructor might cause undefined behaviour [-Wdelete-non-virtual-dtor]
+            delete _movementList[i];
+                                  ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/Character.cpp(63):29: warning: deleting object of polymorphic class type 'CProjectileMovement' which has non-virtual destructor might cause undefined behaviour [-Wdelete-non-virtual-dtor]
+            delete _projMovementList[i];
+                                      ^
          c:/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/Character.cpp: In member function 'void CCharacter::Init(Vector2*)':
-         c:/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/Character.cpp(77):44: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/Character.cpp(84):44: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
            loadAttributes(xmlRaw->getDataByTag("data"));
                                                      ^
-         c:/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/Character.cpp(81):48: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/Character.cpp(88):48: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
            loadMovements(xmlRaw->getDataByTag("movements"));
                                                          ^
-         c:/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/Character.cpp(83):56: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/Character.cpp(90):56: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
            loadProjMovements(xmlRaw->getDataByTag("projMovements"));
                                                                  ^
          CharacterSelector.cpp
@@ -413,20 +420,20 @@
          arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/build/Projectile.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/Projectile.cpp -o Projectile.o 
          ProjectileMovement.cpp
          arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/build/ProjectileMovement.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/ProjectileMovement.cpp -o ProjectileMovement.o 
-         c:/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/ProjectileMovement.cpp(150):2: warning: multi-line comment [-Wcomment]
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/ProjectileMovement.cpp(156):2: warning: multi-line comment [-Wcomment]
            //printf("\n Starting");\
            ^
-         c:/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/ProjectileMovement.cpp(189):2: warning: "/*" within comment [-Wcomment]
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/ProjectileMovement.cpp(195):2: warning: "/*" within comment [-Wcomment]
            /*
           ^
-         c:/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/ProjectileMovement.cpp(192):3: warning: "/*" within comment [-Wcomment]
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/ProjectileMovement.cpp(198):3: warning: "/*" within comment [-Wcomment]
            //*_characterPosition += *_offsetPerFrame[_frame];
           ^
          c:/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/ProjectileMovement.cpp: In member function 'virtual void CProjectileMovement::initFrames(CXMLParser::TXML*)':
-         c:/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/ProjectileMovement.cpp(105):46: warning: format '%d' expects argument of type 'int', but argument 3 has type 'double' [-Wformat=]
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/ProjectileMovement.cpp(111):46: warning: format '%d' expects argument of type 'int', but argument 3 has type 'double' [-Wformat=]
               printf("\n1%d %d",i, _durationPerFrame[i]);
                                                        ^
-         c:/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/ProjectileMovement.cpp(105):46: warning: format '%d' expects argument of type 'int', but argument 3 has type 'double' [-Wformat=]
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/ProjectileMovement.cpp(111):46: warning: format '%d' expects argument of type 'int', but argument 3 has type 'double' [-Wformat=]
          Scene.cpp
          arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/build/Scene.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/Scene.cpp -o Scene.o 
          Sprite.cpp
@@ -453,4 +460,4 @@
 
 Compilación correcta.
 
-Time Elapsed 00:00:08.35
+Time Elapsed 00:00:08.86

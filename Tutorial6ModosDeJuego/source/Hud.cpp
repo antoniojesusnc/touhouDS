@@ -76,21 +76,18 @@ CHud::~CHud(void) {
 */
 
 void CHud::InitHud(CCharacter * player1, CCharacter * player2, u8 initialTime){
-
-	CPalette * hudPalette = new CPalette("sprite/hud/hud");
-	hudPalette->MovePaletteToVRam(false);
 	
 	Vector2 *positions = new Vector2();
-	
 	// loading health bar
 	positions->setXY(5,5);
-	_healthBarPlayer1 = new CSpriteAnimated("sprite/hud/healthBar0",64,32,10);
-	_healthBarPlayer1->MoveSpriteToVRam(false,false,true);
-	_healthBarPlayer1->setPalette(hudPalette);
+	_healthBarPlayer1 = new CSpriteAnimated("sprite/battleHud/healthBar0","sprite/battleHud/healthBar0",64,32,10);
+	_healthBarPlayer1->MoveSpriteToVRam(false,true,true);
 	_healthBarPlayer1->CreateSprite(positions);
 
+	
 	positions->setXY(255-5-64,5);
-	_healthBarPlayer2 = new CSpriteAnimated(*_healthBarPlayer1);
+	_healthBarPlayer2 = new CSpriteAnimated("sprite/battleHud/healthBar0","sprite/battleHud/healthBar0",64,32,10);
+	_healthBarPlayer2->MoveSpriteToVRam(false,true,true);
 	_healthBarPlayer2->CreateSprite(positions);
 	_healthBarPlayer2->FlipTo(CInputs::DirBack);
 	
@@ -98,15 +95,15 @@ void CHud::InitHud(CCharacter * player1, CCharacter * player2, u8 initialTime){
 	
 	// loading numbers
 	positions->setXY(96,80);
-	_timeTems = new CSpriteAnimated("sprite/hud/numbers",32,32,10);
-	_timeTems->MoveSpriteToVRam(false,false,true);
-	_timeTems->setPalette(hudPalette);
+	_timeTems = new CSpriteAnimated("sprite/battleHud/numbers", "sprite/battleHud/numbers",32,32,10);
+	_timeTems->MoveSpriteToVRam(false,true,true);
 	_timeTems->CreateSprite(positions);
-
+	
 	positions->setXY(128,80);
-	_timeUnits = new CSpriteAnimated(*_timeTems);
+	_timeUnits = new CSpriteAnimated("sprite/battleHud/numbers", "sprite/battleHud/numbers",32,32,10);
+	_timeUnits->MoveSpriteToVRam(false,true,true);
 	_timeUnits->CreateSprite(positions);
-
+	
 
 
 
@@ -128,7 +125,7 @@ void CHud::InitHud(CCharacter * player1, CCharacter * player2, u8 initialTime){
 
 // Mueve las bolas
 void CHud::Update(CCharacter * player1, CCharacter * player2, u8 time){
-	
+
 	u8 frame = 10 - (10 * player1->getHealth()) / (player1->getMaxHealth());
 	_healthBarPlayer1->setFrame(frame);
 
@@ -146,28 +143,31 @@ void CHud::ShowPause(bool pause){
 		// top elements
 		Vector2 *positions = new Vector2();
 		
-		CPalette *pausePalleteTop = new CPalette("sprite/hud/hud");
-		pausePalleteTop->MovePaletteToVRam(true);
-	
-		_pauseText = new CSpriteAnimated("sprite/hud/healthBar0",32,32,10);
-		_pauseText->MoveSpriteToVRam(true,false,true);
-		_pauseText->setPalette(pausePalleteTop);
+		positions->setXY(128-32,96-8);
+		_pauseText = new CSprite("sprite/battleHud/pauseText","sprite/battleHud/pauseText",64,32);
+		_pauseText->MoveSpriteToVRam(true,true,true);
 		_pauseText->CreateSprite(positions);
+		_pauseText->setOrder(1);
 
 		// bot elements
-		CPalette *pausePalleteBot = new CPalette("sprite/hud/hud");
-		pausePalleteBot->MovePaletteToVRam(false);
-
-		positions->setXY(128,80);
-		_pauseBackground = new CSpriteAnimated("sprite/hud/healthBar0",32,32,10);
-		_pauseBackground->MoveSpriteToVRam(false,false,true);
-		_pauseBackground->setPalette(pausePalleteBot);
-		_pauseBackground->CreateSprite(positions);		
+		positions->setXY(128-32,96-25);
+		_pauseBackground = new CSprite("sprite/battleHud/optionBG", "sprite/battleHud/optionBG",64,64);
+		_pauseBackground->MoveSpriteToVRam(false,true,true);
+		_pauseBackground->CreateSprite(positions);
+		_pauseBackground->setOrder(1);
 	
-		_pauseResumeButton = new CButton("sprite/bola", 32, 32, positions);
-		_pauseExitButton = new CButton("sprite/bola", 32, 32, positions);
+
+		positions->setXY(128-16,96-16);
+		_pauseResumeButton = new CButton("sprite/battleHud/playButton", 32, 16, positions);
+		
+
+		positions->setXY(128-16,96+16);
+		_pauseExitButton = new CButton("sprite/battleHud/exitButton", 32, 16, positions);
 
 		free(positions);
+
+		_timeTems->setOrder(3);
+		_timeUnits->setOrder(3);
 	}else{
 		
 		delete _pauseBackground;
@@ -180,15 +180,20 @@ void CHud::ShowPause(bool pause){
 		_pauseText = NULL;
 		_pauseResumeButton = NULL;
 		_pauseExitButton = NULL;
+
+		_timeTems->setOrder(0);
+		_timeUnits->setOrder(0);
 	}
 } // ShowPause
 
 void CHud::UpdatePause(){
+	
 	if(_pauseResumeButton->IsTouched()) {
 		_buttonPressed = 1;
 	}else if(_pauseExitButton->IsTouched()) {
-		_buttonPressed = 2;
+		_buttonPressed = 2;	
 	}else{
 		_buttonPressed = 0;
 	}
+	
 } // UpdatePause

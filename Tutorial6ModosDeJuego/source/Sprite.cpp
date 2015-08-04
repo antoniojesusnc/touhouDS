@@ -35,11 +35,16 @@ u8 CSprite::IdRam = 1;
 u8 CSprite::IdVRam = 1;
 u8 CSprite::IdScreen = 1;
 
+std::set<u8> CSprite::ALLRamId;
+std::set<u8> CSprite::ALLVRamId;
+std::set<u8> CSprite::ALLScreenId;
+
 /*
 	Metodos de la clase "CSprite"
 */
 
 CSprite::CSprite(CSprite &sprite){
+	_externPalette = false;
 	_idRam = sprite.getIdRam();
 	_size = new Vector2(*sprite.getSize());
 
@@ -59,11 +64,20 @@ CSprite::CSprite(CSprite &sprite){
 
 // Contructor clase CSprite
 CSprite::CSprite(const char *sprite, u16 width, u16 height) {
-	
+	_externPalette = false;
+
 	_idVRam = 0;
 	_idScreen= 0;
 
 	_idRam = CSprite::IdRam++;
+	while(ALLRamId.find(_idRam) != ALLRamId.end()){
+		if(CSprite::IdRam >= CSprite::MAX_ID_SPRITE_RAM){
+			CSprite::IdRam = 1;
+		}
+		_idRam = CSprite::IdRam++;
+	}
+	ALLRamId.insert(_idRam);
+
 	NF_LoadSpriteGfx(sprite, _idRam, width, height);
 	_size = new Vector2(width,height);
 	_inVram = false;
@@ -77,13 +91,21 @@ CSprite::CSprite(const char *sprite, u16 width, u16 height) {
 
 // Contructor clase CSprite
 CSprite::CSprite(const char *sprite,const char *palette, u16 width, u16 height) {
-	
+	_externPalette = false;
 	
 	_idVRam = 0;
 	_idScreen= 0;
 	
 	_idRam = CSprite::IdRam++;
-	//printf("\n 2ram %d", _idRam);
+	
+	while(ALLRamId.find(_idRam) != ALLRamId.end()){
+		if(CSprite::IdRam >= CSprite::MAX_ID_SPRITE_RAM){
+			CSprite::IdRam = 1;
+		}
+		_idRam = CSprite::IdRam++;
+	}
+	ALLRamId.insert(_idRam);
+
 	NF_LoadSpriteGfx(sprite, _idRam, width, height);
 	_size = new Vector2(width,height);
 	_inVram = false;
@@ -115,10 +137,9 @@ CSprite::~CSprite() {
 	//NF_FreeSpriteGfx(getScreen(), getIdVRam()); // delete from vRam
 	//NF_UnloadSpriteGfx(getIdRam()); // delete from ram
 	
-	
-	delete _palette;
-	
-
+	if(!_externPalette){
+		delete _palette;
+	}
 	_palette = NULL;
 	//delete _size;
 	//delete _position;
@@ -128,6 +149,8 @@ void CSprite::removeFromRam(){
 
 	NF_UnloadSpriteGfx(getIdRam());
 	
+	ALLRamId.erase (ALLRamId.find(getIdRam()));
+
 	_idRam = 0;
 } // removeFromRam
 
@@ -136,6 +159,9 @@ void CSprite::removeFromVRam(bool palette){
 		return;
 
 	NF_FreeSpriteGfx(getScreen(), getIdVRam());
+	
+	ALLVRamId.erase (ALLVRamId.find(getIdVRam()));
+	
 	_inVram = false;
 	_idVRam = 0;
 	
@@ -149,6 +175,9 @@ void CSprite::removeFromScreen(){
 	_flipped = false;
 
 	NF_DeleteSprite(getScreen(), getIdScreen());
+	//NF_Error(getIdScreen(),"",getIdScreen());
+	ALLScreenId.erase (ALLScreenId.find(getIdScreen()));
+	
 	_idScreen = 0;
 } // removeFromScreen
 
@@ -161,16 +190,25 @@ CSprite *Sprite;
 	Metodos de la clase "CSprite"
 */
 u16 CSprite::MoveSpriteToVRam(bool upScreen, bool palette, bool loadOnlyFirst){
-	_idVRam = CSprite::IdVRam++;
+	
 	_upScreen = upScreen;
+	
+	_idVRam = CSprite::IdVRam++;
+
+	
+	while(ALLVRamId.find(_idVRam) != ALLVRamId.end()){
+		if(CSprite::IdVRam >= CSprite::MAX_ID_SPRITE_VRAM){
+			CSprite::IdVRam = 1;
+		}
+		_idVRam = CSprite::IdVRam++;
+	}
+	ALLVRamId.insert(_idVRam);
 	
 	NF_VramSpriteGfx(getScreen(), _idRam, _idVRam, loadOnlyFirst);
 	
 	_inVram = true;
 	
-	if(CSprite::IdVRam >= CSprite::MAX_ID_SPRITE_VRAM){
-		CSprite::IdVRam = 0;
-	}
+	
 	
 	if(palette){
 		_palette->MovePaletteToVRam(upScreen);
@@ -184,17 +222,24 @@ u16 CSprite::MoveSpriteToVRam(bool upScreen, bool palette, bool loadOnlyFirst){
 void CSprite::CreateSprite(Vector2 *position) {
 	if(!_inVram){
 		MoveSpriteToVRam(_upScreen,true);
-		printf("noooooooooo");
 	}
 
-	_idScreen = CSprite::IdScreen++;
+	
 	_position->setXY(*position);
 	
+	_idScreen = CSprite::IdScreen++;
+	while(ALLScreenId.find(_idScreen) != ALLScreenId.end()){
+		if(CSprite::IdScreen >= CSprite::MAX_ID_SPRITE_SCREEN){
+			CSprite::IdScreen = 1;
+		}
+		_idScreen = CSprite::IdScreen++;
+	}
 	// Crea el Sprite
+	ALLScreenId.insert(_idScreen);
 	NF_CreateSprite(getScreen(),_idScreen, _idVRam, _palette->getIdVRam(), _position->getX(), _position->getY());
 
 	if(CSprite::IdScreen >= MAX_ID_SPRITE_SCREEN){
-		CSprite::IdScreen = 0;
+		CSprite::IdScreen = 1;
 	}
 
 } // CreateSprite
@@ -223,4 +268,8 @@ void CSprite::FlipTo(CInputs::Direction direction){
 			NF_HflipSprite(getScreen(), _idScreen, _flipped);
 		}
 	}
+} // FlipTo
+
+void CSprite::setOrder(u8 layer){
+	NF_SpriteLayer(getScreen(),getIdScreen(),layer);
 }

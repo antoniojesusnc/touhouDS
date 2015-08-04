@@ -47,7 +47,7 @@ class CHud {
 		void ShowPause(bool pause);
 		void UpdatePause();
 
-		bool getButtonPressed(){return _buttonPressed;}
+		u8 getButtonPressed(){return _buttonPressed;}
 
 	private:
 		
