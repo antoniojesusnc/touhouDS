@@ -108,9 +108,10 @@ void CMenu::InitScene(){
 	_topBackground = new CBackground("bg/menu/menuTopBG",256,256);
 	_topBackground->CreateBackground(true);
 	
-	
-	_botBackground = new CBackground("bg/menu/menuBotBG",256,256);
-	_botBackground->CreateBackground(false);
+	if(!CEngine::DEBUG){
+		_botBackground = new CBackground("bg/menu/menuBotBG",256,256);
+		_botBackground->CreateBackground(false);
+	}
 	
 	
 	

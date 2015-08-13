@@ -31,6 +31,7 @@
 /*
 	Metodos de la clase "CEngine"
 */
+bool CEngine::DEBUG = true;
 
 // Contructor clase CEngine
 CEngine::CEngine(){
@@ -148,10 +149,18 @@ void CEngine::InitEngine(){
 	_time = new CTime();
 	
 	//CDebug::getInstance();
-	
-	//consoleDemoInit();
-	
+
 	_currentScene = MENU;
+
+	if(CEngine::DEBUG){
+		consoleDemoInit();
+
+		_gameData.character1 = 1;
+		_gameData.level = 1;
+
+		_currentScene = ARCADE_BATTLE;
+	}	
+	
 	//_currentScene = ARCADE;
 	
 	LoadNewScene();

@@ -137,9 +137,10 @@ void CCharacterSelector::InitScene(){
 	_topBackground = new CBackground("bg/charSelector/back_blue",256,256);
 	_topBackground->CreateBackground(true);
 	
-	
-	_botBackground = new CBackground("bg/charSelector/back_red",256,256);
-	_botBackground->CreateBackground(false);
+	if(!CEngine::DEBUG){
+		_botBackground = new CBackground("bg/charSelector/back_red",256,256);
+		_botBackground->CreateBackground(false);
+	}
 	
 
 

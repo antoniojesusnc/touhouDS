@@ -1,4 +1,4 @@
-﻿Build started 8/5/2015 2:29:58 AM.
+﻿Build started 8/9/2015 1:17:54 AM.
      1>Project "C:\nds\Projects\Tutoriales\touhouDS\Tutorial6ModosDeJuego\oop.vcxproj" on node 2 (rebuild target(s)).
      1>CoreClean:
          make clean
@@ -11,42 +11,42 @@
          Battle.cpp
          arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/build/Battle.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/Battle.cpp -o Battle.o 
          c:/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/Battle.cpp: In member function 'char* CBattle::getPlayerNameById(u8)':
-         c:/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/Battle.cpp(155):18: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/Battle.cpp(156):18: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
             case 0: return "sakuya";
                            ^
-         c:/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/Battle.cpp(156):18: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/Battle.cpp(157):18: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
             case 1: return "sakuya";
                            ^
-         c:/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/Battle.cpp(157):18: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/Battle.cpp(158):18: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
             case 2: return "sakuya";
                            ^
-         c:/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/Battle.cpp(158):18: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/Battle.cpp(159):18: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
             case 3: return "sakuya";
                            ^
-         c:/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/Battle.cpp(161):9: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/Battle.cpp(162):9: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
            return "sakuya";
                   ^
          c:/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/Battle.cpp: In member function 'char* CBattle::getScenarioById(u8)':
-         c:/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/Battle.cpp(166):18: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/Battle.cpp(167):18: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
             case 0: return "bg/battle/background01";
                            ^
-         c:/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/Battle.cpp(167):18: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/Battle.cpp(168):18: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
             case 1: return "bg/battle/background02";
                            ^
-         c:/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/Battle.cpp(168):18: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/Battle.cpp(169):18: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
             case 2: return "bg/battle/background03";
                            ^
-         c:/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/Battle.cpp(169):18: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/Battle.cpp(170):18: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
             case 3: return "bg/battle/background04";
                            ^
-         c:/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/Battle.cpp(172):9: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/Battle.cpp(173):9: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
            return "bg/battle/background01";
                   ^
          Button.cpp
          arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/build/Button.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/Button.cpp -o Button.o 
          Character.cpp
          arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/build/Character.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/Character.cpp -o Character.o 
-         c:/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/Character.cpp(308):2: warning: "/*" within comment [-Wcomment]
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/Character.cpp(309):2: warning: "/*" within comment [-Wcomment]
            /*
           ^
          c:/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/Character.cpp: In destructor 'CCharacter::~CCharacter()':
@@ -78,7 +78,7 @@
          Engine.cpp
          arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/build/Engine.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/Engine.cpp -o Engine.o 
          c:/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/Engine.cpp: In member function 'void CEngine::LoadNewScene()':
-         c:/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/Engine.cpp(120):8: warning: enumeration value 'SIZE' not handled in switch [-Wswitch]
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/Engine.cpp(121):8: warning: enumeration value 'SIZE' not handled in switch [-Wswitch]
            switch(_currentScene){
                  ^
          Hud.cpp
@@ -429,11 +429,6 @@
          c:/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/ProjectileMovement.cpp(198):3: warning: "/*" within comment [-Wcomment]
            //*_characterPosition += *_offsetPerFrame[_frame];
           ^
-         c:/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/ProjectileMovement.cpp: In member function 'virtual void CProjectileMovement::initFrames(CXMLParser::TXML*)':
-         c:/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/ProjectileMovement.cpp(111):46: warning: format '%d' expects argument of type 'int', but argument 3 has type 'double' [-Wformat=]
-              printf("\n1%d %d",i, _durationPerFrame[i]);
-                                                       ^
-         c:/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/ProjectileMovement.cpp(111):46: warning: format '%d' expects argument of type 'int', but argument 3 has type 'double' [-Wformat=]
          Scene.cpp
          arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/build/Scene.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial6ModosDeJuego/source/Scene.cpp -o Scene.o 
          Sprite.cpp
@@ -460,4 +455,4 @@
 
 Compilación correcta.
 
-Time Elapsed 00:00:08.86
+Time Elapsed 00:00:35.14

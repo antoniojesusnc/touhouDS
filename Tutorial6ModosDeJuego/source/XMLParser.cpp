@@ -45,7 +45,7 @@ CXMLParser::CXMLParser(const char *characterName) {
 	strcat(fileName , characterName);
 	strcat(fileName , ".xml");
 	//fileName[strlen(characterName)+9] = '\0';
-	printf("%s",fileName);
+	//printf("%s",fileName);
 
 	_rawData = ReadFile(fileName);
 	//free(fileName);

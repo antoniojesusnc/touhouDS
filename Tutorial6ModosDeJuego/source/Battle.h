@@ -49,7 +49,7 @@ class CBattle : public CScene {
 		void Update(vfloat32 time);
 
 
-		CCharacter *getPlayerCharacter(u8 player){return _characters[player];}
+		
 		
 	private:
 		

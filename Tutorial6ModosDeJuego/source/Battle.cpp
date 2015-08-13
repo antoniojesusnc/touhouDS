@@ -103,9 +103,10 @@ void CBattle::InitScene(){
 	//free(level);
 	//_topBackground->CreateBackground(false);
 	
-	
-	_botBackground = new CBackground("bg/battle/bg",256,256);
-	_botBackground->CreateBackground(false);
+	if(!CEngine::DEBUG){
+		_botBackground = new CBackground("bg/battle/bg",256,256);
+		_botBackground->CreateBackground(false);
+	}
 	
 	_pauseMenuOpen = false;
 }

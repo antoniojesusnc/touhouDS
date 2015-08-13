@@ -58,6 +58,7 @@ class CEngine {
 		
 		
 
+		static bool DEBUG;
 
 	private:
 		
@@ -73,6 +74,9 @@ class CEngine {
 		CInputs *_input;
 		CTime *_time;
 		TOptions _gameData;
+
+
+		
 };
 
 #endif

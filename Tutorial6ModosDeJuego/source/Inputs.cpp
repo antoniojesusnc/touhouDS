@@ -113,7 +113,7 @@ void CInputs::checkCombos(){
 	} else if(_keys & KEY_START){
 		_commands[_commandsIndex] = CInputs::Start;
 	} else {
-		_commands[_commandsIndex] = CInputs::Stand;
+		_commands[_commandsIndex] = (Commands)( ((u16)_directions[0])+(9*0) );
 	}
 
 } // checkCombos

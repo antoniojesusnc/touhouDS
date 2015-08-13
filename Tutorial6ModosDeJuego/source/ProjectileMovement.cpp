@@ -108,11 +108,11 @@ void CProjectileMovement::initFrames(CXMLParser::TXML* projectileMovementData) {
 			auxTagFrame = projectileMovementData->childs[i]->childs[k]->tag;
 			if(strcmp(auxTagFrame, "duration") == 0){
 				_durationPerFrame[i] = atof(projectileMovementData->childs[i]->childs[k]->value);
-				printf("\n1%d %d",i, _durationPerFrame[i]);
+				//printf("\n1%d %d",i, _durationPerFrame[i]);
 			}else if(strcmp(auxTagFrame, "damage") == 0){
 				
 				_damagePerFrame[i] = atoi(projectileMovementData->childs[i]->childs[k]->value);
-				printf("\n2%d %d",i,_damagePerFrame[i]);
+				//printf("\n2%d %d",i,_damagePerFrame[i]);
 			}
 		}
 	} // end for frames

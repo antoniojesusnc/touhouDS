@@ -104,7 +104,7 @@ void CCharacter::loadAttributes(CXMLParser::TXML *data){
 			_maxHealth = _health = atoi(data->childs[i]->value);
 		}else if(strcmp(data->childs[i]->tag, "maxJumpHeight") == 0){
 			_maxJumpHeight = _position->getY() - atoi(data->childs[i]->value);
-			printf("\n\n%d",_maxJumpHeight );
+			//printf("\n\n%d",_maxJumpHeight );
 		}else if(strcmp(data->childs[i]->tag, "body") == 0){
 			loadBody(data->childs[i]);
 		}
@@ -172,12 +172,13 @@ void CCharacter::loadMovements(CXMLParser::TXML *data){
 		//tempMovement = NULL;		
 	}
 	
-	
-	printf("\n MOVEments");
-	for(vu8 i = 0; i < num; ++i){
-		if(_movementList[i] != NULL){
-			printf("\n %d %s",i, CInputs::getInstance()->commandToString((CInputs::Commands)i ) );
-			
+	if(!_pnj){
+		printf("\n MOVEments");
+		for(vu8 i = 0; i < num; ++i){
+			if(_movementList[i] != NULL){
+				printf("\n %d %s",i, CInputs::getInstance()->commandToString((CInputs::Commands)i ) );
+				
+			}
 		}
 	}
 	
@@ -330,6 +331,7 @@ bool CCharacter::checkChangeCommand(u8 newIndex, bool force){
 		printf("\n %d %s ",newIndex, CInputs::getInstance()->commandToString((CInputs::Commands)(newIndex)) );
 	}
 	*/
+	
 
 	if(!force && (!_movementList[_indexMovement]->canBeBlock() && _movementList[_indexMovement]->isActivated()) )
 		return false;
