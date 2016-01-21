@@ -1,0 +1,467 @@
+﻿Build started 8/26/2015 11:13:50 PM.
+     1>Project "C:\nds\Projects\Tutoriales\touhouDS\Tutorial7IA\oop.vcxproj" on node 2 (rebuild target(s)).
+     1>CoreClean:
+         make clean
+         clean ...
+       Rebuild:
+         make clean && make -r 2>&1 | sed -e 's/\(.[a-zA-Z]\+\):\([0-9]\+\):/\1(\2):/
+         clean ...
+         Background.cpp
+         arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/build/Background.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Background.cpp -o Background.o 
+         Battle.cpp
+         arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/build/Battle.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Battle.cpp -o Battle.o 
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Battle.cpp: In member function 'char* CBattle::getPlayerNameById(u8)':
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Battle.cpp(156):18: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+            case 0: return "sakuya";
+                           ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Battle.cpp(157):18: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+            case 1: return "sakuya";
+                           ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Battle.cpp(158):18: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+            case 2: return "sakuya";
+                           ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Battle.cpp(159):18: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+            case 3: return "sakuya";
+                           ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Battle.cpp(162):9: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+           return "sakuya";
+                  ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Battle.cpp: In member function 'char* CBattle::getScenarioById(u8)':
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Battle.cpp(167):18: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+            case 0: return "bg/battle/background01";
+                           ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Battle.cpp(168):18: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+            case 1: return "bg/battle/background02";
+                           ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Battle.cpp(169):18: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+            case 2: return "bg/battle/background03";
+                           ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Battle.cpp(170):18: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+            case 3: return "bg/battle/background04";
+                           ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Battle.cpp(173):9: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+           return "bg/battle/background01";
+                  ^
+         Button.cpp
+         arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/build/Button.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Button.cpp -o Button.o 
+         Character.cpp
+         arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/build/Character.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Character.cpp -o Character.o 
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Character.cpp(309):2: warning: "/*" within comment [-Wcomment]
+           /*
+          ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Character.cpp: In destructor 'CCharacter::~CCharacter()':
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Character.cpp(62):25: warning: deleting object of polymorphic class type 'CMovement' which has non-virtual destructor might cause undefined behaviour [-Wdelete-non-virtual-dtor]
+            delete _movementList[i];
+                                  ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Character.cpp(63):29: warning: deleting object of polymorphic class type 'CProjectileMovement' which has non-virtual destructor might cause undefined behaviour [-Wdelete-non-virtual-dtor]
+            delete _projMovementList[i];
+                                      ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Character.cpp: In member function 'void CCharacter::Init(Vector2*)':
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Character.cpp(84):44: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+           loadAttributes(xmlRaw->getDataByTag("data"));
+                                                     ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Character.cpp(88):48: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+           loadMovements(xmlRaw->getDataByTag("movements"));
+                                                         ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Character.cpp(90):56: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+           loadProjMovements(xmlRaw->getDataByTag("projMovements"));
+                                                                 ^
+         CharacterSelector.cpp
+         arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/build/CharacterSelector.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/CharacterSelector.cpp -o CharacterSelector.o 
+         Collision.cpp
+         arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/build/Collision.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Collision.cpp -o Collision.o 
+         Debug.cpp
+         arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/build/Debug.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Debug.cpp -o Debug.o 
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Debug.cpp(66):2: warning: "/*" within comment [-Wcomment]
+           /* */
+          ^
+         Engine.cpp
+         arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/build/Engine.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Engine.cpp -o Engine.o 
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Engine.cpp: In member function 'void CEngine::LoadNewScene()':
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Engine.cpp(121):8: warning: enumeration value 'SIZE' not handled in switch [-Wswitch]
+           switch(_currentScene){
+                 ^
+         FSMState.cpp
+         arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/build/FSMState.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/FSMState.cpp -o FSMState.o 
+         FSMStateTransition.cpp
+         arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/build/FSMStateTransition.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/FSMStateTransition.cpp -o FSMStateTransition.o 
+         In file included from c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/FSMStateTransition.cpp(22):0:
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/FSMStateTransition.h: In member function 'virtual bool CFSMStateTransition::isValid(CCharacter*, CCharacter*)':
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/FSMStateTransition.h(31):63: warning: no return statement in function returning non-void [-Wreturn-type]
+            virtual bool isValid(CCharacter *player, CCharacter *enemy){};
+                                                                        ^
+         Hud.cpp
+         arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/build/Hud.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Hud.cpp -o Hud.o 
+         Inputs.cpp
+         arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/build/Inputs.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp -o Inputs.o 
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp: In member function 'char* CInputs::commandToString(CInputs::Commands)':
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(365):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "BackDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(367):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "Down";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(369):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "FrontDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(371):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "Back";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(373):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "Stand";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(375):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "Front";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(377):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "BackUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(379):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "Up";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(381):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "FrontUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(385):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "AttackBackDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(387):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "AttackDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(389):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "AttackFrontDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(391):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "AttackBack";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(393):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "AttackStand";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(395):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "AttackFront";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(397):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "AttackBackUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(399):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "AttackUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(401):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "AttackFrontUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(405):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "ProjBackDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(407):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "ProjDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(409):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "ProjFrontDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(411):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "ProjBack";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(413):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "ProjStand";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(415):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "ProjFront";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(417):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "ProjBackUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(419):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "ProjUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(421):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "ProjFrontUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(425):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "StrongProjBackDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(427):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "StrongProjDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(429):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "StrongProjFrontDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(431):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "StrongProjBack";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(433):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "StrongProjStand";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(435):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "StrongProjFront";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(437):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "StrongProjBackUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(439):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "StrongProjUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(441):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "StrongProjFrontUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(445):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "DashBackDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(447):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "DashDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(449):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "DashFrontDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(451):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "DashBack";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(453):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "DashStand";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(455):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "DashFront";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(457):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "DashBackUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(459):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "DashUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(461):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "DashFrontUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(465):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpBackDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(467):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(469):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpFrontDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(471):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpBack";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(473):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpStand";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(475):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpFront";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(477):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpBackUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(479):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(481):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpFrontUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(485):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpAttackBackDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(487):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpAttackDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(489):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpAttackFrontDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(491):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpAttackBack";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(493):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpAttackStand";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(495):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpAttackFront";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(497):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpAttackBackUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(499):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpAttackUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(501):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpAttackFrontUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(505):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpProjBackDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(507):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpProjDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(509):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpProjFrontDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(511):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpProjBack";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(513):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpProjStand";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(515):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpProjFront";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(517):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpProjBackUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(519):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpProjUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(521):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpProjFrontUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(525):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpStrongProjBackDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(527):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpStrongProjDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(529):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpStrongProjFrontDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(531):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpStrongProjBack";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(533):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpStrongProjStand";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(535):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpStrongProjFront";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(537):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpStrongProjBackUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(539):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpStrongProjUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(541):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpStrongProjFrontUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(545):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpDashBackDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(547):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpDashDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(549):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpDashFrontDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(551):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpDashBack";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(553):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpDashStand";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(555):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpDashFront";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(557):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpDashBackUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(559):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpDashUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(561):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "JumpDashFrontUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(564):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "Hit";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(566):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "HitAir";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(568):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "HitGround";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(571):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "Start";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(573):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "Select";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(575):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "NoCommand";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(578):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "Error";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp: In member function 'char* CInputs::directionToString(CInputs::Direction)':
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(585):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "BackDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(587):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "Down";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(589):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "FrontDown";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(591):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "Back";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(593):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "Stand";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(595):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "Front";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(597):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "BackUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(599):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "Up";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(601):11: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+             return "FrontUp";
+                    ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Inputs.cpp(603):1: warning: control reaches end of non-void function [-Wreturn-type]
+          }
+          ^
+         Menu.cpp
+         arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/build/Menu.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Menu.cpp -o Menu.o 
+         Movement.cpp
+         arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/build/Movement.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Movement.cpp -o Movement.o 
+         Options.cpp
+         arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/build/Options.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Options.cpp -o Options.o 
+         Palette.cpp
+         arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/build/Palette.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Palette.cpp -o Palette.o 
+         Projectile.cpp
+         arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/build/Projectile.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Projectile.cpp -o Projectile.o 
+         ProjectileMovement.cpp
+         arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/build/ProjectileMovement.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/ProjectileMovement.cpp -o ProjectileMovement.o 
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/ProjectileMovement.cpp(156):2: warning: multi-line comment [-Wcomment]
+           //printf("\n Starting");\
+           ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/ProjectileMovement.cpp(195):2: warning: "/*" within comment [-Wcomment]
+           /*
+          ^
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/ProjectileMovement.cpp(198):3: warning: "/*" within comment [-Wcomment]
+           //*_characterPosition += *_offsetPerFrame[_frame];
+          ^
+         Scene.cpp
+         arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/build/Scene.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Scene.cpp -o Scene.o 
+         Sprite.cpp
+         arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/build/Sprite.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Sprite.cpp -o Sprite.o 
+         SpriteAnimated.cpp
+         arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/build/SpriteAnimated.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/SpriteAnimated.cpp -o SpriteAnimated.o 
+         Text.cpp
+         arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/build/Text.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Text.cpp -o Text.o 
+         Time.cpp
+         arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/build/Time.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/Time.cpp -o Time.o 
+         XMLParser.cpp
+         arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/build/XMLParser.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/XMLParser.cpp -o XMLParser.o 
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/XMLParser.cpp: In member function 'char* CXMLParser::ReadFile(const char*)':
+         c:/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/XMLParser.cpp(72):37: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+            if(fread(entireFile,1,len,inf) != len)
+                                              ^
+         main.cpp
+         arm-none-eabi-g++ -MMD -MP -MF /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/build/main.d -g -Wall -O2 -march=armv5te -mtune=arm946e-s -fomit-frame-pointer -ffast-math -mthumb -mthumb-interwork -iquote /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/include -I/c/nds/devkitPro/libnds/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/nflib/include -I/c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/build -DARM9 -fno-rtti -fno-exceptions -c /c/nds/Projects/Tutoriales/touhouDS/Tutorial7IA/source/main.cpp -o main.o 
+         linking Tutorial7IA.elf
+         Nintendo DS rom tool 1.50.1 - Apr  2 2014
+         by Rafael Vuijk, Dave Murphy, Alexei Karpenko
+         built ... Tutorial7IA.nds
+     1>Done Building Project "C:\nds\Projects\Tutoriales\touhouDS\Tutorial7IA\oop.vcxproj" (rebuild target(s)).
+
+Compilación correcta.
+
+Time Elapsed 00:00:24.96

@@ -1,0 +1,20 @@
+﻿Compilación iniciada a las 16/10/2013 12:52:13.
+     1>Proyecto "T:\Antonio\Desktop\UNI\PFC\Projects\Ejemplos\oop_sprites\oop.vcxproj" en el nodo 2 (build destinos).
+     1>InitializeBuildStatus:
+         Aplicando tarea Touch a "Release\oop.unsuccessfulbuild".
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W1 /WX- /O2 /Oy- /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt source\ball.cpp source\engine.cpp source\main.cpp source\mysys.cpp
+         ball.cpp
+     1>C:\nds\devkitPro\libnds\include\nds.h(220): fatal error C1189: #error :  Either ARM7 or ARM9 must be defined
+         engine.cpp
+     1>C:\nds\devkitPro\libnds\include\nds.h(220): fatal error C1189: #error :  Either ARM7 or ARM9 must be defined
+         main.cpp
+     1>C:\nds\devkitPro\libnds\include\nds.h(220): fatal error C1189: #error :  Either ARM7 or ARM9 must be defined
+         mysys.cpp
+     1>C:\nds\devkitPro\libnds\include\nds.h(220): fatal error C1189: #error :  Either ARM7 or ARM9 must be defined
+         Generando código...
+     1>Compilación del proyecto terminada "T:\Antonio\Desktop\UNI\PFC\Projects\Ejemplos\oop_sprites\oop.vcxproj" (build destinos) -- ERROR.
+
+ERROR al compilar.
+
+Tiempo transcurrido 00:00:06.09
